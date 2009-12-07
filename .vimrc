@@ -165,6 +165,11 @@ set statusline+=%=                              " right align
 set statusline+=%2*0x%-8B                       " current char
 set statusline+=%-14.(%l,%c%V%)                 " offset
 
+" Change the status line based on mode
+if version >= 700
+  au InsertEnter * hi StatusLine    gui=reverse
+  au InsertLeave * hi StatusLine    gui=NONE
+endif
 
 "-----------------------------------------------------------------------
 " autocmds
