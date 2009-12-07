@@ -26,6 +26,9 @@ set backup
 if has('gui_win32')
     set backupdir=$HOME\backup\
     set directory=$HOME\backup\
+elseif has('gui_macvim') 
+    set backupdir=$HOME/.backup/
+    set directory=$HOME/.backup/
 endif
 
 " Search options: incremental search, highlight search
