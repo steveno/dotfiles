@@ -100,6 +100,9 @@ if has("folding")
     set foldmethod=indent
 endif
 
+" Disable line wrapping
+set nowrap
+
 " Show us the command we're typing
 set showcmd
 
