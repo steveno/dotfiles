@@ -14,7 +14,7 @@ set nocompatible
 " Set spelling language
 setlocal spell spelllang=en_us
 
-" Enable a nice big viminfo file
+" Enable a large viminfo file
 set viminfo='500,f1,:500,/500
 set history=200
 
