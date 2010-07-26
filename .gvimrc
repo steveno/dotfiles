@@ -17,11 +17,12 @@ endif
 set guioptions-=m
 set guioptions-=T
 
-" Only the right scrollbar
+" No scrollbars (left, bottom, right)
 set guioptions-=L
 set guioptions-=l
-set guioptions+=R
-set guioptions+=r
+set guioptions-=R
+set guioptions-=r
+set guioptions-=b
 
 " Nice copy'n'paste
 set guioptions+=a
