@@ -1,3 +1,7 @@
+#
+# Steven Oliver's bashrc
+#
+
 # Setup up my mac laptop
 function setup_mac {
         # MacVim 
@@ -21,12 +25,12 @@ function setup_go {
         export GOROOT="$HOME/Projects/go"
         export GOBIN="$HOME/Projects/bin"
 
-        case "${OSTYPE}" in
-            darwin*)
+        case "${HOSTNAME}" in
+            MOHIAM*)
                 export GOOS="darwin"
                 export GOARCH="386"
                 ;;
-            linux*)
+            *)
                 export GOOS="linux"
                 export GOARCH=""
                 ;;
