@@ -12,6 +12,9 @@ function setup_mac {
             export PATH="$HOME/Projects/bin:$PATH"
         fi
 
+        #Terminal Settings
+        export CLICOLOR=1
+
         setup_go
 }
 
