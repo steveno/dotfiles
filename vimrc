@@ -93,12 +93,6 @@ let g:secure_modelines_modelines=15
 " Turn off highlighting
 set nohls!
 
-" Enable folds
-if has("folding")
-    set foldenable
-    set foldmethod=indent
-endif
-
 " Disable line wrapping
 set nowrap
 
