@@ -6,8 +6,8 @@ scriptencoding utf-8
 
 " Set the default size
 if has('gui_win32')
-    set lines=30
-    set columns=110
+    set lines=35
+    set columns=130
 elseif has('gui_macvim')
     set lines=45
     set columns=145
