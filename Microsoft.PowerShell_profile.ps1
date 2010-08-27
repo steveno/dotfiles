@@ -14,7 +14,7 @@ if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
 # Aliases
 ##############################################
 set-alias scripts goto_home
-Set-Alias edit gvim
+set-alias edit gvim
 
 ##############################################
 # Functions
