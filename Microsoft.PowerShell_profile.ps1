@@ -38,25 +38,25 @@ function get-adminuser() {
 
 function prompt {
    # our theme
-   $cdelim = [ConsoleColor]::DarkCyan
+   $cdelim = [ConsoleColor]::White
    if ( get-adminuser ) {
-      $chost = [ConsoleColor]::Yellow
+      $cuser = [ConsoleColor]::Yellow
    } else {
-      $chost = [ConsoleColor]::Green
+      $cuser = [ConsoleColor]::Green
    }
-   $cpref = [ConsoleColor]::Cyan
-   $cloc = [ConsoleColor]::Gray
+   $chost = [ConsoleColor]::Cyan
+   $cpath = [ConsoleColor]::Gray
    
-   # Create the prompt
-   write-host "$([char]0x0A7) " -n -f $cpref
-   write-host ([Environment]::UserName) -n -f $chost
-   write-host ' {' -n -f $cdelim
-   write-host (shorten-path (pwd).Path) -n -f $cloc
-   write-host '}' -n -f $cdelim
+   # Create the prompt   
+   write-host ([Environment]::UserName) -n -f $cuser
+   write-host '@' -n -f $cdelim
+   write-host ([Net.DNS]::GetHostName().ToLower()) -n -f $chost   
+   write-host ' ' -n -f $cdelim
+   write-host (shorten-path (pwd).Path) -n -f $cpath
+   write-host ' $' -n -f $cpath
    
    return ' '
 }
-
 ##############################################
 # Setup Window
 ##############################################
