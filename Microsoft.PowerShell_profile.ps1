@@ -69,6 +69,15 @@ $Shell = (Get-Host).UI.RawUI
 $Shell.BackgroundColor = "Black"
 $Shell.ForegroundColor = "Gray"
 
+# Set window title
+$Host.UI.RawUI.WindowTitle = "Windows PowerShell - "
+$Host.UI.RawUI.WindowTitle += [Environment]::UserName 
+if ( get-adminuser ) {
+    $Host.UI.RawUI.WindowTitle += " (Admin)"
+} else {
+    $Host.UI.RawUI.WindowTitle += " (User)"
+}
+
 # Reset the screen
 clear
 
