@@ -19,7 +19,7 @@ set viminfo='500,f1,:500,/500
 set history=200
 
 " Make backspace delete lots of things
-set backspace=indent,eol,start
+"set backspace=indent,eol,start
 
 " Create backups
 set backup
@@ -75,14 +75,14 @@ set expandtab
 
 " Do clever indent things. Don't make a #
 " force column zero.
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
 
 " Enable filetype settings
 if has("eval")
     filetype on
     filetype plugin on
-    filetype indent on
+"    filetype indent on
 endif
 
 " Use secure modelines
@@ -162,10 +162,8 @@ set statusline+=%2*0x%-8B                       " current char
 set statusline+=%-14.(%l,%c%V%)                 " offset
 
 " Change the status line based on mode
-if version >= 700
-  au InsertEnter * hi StatusLine    gui=reverse    term=reverse
-  au InsertLeave * hi StatusLine    gui=NONE       term=NONE
-endif
+au InsertEnter * hi StatusLine    gui=reverse    term=reverse
+au InsertLeave * hi StatusLine    gui=NONE       term=NONE
 
 "-----------------------------------------------------------------------
 " autocmds
