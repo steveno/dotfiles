@@ -163,8 +163,8 @@ set statusline+=%-14.(%l,%c%V%)                 " offset
 
 " Change the status line based on mode
 if version >= 700
-  au InsertEnter * hi StatusLine    gui=reverse
-  au InsertLeave * hi StatusLine    gui=NONE
+  au InsertEnter * hi StatusLine    gui=reverse    term=reverse
+  au InsertLeave * hi StatusLine    gui=NONE       term=NONE
 endif
 
 "-----------------------------------------------------------------------
@@ -188,25 +188,6 @@ if has("eval")
             endif
         endfor
     endfun
-
-    " GNU format changelog entry
-    fun! MakeChangeLogEntry()
-        norm gg
-        /^\d
-        norm 2O
-        norm k
-        call setline(line("."), strftime("%Y-%m-%d") .
-                    \ " Steven Oliver <oliver.steven@gmail.com>")
-        norm 2o
-        call setline(line("."), "\t* ")
-        norm $
-        r! svn status | grep -v '^?' | sed -e 's,^D, -,' | cut -d\ -f2- |
-                    \ sort | sed -e 's,^\s*\(\([+-]\)\s*\)\?\(\S*\)\s*$,\2\3\,,' -e 's, \+, ,g'
-                    \ -e '$s~,$~:~' | fmt -w2000
-        norm kJ
-        star!
-    endfun
-    noremap <Leader>cl :call MakeChangeLogEntry()<CR>
 
     autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
 endif
@@ -303,3 +284,4 @@ endif
 "---------------------------------------------
 " vim: set sw=4 sts=4 et tw=80 :
 "
+
