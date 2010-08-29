@@ -159,9 +159,6 @@ set statusline+=%=                              " right align
 set statusline+=%2*0x%-8B                       " current char
 set statusline+=%-14.(%l,%c%V%)                 " offset
 
-" Change the status line based on mode
-au InsertEnter * hi StatusLine    gui=reverse    term=reverse
-au InsertLeave * hi StatusLine    gui=NONE       term=NONE
 
 "-----------------------------------------------------------------------
 " autocmds
