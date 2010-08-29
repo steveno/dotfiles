@@ -127,8 +127,6 @@ if has("eval")
 
     if has('gui_gtk') || has('gui_win32') || has('gui_macvim')
         call LoadColorScheme("peaksea:moria:ir_black:inkpot:darkblue")
-    else
-        call LoadColorScheme("blue:pablo:darkblue")
     endif
 endif  
 
