@@ -19,7 +19,7 @@ set viminfo='500,f1,:500,/500
 set history=200
 
 " Make backspace delete lots of things
-"set backspace=indent,eol,start
+set backspace=indent,eol,start
 
 " Create backups
 set backup
@@ -75,14 +75,14 @@ set expandtab
 
 " Do clever indent things. Don't make a #
 " force column zero.
-"set autoindent
-"set smartindent
+set autoindent
+set smartindent
 
 " Enable filetype settings
 if has("eval")
     filetype on
     filetype plugin on
-"    filetype indent on
+    filetype indent on
 endif
 
 " Use secure modelines
