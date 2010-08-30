@@ -1,3 +1,8 @@
+#
+# Windows PowerShell Profile for:
+# Steven Oliver <oliver.steven@gmail.com>
+#
+
 ##############################################
 # Variables
 ##############################################
