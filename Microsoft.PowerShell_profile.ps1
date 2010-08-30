@@ -5,9 +5,16 @@
 Set-Variable -name HOME -value (Resolve-Path $env:USERPROFILE) -force
 (Get-PsProvider FileSystem).Home = $HOME
 
-# Set Oracle home if at work
-if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
-    $ORACLE_HOME = "C:\oracle\product\10.2.0\client_1"
+# Set Oracle home
+if ($Env:ORACLE_HOME)
+{
+    $ORACLE_HOME = $Env:ORACLE_HOME
+} 
+else {
+    # This only applies at work
+    if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
+        $ORACLE_HOME = "C:\oracle\product\10.2.0\client_1"
+    }
 }
 
 ##############################################
