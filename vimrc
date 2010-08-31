@@ -255,13 +255,6 @@ if has("eval") && has("autocmd")
         autocmd!
         autocmd FileType cpp :call <SID>abbrev_cpp()
     augroup END
-
-    " Work out include guard text
-    fun! IncludeGuardText()
-        let l:p = substitute(substitute(getcwd(), "/trunk", "", ""), '^.*/', "", "")
-        let l:t = substitute(expand("%"), "[./]", "_", "g")
-        return toupper(l:p . "_GUARD_" . l:t)
-    endfun
 endif
 
 
