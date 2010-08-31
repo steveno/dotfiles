@@ -163,9 +163,6 @@ set statusline+=%-14.(%l,%c%V%)                 " offset
 " autocmds
 "-----------------------------------------------------------------------
 
-" Always do a full syntax refresh
-autocmd BufEnter * syntax sync fromstart
-
 " This if..endif updates copyright headers on :q
 if has("eval")
    fun! <SID>UpdateCopyrightHeaders()
@@ -180,7 +177,13 @@ if has("eval")
                 endif
             endfor
         endfun
+endif
 
+if has("autocmd") && has("eval")
+    " Always do a full syntax refresh
+    autocmd BufEnter * syntax sync fromstart
+    
+    " Update the copyright header
     autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
 endif
 
