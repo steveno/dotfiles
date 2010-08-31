@@ -168,18 +168,18 @@ autocmd BufEnter * syntax sync fromstart
 
 " This if..endif updates copyright headers on :q
 if has("eval")
-    fun! <SID>UpdateCopyrightHeaders()
-        let l:a = 0
-        for l:x in getline(1, 10)
-            let l:a = l:a + 1
-            if -1 != match(l:x, 'Copyright (c) [- 0-9,]*200[56789] Steven Oliver')
-                if input("Update copyright header? (y/N) ") == "y"
-                    call setline(l:a, substitute(l:x, '\(200[56789]\) Steven',
-                                \ '\1, 2010 Steven', ""))
+   fun! <SID>UpdateCopyrightHeaders()
+            let l:a = 0
+            for l:x in getline(1, 10)
+                let l:a = l:a + 1
+                if -1 != match(l:x, 'Copyright (c) [- 0-9,]*200[456789] Steven Oliver')
+                    if input("Update copyright header? (y/N) ") == "y"
+                        call setline(l:a, substitute(l:x, '\(20[01][456789]\) Steven',
+                                    \ '\1, 2010 Steven', ""))
+                    endif
                 endif
-            endif
-        endfor
-    endfun
+            endfor
+        endfun
 
     autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
 endif
