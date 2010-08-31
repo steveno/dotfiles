@@ -73,8 +73,7 @@ set winminheight=1
 set shiftwidth=4
 set expandtab
 
-" Do clever indent things. Don't make a #
-" force column zero.
+" Do clever indent things.
 set autoindent
 set smartindent
 
