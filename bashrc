@@ -21,6 +21,12 @@ function setup_mac {
 # Setup my non-existent linux desktop
 function setup_linux {
         echo "NON-EXISTENT"
+        
+        # Use vim as the pager
+        if [[ -f /usr/bin/vimpager ]] ; then
+            export PAGER=vimpager
+            export MANPAGER=vimmanpager
+        fi
 }
 
 # Setup the Go language 
