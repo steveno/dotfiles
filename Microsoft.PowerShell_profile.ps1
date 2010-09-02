@@ -73,6 +73,11 @@ function prompt {
    return ' '
 }
 
+function bye {
+    Get-History -Count 1KB | Export-CSV "$HOME\My Documents\WindowsPowerShell\history.csv"
+    exit
+}
+
 ##############################################
 # Setup Window
 ##############################################
@@ -92,6 +97,9 @@ if ( get-adminuser ) {
 
 # Reset the screen
 clear
+
+# Restore my command history
+Import-CSV "$HOME\My Documents\WindowsPowerShell\history.csv" | Add-History
 
 # Window size
 $size = $Shell.WindowSize
