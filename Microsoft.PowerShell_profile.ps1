@@ -27,6 +27,7 @@ else {
 ##############################################
 set-alias scripts goto_home
 set-alias edit gvim
+set-alias pse "C:\Program Files\PowerGUI\ScriptEditor.exe"
 if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
     set-alias sqlplus "$ORACLE_HOME\bin\sqlplus.exe"
 }
