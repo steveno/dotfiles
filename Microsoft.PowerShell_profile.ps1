@@ -22,6 +22,10 @@ else {
     }
 }
 
+# Command line history variables
+$historyPath = "C:\Documents and Settings\lso0kot\My Documents\WindowsPowerShell\history.xml"
+$MaximumHistoryCount = 150
+
 ##############################################
 # External setup functions
 ##############################################
@@ -35,6 +39,7 @@ if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
 set-alias scripts goto_home
 set-alias edit gvim
 set-alias pse "C:\Program Files\PowerGUI\ScriptEditor.exe"
+
 if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
     set-alias sqlplus "$ORACLE_HOME\bin\sqlplus.exe"
 }
@@ -55,12 +60,6 @@ if ( get-adminuser ) {
 } else {
     $Host.UI.RawUI.WindowTitle += " (User)"
 }
-
-# Reset the screen
-clear
-
-# Restore my command history
-Import-CSV "$HOME\My Documents\WindowsPowerShell\history.csv" | Add-History
 
 # Window size
 $size = $Shell.WindowSize
