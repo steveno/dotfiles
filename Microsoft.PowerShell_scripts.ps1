@@ -14,6 +14,11 @@ function shorten-path([string] $path) {
    return ($loc)
 }
 
+function time {
+    $time = date    
+    return "`r`n" + $time.toShortDateString() + " " + $time.toShortTimeString() + "`r`n" 
+}
+
 function get-adminuser() {
    $id = [Security.Principal.WindowsIdentity]::GetCurrent()
    $p = New-Object Security.Principal.WindowsPrincipal($id)
