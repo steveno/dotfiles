@@ -22,10 +22,6 @@ else {
     }
 }
 
-# Command line history variables
-$historyPath = "C:\Documents and Settings\lso0kot\My Documents\WindowsPowerShell\history.xml"
-$MaximumHistoryCount = 150
-
 ##############################################
 # External setup functions
 ##############################################

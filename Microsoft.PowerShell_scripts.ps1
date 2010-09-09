@@ -47,35 +47,3 @@ function prompt {
    return ' '
 }
 
-# History functions borrowed from: http://www.ravichaganti.com/blog/?p=1248
-function Export-History {
- param ([string]$path=$historyPath)
- $cmdArray = @()
- if (Test-Path $path) {
-    $savedHistory = @(Import-Clixml $historyPath)            
-    $savedHistory | % { $cmdArray += $_.CommandLine }            
-
-    Get-History -Count $MaximumHistoryCount | % {
-        #first level of filtering
-        if ($cmdArray -notcontains $_.CommandLine) { $savedHistory += $_ }             
-
-        #Second level of filtering to remove duplicates from current session also
-        $cmdArray = @()
-        $savedHistory | % { $cmdArray += $_.CommandLine }
-    }            
-
-    $savedHistory | Export-Clixml $path    
- } 
- else {
-    Get-History -Count $MaximumHistoryCount | Export-Clixml $path    
- }
-}            
-
-function Import-History {
-    param ([parameter(mandatory=$true)][string]$path=$historyPath)
-    
-    if (Test-Path $(Split-Path $path)) {
-        Import-Clixml $path | ? {$count++;$true} | Add-History
-        Write-Host -Fore Green "`nLoaded $count history item(s)`n"
-    }
-}   
