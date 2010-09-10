@@ -14,9 +14,13 @@ function shorten-path([string] $path) {
    return ($loc)
 }
 
-function time {
+function Time {
     $time = date    
     return "`r`n" + $time.toShortDateString() + " " + $time.toShortTimeString() + "`r`n" 
+}
+
+function Show-IP {
+    return (Test-Connection $env:COMPUTERNAME -Count 1).ProtocolAddress   
 }
 
 function get-adminuser() {
