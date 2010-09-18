@@ -48,8 +48,8 @@ function setup_go {
 
 # Setup up Falcon
 function setup_fal {
-        LIBDIR="/usr/local/lib"
-        BINDIR="/usr/local/bin"
+        LIBDIR="/tmp/usr/local/lib"
+        BINDIR="/tmp/usr/local/bin"
 
         export LD_LIBRARY_PATH="$1/$LIBDIR:$LD_LIBRARY_PATH"
         export FALCON_LOAD_PATH=".;$1/$LIBDIR/falcon"
