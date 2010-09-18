@@ -53,7 +53,5 @@ if has('gui_macvim')
     set fuopt+=maxhorz
 endif
 
-"---------------------------------------------
 " vim: set sw=4 sts=4 et tw=80 :
-"
 

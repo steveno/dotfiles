@@ -269,6 +269,5 @@ if has("autocmd")
     au VimEnter * nohls
 endif
 
-"---------------------------------------------
 " vim: set sw=4 sts=4 et tw=80 :
-"
+
