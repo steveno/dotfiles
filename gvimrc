@@ -44,11 +44,14 @@ if has('title') && (has('gui_running') || &title)
     set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}  " working directory
 endif
 
-" MacVim transparency
+" MacVim GUI only options
 if has('gui_macvim')
+    " transparency
     set transp=1
-endif
 
+    "full width full screen
+    set fuopt+=maxhorz
+endif
 
 "---------------------------------------------
 " vim: set sw=4 sts=4 et tw=80 :
