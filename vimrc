@@ -213,25 +213,6 @@ inoremap jj <Esc>
 " Reformat everything
 noremap <Leader>gq gggqG
 
-" Make F3 compile
-map <F3> : call CompileGcc()<CR>
-func! CompileGcc()
-    exec "w"
-    exec "!gcc % -o %<"
-endfunc
-
-" Make F4 compile and run
-map <F4> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-    exec "w"
-    exec "!gcc % -o %<"
-    if has('gui_win32')
-        exec "! %<.exe"
-    else
-        exec "! ./%<"
-    endif
-endfunc
-
 
 "---------------------------------------------
 " abbreviations

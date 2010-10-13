@@ -9,7 +9,7 @@ function setup_mac {
 
         # Path
         if [[ -n "${PATH/*$HOME\/Projects\/bin:*/}" ]] ; then
-            export PATH="$HOME/Projects/bin:$PATH"
+            export PATH="$HOME/Projects/bin:/usr/local/bin:/usr/local/sbin:$PATH"
         fi
 
         #Terminal Settings
