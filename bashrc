@@ -14,6 +14,7 @@ function setup_mac {
 
         #Terminal Settings
         export CLICOLOR=1
+        export EDITOR="mvim"
 
         setup_go
 }
