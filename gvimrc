@@ -53,5 +53,10 @@ if has('gui_macvim')
     set fuopt+=maxhorz
 endif
 
+" 
+if has('gui_win32')
+    let g:shell_fullscreen_items="mT"
+endif
+
 " vim: set sw=4 sts=4 et tw=80 :
 
