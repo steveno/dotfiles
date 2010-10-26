@@ -84,11 +84,6 @@ if has("eval")
     filetype indent on
 endif
 
-" Use secure modelines
-set nomodeline
-let g:secure_modelines_verbose=0
-let g:secure_modelines_modelines=15
-
 " Turn off highlighting
 set nohls!
 
@@ -100,6 +95,18 @@ set showcmd
 
 " Highlight matching parens
 set showmatch
+
+"----------------------------------------------
+" Variable for plugins
+"----------------------------------------------
+
+" Use secure modelines
+set nomodeline
+let g:secure_modelines_verbose=0
+let g:secure_modelines_modelines=15
+
+" Snippets plugin
+let snips_author = 'Steven N Oliver'
 
 
 "----------------------------------------------
@@ -126,6 +133,8 @@ if has("eval")
 
     if has('gui_gtk') || has('gui_win32') || has('gui_macvim')
         call LoadColorScheme("peaksea:moria:ir_black:inkpot:darkblue")
+    else
+        call LoadColorScheme("darkblue")
     endif
 endif  
 
@@ -217,10 +226,8 @@ inoremap jj <Esc>
 
 if has("eval") && has("autocmd")
     fun! <SID>abbrev_cpp()
-        iabbrev <buffer> jci const_iterator
         iabbrev <buffer> jcl class
         iabbrev <buffer> jco constant
-        iabbrev <buffer> jit iterator
         iabbrev <buffer> jns namespace
         iabbrev <buffer> jpr protected
         iabbrev <buffer> jpu public
