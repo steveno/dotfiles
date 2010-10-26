@@ -210,9 +210,6 @@ nmap q: :q
 " In normal mode, jj escapes
 inoremap jj <Esc>
 
-" Reformat everything
-noremap <Leader>gq gggqG
-
 
 "---------------------------------------------
 " abbreviations
