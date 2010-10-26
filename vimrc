@@ -233,11 +233,6 @@ if has("eval") && has("autocmd")
         iabbrev <buffer> jty typedef
         iabbrev <buffer> jun using namespace
     endfun
-
-    augroup abbreviations
-        autocmd!
-        autocmd FileType cpp :call <SID>abbrev_cpp()
-    augroup END
 endif
 
 
