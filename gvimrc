@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 "---------------------------------------------
-" Vim settings file for Steven Oliver
+" G/Vim settings file for Steven Oliver
 "---------------------------------------------
 
 " Set the default size
@@ -53,7 +53,7 @@ if has('gui_macvim')
     set fuopt+=maxhorz
 endif
 
-" 
+" Vim Shell settings 
 if has('gui_win32')
     let g:shell_fullscreen_items="mT"
 endif
