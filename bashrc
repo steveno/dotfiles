@@ -22,8 +22,15 @@ function setup_mac {
 
 # Setup my non-existent linux desktop
 function setup_linux {
-        echo "NON-EXISTENT"
-        
+        # Fancy archbang login
+        archbey -c blue
+
+        # Always use color
+        alias ls='ls --color=auto'
+
+        # Setup my prompt
+        PS1="\u@\h:\w $ "
+
         # Use vim as the pager
         if [[ -f /usr/bin/vimpager ]] ; then
             export PAGER=vimpager
