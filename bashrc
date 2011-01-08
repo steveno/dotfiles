@@ -22,11 +22,8 @@ function setup_mac {
 
 # Setup my non-existent linux desktop
 function setup_linux {
-        # Fancy archbang login
-        archbey -c blue
-
         # Always use color
-        alias ls='ls --color=auto'
+        alias ls='ls --color'
 
         # Setup my prompt
         PS1="\u@\h:\w $ "
