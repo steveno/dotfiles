@@ -20,19 +20,19 @@ function setup_mac {
         setup_go
 }
 
-# Setup my non-existent linux desktop
+# Setup linux desktop
 function setup_linux {
         # Always use color
         alias ls='ls --color'
-
-        # Setup my prompt
-        PS1="\u@\h:\w $ "
 
         # Use vim as the pager
         if [[ -f /usr/bin/vimpager ]] ; then
             export PAGER=vimpager
             export MANPAGER=vimmanpager
         fi
+
+        # Start ssh-agent
+        eval `ssh-agent`
 }
 
 # Setup the Go language 
