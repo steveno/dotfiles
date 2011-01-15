@@ -31,7 +31,7 @@ elseif has('gui_macvim')
     set directory=$HOME/.backup/
 elseif has('gui_gtk')
     set backupdir=$HOME/.backup/
-    set directory=$HOME/.backup
+    set directory=$HOME/.backup/
 endif
 
 " Search options: incremental search, highlight search
@@ -182,7 +182,7 @@ if has("eval")
         let l:a = 0
         for l:x in getline(1, 10)
             let l:a = l:a + 1
-            if -1 != match(l:x, 'Copyright (c) [- 0-9,]*20\(0[456789]\|10) Steven Oliver')
+            if -1 != match(l:x, 'Copyright (c) [- 0-9,]*20\(0[456789]\|10\) Steven Oliver')
                 if input("Update copyright header? (y/N) ") == "y"
                     call setline(l:a, substitute(l:x, '\(20[01][456789]\) Steven',
                                 \ '\1, 2011 Steven', ""))
