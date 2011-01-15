@@ -11,6 +11,9 @@ if has('gui_win32')
 elseif has('gui_macvim')
     set lines=45
     set columns=145
+elseif has('gui_gtk')
+    set lines=45
+    set columns=145
 endif 
 
 " No menu or toolbar
@@ -31,7 +34,7 @@ set guioptions+=a
 if has('gui_win32')
     set guifont=Dina:h8:cDEFAULT
 elseif has('gui_gtk')
-    set guifont=Dina\ 8
+    set guifont=Monospace\ 9
 elseif has('gui_macvim')
     " use default 
 endif
