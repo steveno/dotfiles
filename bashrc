@@ -30,9 +30,6 @@ function setup_linux {
             export PAGER=vimpager
             export MANPAGER=vimmanpager
         fi
-
-        # Start ssh-agent
-        eval `ssh-agent`
 }
 
 # Setup the Go language 
