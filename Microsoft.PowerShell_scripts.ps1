@@ -3,6 +3,34 @@
 # Steven Oliver <oliver.steven@gmail.com>
 #
 
+##############################################
+# uname clone
+##############################################
+function wname {            
+    $colItems = get-wmiobject -class "Win32_Processor" -computername localhost
+    
+    $memory = get-mem
+    $memory = $memory.ToString() + " MB"     
+    
+    Write-Host "Platform    - " ([Environment]::OSVersion.Platform.ToString())
+    Write-Host "Windows Ver - " ([Environment]::OSVersion.VersionString.ToString())
+    Write-Host "Arch        - " $colItems.Description.ToString()
+    Write-Host "Processor   - " $colItems.Name.ToString()    
+    Write-Host "Speed       - " $colItems.MaxClockSpeed
+    Write-Host "Cores       - " $colItems.NumberOfCores
+    Write-Host "Memory      - " $memory
+    Write-Host "Date        - " (date).ToString()
+}
+
+function Get-Mem {
+    $a = Get-WmiObject win32_physicalmemory -computername ([Net.DNS]::GetHostName())
+    foreach ($b in $a) {
+        if ($b.device_locator -ne "SYSTEM ROM") {
+            return ($b.capacity/1mb).ToString()
+        }
+    }
+}
+
 function goto_home {
     set-location "$HOME\My Documents\WindowsPowerShell\Scripts"
 }
