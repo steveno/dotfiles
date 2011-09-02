@@ -30,14 +30,23 @@ if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
 }
 
 ##############################################
-# Aliases
+# Location Aliases
 ##############################################
-set-alias scripts goto_home
-set-alias edit gvim
-set-alias pse "C:\Program Files\PowerGUI\ScriptEditor.exe"
+Set-Alias scripts Goto-Scripts
+Set-Alias desktop Goto-Desktop
+Set-Alias home    Goto-Home
+Set-Alias oracle  Goto-Oracle
 
+##############################################
+# Program Aliases
+##############################################
+Set-Alias edit gvim
+Set-Alias cc "C:\MinGW\bin\gcc.exe"
+Set-Alias gcc "C:\MinGW\bin\gcc.exe"
+Set-Alias time Measure-Command
+Set-Alias pse "C:\Program Files\PowerGUI\ScriptEditor.exe"
 if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
-    set-alias sqlplus "$ORACLE_HOME\bin\sqlplus.exe"
+    Set-Alias sqlplus "$ORACLE_HOME\bin\sqlplus.exe"
 }
 
 ##############################################
