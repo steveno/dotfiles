@@ -15,9 +15,7 @@ function setup_mac {
         #Terminal Settings
         export CLICOLOR=1
         export EDITOR="mvim"
-        PS1="\u@\h:\w $ "
-
-        setup_go
+        PS1="\u@\h:\w $ "        
 }
 
 # Setup linux desktop
@@ -30,23 +28,6 @@ function setup_linux {
             export PAGER=vimpager
             export MANPAGER=vimmanpager
         fi
-}
-
-# Setup the Go language 
-function setup_go {
-        export GOROOT="$HOME/Projects/go"
-        export GOBIN="$HOME/Projects/bin"
-
-        case "${HOSTNAME}" in
-            MOHIAM*)
-                export GOOS="darwin"
-                export GOARCH="386"
-                ;;
-            *)
-                export GOOS="linux"
-                export GOARCH=""
-                ;;
-        esac
 }
 
 # Setup up Falcon
