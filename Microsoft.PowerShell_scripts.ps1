@@ -88,10 +88,36 @@ function Show {
     }   
 }
 
-
-function goto_home {
-    set-location "$HOME\My Documents\WindowsPowerShell\Scripts"
+##############################################
+# Goto functions
+##############################################
+function Goto {
+    switch ($args[0])
+    {
+        ("scripts")     {set-location "$HOME\My Documents\WindowsPowerShell\Scripts"}
+        ("desktop")     {set-location "$HOME\Desktop"}
+        ("home")        {Set-Location "$HOME"}
+        ("oracle")      {Set-Location "$ORACLE_HOME"}
+        ("start")       {Set-Location "C:\"}
+    }
 }
+
+function Goto-Scripts {
+    set-location "$HOME\My Documents\WindowsPowerShell\Scripts"        
+}
+
+function Goto-Desktop {
+    set-location "$HOME\Desktop"   
+}
+
+function Goto-Home {
+    set-location "$HOME"        
+}
+
+function Goto-Oracle {
+    set-location "$ORACLE_HOME"        
+}
+
 
 function shorten-path([string] $path) {
    $loc = $path.Replace($HOME, '~')
