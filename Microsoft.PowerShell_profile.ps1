@@ -69,6 +69,9 @@ $size.width = 120
 $size.height = 4000
 $Shell.BufferSize = $size
 
+# Cursor
+$Shell.Cursorsize = 12
+
 # Default prompt location
 set-location C:\
 
