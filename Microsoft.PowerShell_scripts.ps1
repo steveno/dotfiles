@@ -118,7 +118,9 @@ function Goto-Oracle {
     set-location "$ORACLE_HOME"        
 }
 
-
+##############################################
+# Prompt setup
+##############################################
 function shorten-path([string] $path) {
    $loc = $path.Replace($HOME, '~')
    # remove prefix for UNC paths
