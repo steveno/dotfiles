@@ -110,7 +110,7 @@ let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
 
 " Snippets plugin
-let snips_author = 'Steven N Oliver'
+let snips_author = 'Steven Oliver'
 
 
 "----------------------------------------------
