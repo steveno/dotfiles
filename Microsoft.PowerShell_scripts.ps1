@@ -31,6 +31,64 @@ function Get-Mem {
     }
 }
 
+##############################################
+# Show functions
+##############################################
+function Show-Time {
+    $time = date    
+    return "`r`n" + $time.toShortDateString() + " " + $time.toShortTimeString() + "`r`n" 
+}
+
+function Show-IP {
+    return "`r`n" + (Test-Connection $env:COMPUTERNAME -Count 1).ProtocolAddress + "`r`n"
+}
+
+function Show-Debug {
+    Write-Host "$" -NoNewline
+    Write-Host "DebugPreference = " -NoNewline    
+    $DebugPreference
+}
+
+function Show-Variable ($var){
+    Write-Host $var
+}
+
+function Show-Help {
+    $money = "$"
+    Write-Host ""
+    Write-Host -ForegroundColor Green "Show functions"    
+    Write-Host "debug       Debug variable"    
+    Write-Host "date        Date and time"    
+    Write-Host "time        Date and time"    
+    Write-Host "ip          Current IP address"
+    Write-Host "info        Basic computer info"
+    Write-Host "home       "$money"HOME"
+    Write-Host "oracle     "$money"ORACLE_HOME"
+    Write-Host "help        Display this help"    
+    Write-Host ""
+    Write-Host "Example usage:    show debug"    
+    Write-Host ""
+}
+
+function Show {
+    switch ($args[0])
+    {     
+         ("time")       {Show-Time}
+         ("date")       {Show-Time}
+         ("ip")         {Show-IP}
+         ("debug")      {Show-Debug}             
+         ("info")       {wname}
+         ("home")       {Show-Variable("$HOME")}
+         ("oracle")     {Show-Variable("$ORACLE_HOME")}
+         ("help")       {Show-Help}         
+         
+         default        {Write-Host -ForegroundColor Red "Error" -NoNewline; 
+                         Write-Host -ForegroundColor White ": " -NoNewline; 
+                         write-host "You must supply a valid argument!"; Show-Help;}
+    }   
+}
+
+
 function goto_home {
     set-location "$HOME\My Documents\WindowsPowerShell\Scripts"
 }
@@ -40,15 +98,6 @@ function shorten-path([string] $path) {
    # remove prefix for UNC paths
    $loc = $loc -replace '^[^:]+::', ''   
    return ($loc)
-}
-
-function Time {
-    $time = date    
-    return "`r`n" + $time.toShortDateString() + " " + $time.toShortTimeString() + "`r`n" 
-}
-
-function Show-IP {
-    return (Test-Connection $env:COMPUTERNAME -Count 1).ProtocolAddress   
 }
 
 function get-adminuser() {
