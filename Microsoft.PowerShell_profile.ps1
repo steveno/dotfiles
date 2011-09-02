@@ -26,7 +26,7 @@ else {
 # External setup functions
 ##############################################
 if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
-    ForEach-Object { [string]::Join([environment]::NewLine, (Get-Content "C:\Documents and Settings\lso0kot\My Documents\WindowsPowerShell\Microsoft.PowerShell_scripts.ps1")) | Invoke-Expression }
+    ForEach-Object { [string]::Join([environment]::NewLine, (Get-Content "C:\Documents and Settings\" + [Environment]::UserName + "\My Documents\WindowsPowerShell\Microsoft.PowerShell_scripts.ps1")) | Invoke-Expression }
 }
 
 ##############################################
