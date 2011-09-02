@@ -66,7 +66,7 @@ $Shell.WindowSize = $size
 # Buffer size
 $size = $Shell.BufferSize
 $size.width = 120
-$size.height = 4000
+$size.height = 3000
 $Shell.BufferSize = $size
 
 # Cursor
