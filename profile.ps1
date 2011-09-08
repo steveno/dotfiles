@@ -16,10 +16,13 @@ if ($Env:ORACLE_HOME)
     $ORACLE_HOME = $Env:ORACLE_HOME
 } 
 else {
-    # This only applies at work
+    # Work - Physical PC
     if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
         $ORACLE_HOME = "C:\oracle\product\10.2.0\client_1"
-    }
+    } # Work - Virtual PC
+    elseif ([net.dns]::GetHostName().ToLower() -eq "vpc7-1-79"){
+		$ORACLE_HOME = "C:\oracle\ora112"
+	}
 }
 
 ##############################################
