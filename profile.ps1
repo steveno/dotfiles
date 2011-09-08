@@ -27,6 +27,8 @@ else {
 ##############################################
 if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
     ForEach-Object { [string]::Join([environment]::NewLine, (Get-Content "C:\Documents and Settings\" + [Environment]::UserName + "\My Documents\WindowsPowerShell\Microsoft.PowerShell_scripts.ps1")) | Invoke-Expression }
+} elseif(([net.dns]::GetHostName().ToLower() -eq "vpc7-1-79")){
+    ForEach-Object { [string]::Join([environment]::NewLine, (Get-Content ("U:\Users\" + [Environment]::UserName  + "\Documents\WindowsPowerShell\scripts.ps1"))) | Invoke-Expression }
 }
 
 ##############################################
