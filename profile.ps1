@@ -50,7 +50,7 @@ Set-Alias cc "C:\MinGW\bin\gcc.exe"
 Set-Alias gcc "C:\MinGW\bin\gcc.exe"
 Set-Alias time Measure-Command
 Set-Alias pse "C:\Program Files\PowerGUI\ScriptEditor.exe"
-if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813"){
+if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813" -or [net.dns]::GetHostName().ToLower() -eq "vpc7-1-79"){
     Set-Alias sqlplus "$ORACLE_HOME\bin\sqlplus.exe"
 }
 
