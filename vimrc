@@ -140,7 +140,7 @@ if has("eval")
 
     if has('gui_running')
         call LoadColorScheme(s:prefered_scheme . s:other)
-    elseif &t_Co == 88 || &t_Co == 256
+    elseif &t_Co >= 88
         call LoadColorScheme(s:prefered_scheme . s:other . ":desert")
     else
         call LoadColorScheme("pablo:slate:desert")
