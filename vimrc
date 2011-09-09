@@ -135,10 +135,15 @@ if has("eval")
         endwhile
     endfun
 
-    if has('gui_gtk') || has('gui_win32') || has('gui_macvim')
-        call LoadColorScheme("peaksea:moria:ir_black:inkpot:darkblue")
+    let s:prefered_scheme = "peaksea"
+    let s:other = ":inkpot:moria:ir_black"
+
+    if has('gui_running')
+        call LoadColorScheme(s:prefered_scheme . s:other)
+    elseif &t_Co >= 88
+        call LoadColorScheme(s:prefered_scheme . s:other . ":desert")
     else
-        call LoadColorScheme("darkblue")
+        call LoadColorScheme("pablo:slate:desert")
     endif
 endif  
 
