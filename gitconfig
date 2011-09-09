@@ -1,0 +1,11 @@
+[user]
+	name = Steven Oliver
+	email = oliver.steven@gmail.com
+[github]        
+        name = steveno
+[color]        
+        branch = auto
+        diff = auto
+        status = auto
+        ui = auto
+
