@@ -15,5 +15,5 @@ require("naughty")
 -- }}}
 
 -- Beautiful theme
-beautiful.init(home .. "/.config/awesome/zenburn.lua")
+beautiful.init("/home/users/steveno/.config/awesome/zenburn.lua")
 
