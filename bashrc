@@ -12,7 +12,7 @@ function setup_mac {
         export PATH="$HOME/Projects/bin:/usr/local/bin:/usr/local/sbin:$PATH"
     fi
 
-    #Terminal Settings
+    # Terminal Settings
     export CLICOLOR=1
     export EDITOR="mvim"
     PS1="\u@\h:\w $ "
