@@ -12,8 +12,8 @@ elseif has('gui_macvim')
     set lines=45
     set columns=145
 elseif has('gui_gtk')
-    set lines=45
-    set columns=145
+    set lines=42
+    set columns=150
 endif 
 
 " No menu or toolbar
