@@ -5,7 +5,13 @@
 -- }}}
 
 -- {{{ Libraries
-require ("awful")
+require("awful")
+require("awful.autofocus")
+require("awful.rules")
+-- Theme handling library
+require("beautiful")
+-- Notification library
+require("naughty")
 -- }}}
 
 -- Beautiful theme
