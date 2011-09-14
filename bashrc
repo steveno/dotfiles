@@ -21,10 +21,21 @@ function setup_mac {
 # Setup linux desktop
 function setup_linux {
     # Source global definitions
-    if [ -f /etc/bashrc ]; then
+    if [[ -f /etc/bashrc ]]; then
         . /etc/bashrc
     fi 
 
+    # Setup prompt and such
+    if [[ $(id -u) -eq 0 ]]; then 
+        PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w $ "
+
+        alias rm='rm -i'
+        alias cp='cp -i'
+        alias mv='mv -i'
+    else
+        PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
+    fi
+    
     # Always use color
     alias ls='ls --color'
     
