@@ -2,6 +2,18 @@
 # Steven Oliver's bashrc
 #
 
+# Setup Sun UNIX server
+function setup_sun {
+    # Setup prompt and such
+    PS1="\u@\h:\w $ "
+    
+    # Use vim as the pager
+    if [[ -f /usr/bin/vimpager ]] ; then
+        export PAGER=vimpager
+        export MANPAGER=vimmanpager
+    fi
+}
+
 # Setup up my mac laptop
 function setup_mac {
     # MacVim 
