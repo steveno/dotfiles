@@ -44,6 +44,8 @@ function setup_linux {
             export PAGER=vimpager
             export MANPAGER=vimmanpager
         fi
+
+        export XDG_CONFIG_HOME="$HOME/.config"
 }
 
 # Setup up Falcon
