@@ -35,6 +35,9 @@ function setup_linux {
         else
             PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
         fi
+
+        # Common aliases
+        alias mkdir='mkdir -p'
         
         # Always use color
         alias ls='ls --color'
