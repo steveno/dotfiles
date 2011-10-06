@@ -138,11 +138,11 @@ function prompt {
    # our theme
    $cdelim = [ConsoleColor]::White
    if ( get-adminuser ) {
-      $cuser = [ConsoleColor]::Yellow
+      $cuser = [ConsoleColor]::Red
    } else {
       $cuser = [ConsoleColor]::Green
    }
-   $chost = [ConsoleColor]::Cyan
+   $chost = [ConsoleColor]::White
    $cpath = [ConsoleColor]::Gray
    
    # Create the prompt   
