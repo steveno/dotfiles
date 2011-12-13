@@ -101,6 +101,17 @@ set showmatch
 
 
 "----------------------------------------------
+" Vala options
+"----------------------------------------------
+
+" Enable comment strings
+let vala_comment_strings = 1
+
+" Highlight space errors
+let vala_space_errors = 1
+
+
+"----------------------------------------------
 " Variable for plugins
 "----------------------------------------------
 
