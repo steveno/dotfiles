@@ -216,6 +216,8 @@ if has("autocmd") && has("eval")
     autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
 endif
 
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
 
 "---------------------------------------------
 " mappings
