@@ -6,5 +6,8 @@ if [[ -f "$HOME/.bashrc" ]] ; then
     source $HOME/.bashrc
 fi
 
-# vim: set sw=4 sts=4 et tw=80 :
+PATH=$PATH:$HOME/.local/bin/:$HOME/BIN
 
+export PATH
+
+# vim: set sw=4 sts=4 et tw=80 :
