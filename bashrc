@@ -28,11 +28,13 @@ function setup_linux {
         # Setup prompt and such
         if [[ $(id -u) -eq 0 ]]; then 
             PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w $ "
-            
+            PATH=$PATH:$HOME/bin
+    
             alias rm='rm -i'
             alias cp='cp -i'
             alias mv='mv -i'
         else
+            PATH=$PATH:$HOME/.local/bin/:$HOME/BIN
             PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
         fi
 
@@ -47,7 +49,8 @@ function setup_linux {
             export PAGER=vimpager
             export MANPAGER=vimmanpager
         fi
-
+                       
+        export PATH
         export XDG_CONFIG_HOME="$HOME/.config"
 }
 
