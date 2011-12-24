@@ -8,4 +8,10 @@
         diff = auto
         status = auto
         ui = auto
-
+[sendemail]
+	confirm = always
+        chainreplyto = false
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = oliver.steven@gmail.com
+	smtpserverport = 587
