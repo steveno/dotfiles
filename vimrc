@@ -11,6 +11,21 @@ scriptencoding utf-8
 " Don't be compatible with vi
 set nocompatible
 
+" Load vundle to manage my plugins
+if has("eval")
+    filetype off
+
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+    
+    Bundle 'gmarik/vundle'    
+    
+    " (Re)Enable filetype settings
+    filetype on
+    filetype plugin on
+    filetype indent on
+endif
+
 " Set spelling language
 setlocal spell spelllang=en_us
 
@@ -80,13 +95,6 @@ set expandtab
 set autoindent
 set smartindent
 
-" Enable filetype settings
-if has("eval")
-    filetype on
-    filetype plugin on
-    filetype indent on
-endif
-
 " Turn off highlighting
 set nohls!
 
@@ -112,7 +120,7 @@ let vala_space_errors = 1
 
 
 "----------------------------------------------
-" Variable for plugins
+" Setup various plugins
 "----------------------------------------------
 
 " Use secure modelines
