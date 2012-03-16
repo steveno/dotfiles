@@ -18,7 +18,7 @@ if has("eval")
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
     
-    Bundle 'gmarik/vundle'    
+    Bundle 'gmarik/vundle'
     
     " (Re)Enable filetype settings
     filetype on
