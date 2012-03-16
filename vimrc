@@ -88,7 +88,7 @@ set hidden
 set winminheight=1
 
 " By default indent 4 spaces and makes tabs spaces
-set shiftwidth=4
+set shiftwidth=8
 set expandtab
 
 " Do clever indent things.
@@ -206,10 +206,10 @@ if has("eval")
         let l:a = 0
         for l:x in getline(1, 10)
             let l:a = l:a + 1
-            if -1 != match(l:x, 'Copyright (c) [- 0-9,]*20\(0[456789]\|10\|11\) Steven Oliver')
+                if -1 != match(l:x, 'Copyright (c) [- 0-9,]*20\(0[456789]\|10\|11\) Steven Oliver\|Copyright [- 0-9,]*20\(0[456789]\|10\|11\) Steven Oliver')
                 if input("Update copyright header? (y/N) ") == "y"
-                    call setline(l:a, substitute(l:x, '\(20[01][456789]\|10\|11\) Steven',
-                                \ '\1, 2012 Steven', ""))
+                    call setline(l:a, substitute(l:x, '\(20[01][456789]\|10\|11\) Steven Ol',
+                                \ '\1, 2012 Steven Ol', ""))
                 endif
             endif
         endfor
