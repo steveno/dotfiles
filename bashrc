@@ -54,17 +54,6 @@ function setup_linux {
         export XDG_CONFIG_HOME="$HOME/.config"
 }
 
-# Setup up Falcon
-function setup_fal {
-        LIBDIR="/tmp/usr/local/lib"
-        BINDIR="/tmp/usr/local/bin"
-        
-        export LD_LIBRARY_PATH="$1/$LIBDIR:$LD_LIBRARY_PATH"
-        export FALCON_LOAD_PATH=".;$1/$LIBDIR/falcon"
-        export PATH="$1/$BINDIR:$PATH"
-        export DYLD_LIBRARY_PATH="$LD_LIBRARY_PATH"
-}
-
 # Pick an OS
 case "${OSTYPE}" in
     darwin*)
