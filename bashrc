@@ -34,7 +34,6 @@ function setup_linux {
             alias cp='cp -i'
             alias mv='mv -i'
         else
-            PATH=$PATH:$HOME/.local/bin/:$HOME/BIN
             PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
         fi
 
