@@ -8,6 +8,9 @@
         diff = auto
         status = auto
         ui = auto
+[alias]	
+	co = checkout
+	br = branch
 [sendemail]
 	confirm = always
         chainreplyto = false
