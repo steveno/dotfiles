@@ -66,8 +66,19 @@ $Shell.BackgroundColor = "Black"
 $Shell.ForegroundColor = "Gray"
 
 # Set window title
-$Host.UI.RawUI.WindowTitle = "Windows PowerShell - "
-$Host.UI.RawUI.WindowTitle += [Environment]::UserName 
+$strComputer = "."
+$computer = [ADSI]("WinNT://" + $strComputer + ",computer")
+$Group = $computer.psbase.children.find("Administrators")
+$members= $Group.psbase.invoke("Members") | %{$_.GetType().InvokeMember("Name", 'GetProperty', $null, $_, $null)}
+
+$Host.UI.RawUI.WindowTitle = "Windows PowerShell - " + [Environment]::UserName 
+$found = $false
+foreach($user in $members){
+    if ($user =  [Environment]::UserName ) {
+        $found = $true
+    }
+}
+
 if ( get-adminuser ) {
     $Host.UI.RawUI.WindowTitle += " (Admin)"
 } else {
