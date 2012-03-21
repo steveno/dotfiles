@@ -57,6 +57,9 @@ if ([net.dns]::GetHostName().ToLower() -eq "pdpc-6813" -or [net.dns]::GetHostNam
 ##############################################
 # Setup Window
 ##############################################
+# Try use to unicode if we can
+$OutputEncoding = New-Object -typename System.Text.UnicodeEncoding;
+
 # Window colors
 $Shell = (Get-Host).UI.RawUI
 $Shell.BackgroundColor = "Black"
