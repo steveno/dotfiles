@@ -19,6 +19,8 @@ if has("eval")
     call vundle#rc()
     
     Bundle 'gmarik/vundle'
+    Bundle 'gmarik/snipmate.vim'
+    Bundle 'steveno/peaksea-awesome'
     
     " (Re)Enable filetype settings
     filetype on
