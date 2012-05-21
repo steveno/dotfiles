@@ -9,9 +9,9 @@
         status = auto
         ui = auto
 [alias]	
-	cl = clone
-	co = checkout
 	br = branch
+	cl = clone
+	co = checkout	
 [sendemail]
 	confirm = always
         chainreplyto = false
