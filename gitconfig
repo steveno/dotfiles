@@ -9,6 +9,7 @@
         status = auto
         ui = auto
 [alias]	
+	cl = clone
 	co = checkout
 	br = branch
 [sendemail]
