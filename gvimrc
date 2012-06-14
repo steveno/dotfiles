@@ -31,12 +31,29 @@ set guioptions-=b
 set guioptions+=a
 
 " Set the font
-if has('gui_win32')
-    set guifont=Dina:h8:cDEFAULT
-elseif has('gui_gtk')
-    set guifont=Monospace\ 9
-elseif has('gui_macvim')
-    " use default 
+if has("eval")
+    fun! SetFont(fonts)
+        let l:fonts = a:fonts . ","
+        while l:fonts != ""
+            let l:font = strpart(l:fonts, 0, stridx(l:fonts, ","))
+            let l:fonts = strpart(l:fonts, stridx(l:fonts, ",") + 1)
+            try
+                execute "set guifont=" . l:font
+                break
+            catch
+            endtry
+        endwhile
+    endfun
+
+    if has('gui_win32')
+        call SetFont("Consolas:h9:cANSI,Courier_New:h9:cANSI")
+    elseif has('gui_gtk')
+        call SetFont("Monospace\ 9")
+    elseif has('gui_macvim')
+        "use default
+    else
+        " use default
+    endif
 endif
 
 " Nice window title
