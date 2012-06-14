@@ -52,7 +52,7 @@ if has('gui_macvim')
     " transparency
     set transp=1
 
-    "full width full screen
+    " full width full screen
     set fuopt+=maxhorz
 endif
 
