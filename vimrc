@@ -166,13 +166,14 @@ if has("eval")
 
     let s:prefered_scheme = "peaksea"
     let s:other = ":inkpot:moria:ir_black"
+    let s:default = ":desert:pablo:slate"
 
     if has('gui_running')
-        call LoadColorScheme(s:prefered_scheme . s:other)
+        call LoadColorScheme(s:prefered_scheme . s:other .  s:default)
     elseif &t_Co >= 88
-        call LoadColorScheme(s:prefered_scheme . s:other . ":desert")
+        call LoadColorScheme(s:prefered_scheme . s:other . s:default)
     else
-        call LoadColorScheme("pablo:slate:desert")
+        call LoadColorScheme(s:default)
     endif
 endif  
 
