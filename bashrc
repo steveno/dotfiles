@@ -18,7 +18,7 @@ function setup_mac {
         PS1="\u@\h:\w $ "
 }
 
-# Setup linux desktop
+# Setup Linux desktop
 function setup_linux {
         # Source global definitions
         if [[ -f /etc/bashrc ]]; then
@@ -28,7 +28,7 @@ function setup_linux {
         # Setup prompt and such
         if [[ $(id -u) -eq 0 ]]; then 
             PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w $ "
-            PATH=$PATH:$HOME/bin
+            export PATH=$PATH:$HOME/bin:/usr/local/bin/faldoc
     
             alias rm='rm -i'
             alias cp='cp -i'
