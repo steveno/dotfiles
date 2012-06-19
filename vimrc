@@ -28,9 +28,6 @@ if has("eval")
     filetype indent on
 endif
 
-" Set spelling language
-setlocal spell spelllang=en_us
-
 " Enable a large viminfo file
 set viminfo='500,f1,:500,/500
 set history=200
@@ -169,7 +166,7 @@ if has("eval")
     let s:default = ":desert:pablo:slate"
 
     if has('gui_running')
-        call LoadColorScheme(s:prefered_scheme . s:other .  s:default)
+        call LoadColorScheme(s:prefered_scheme . s:other . s:default)
     elseif &t_Co >= 88
         call LoadColorScheme(s:prefered_scheme . s:other . s:default)
     else
