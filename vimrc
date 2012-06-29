@@ -60,10 +60,7 @@ set backup
 if has('gui_win32')
     set backupdir=$HOME\backup\
     set directory=$HOME\backup\
-elseif has('gui_macvim') 
-    set backupdir=$HOME/.backup/
-    set directory=$HOME/.backup/
-elseif has('gui_gtk')
+elseif has('gui_macvim') || has('gui_gtk')
     set backupdir=$HOME/.backup/
     set directory=$HOME/.backup/
 endif
