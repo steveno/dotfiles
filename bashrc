@@ -38,9 +38,7 @@ function setup_linux {
         fi
 
         # Common aliases
-        alias mkdir='mkdir -p'
-        
-        # Always use color
+        alias mkdir='mkdir -p'        
         alias ls='ls --color'
         
         # Use vim as the pager
