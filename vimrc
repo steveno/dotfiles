@@ -33,25 +33,6 @@ endif
 set viminfo='500,f1,:500,/500
 set history=200
 
-" This will display each type of spelling highlight and explain which 
-" is which. Only really useful for development of vim syntax scripts.
-" Slightly modified version originally by Ingo Karkat <swdev@ingo-karkat.de>
-function! SpellLegend()
-   for [l:group, l:explanation] in [
-   \   ['SpellBad', 'word not recognized'],
-   \   ['SpellCap', 'word not capitalized'],
-   \   ['SpellRare', 'rare word'],
-   \   ['SpellLocal', 'wrong spelling for selected region']
-   \]
-       echo ''
-       execute 'echohl' l:group
-       echon l:group
-       echohl None
-       echon "\t" . l:explanation
-   endfor
-endfunction
-command! -bar SpellLegend call SpellLegend()
-
 " Make backspace delete lots of things
 set backspace=indent,eol,start
 
@@ -248,6 +229,25 @@ if has("autocmd") && has("eval")
     " Update the copyright header
     autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
 endif
+
+" This will display each type of spelling highlight and explain which 
+" is which. Only really useful for development of vim syntax scripts.
+" Slightly modified version originally by Ingo Karkat <swdev@ingo-karkat.de>
+function! SpellLegend()
+   for [l:group, l:explanation] in [
+   \   ['SpellBad', 'word not recognized'],
+   \   ['SpellCap', 'word not capitalized'],
+   \   ['SpellRare', 'rare word'],
+   \   ['SpellLocal', 'wrong spelling for selected region']
+   \]
+       echo ''
+       execute 'echohl' l:group
+       echon l:group
+       echohl None
+       echon "\t" . l:explanation
+   endfor
+endfunction
+command! -bar SpellLegend call SpellLegend()
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
