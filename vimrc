@@ -263,9 +263,6 @@ noremap <C-Left> <Esc>:tabp<CR>
 " Make Control+Right Arrow goto next tab
 noremap<C-Right> <Esc>:tabn<CR>
 
-" q: sucks
-nmap q: :q
-
 " In normal mode, jj escapes
 inoremap jj <Esc>
 
