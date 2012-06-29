@@ -120,7 +120,7 @@ let g:falcon_rainbow=1
 
 
 "----------------------------------------------
-" Setup various plugins
+" Setup plugins
 "----------------------------------------------
 
 " Use secure modelines
