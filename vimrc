@@ -106,7 +106,7 @@ set showmatch
 
 
 "----------------------------------------------
-" Vala options
+" Individual language options
 "----------------------------------------------
 
 " Enable comment strings
@@ -114,11 +114,6 @@ let vala_comment_strings = 1
 
 " Highlight space errors
 let vala_space_errors = 1
-
-
-"----------------------------------------------
-" Falcon options
-"----------------------------------------------
 
 " falcon rainbow highlighting
 let g:falcon_rainbow=1
