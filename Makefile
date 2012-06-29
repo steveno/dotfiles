@@ -6,7 +6,7 @@ install:
 	install -p -m 0644 gitconfig $(HOME)/.gitconfig
 	install -p -m 0644 gvimrc $(HOME)/.gvimrc
 	install -p -m 0644 login.sql $(HOME)/
-	install -p -m 0644 rc.lua ${HOME}/.config/awesome
+	install -p -m 0644 rc.lua $(HOME)/.config/awesome
 	install -p -m 0644 vimrc $(HOME)/.vimrc
 
 
