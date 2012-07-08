@@ -26,15 +26,15 @@ function setup_linux {
         fi 
         
         # Setup prompt and such
-        if [[ $(id -u) -eq 0 ]]; then 
+        if [[ $EUID -eq 0 ]]; then 
             PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w $ "
-            export PATH=$PATH:$HOME/bin:/usr/local/bin/faldoc
     
             alias rm='rm -i'
             alias cp='cp -i'
             alias mv='mv -i'
         else
             PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
+            export PATH=$PATH:/usr/local/go/bin
         fi
 
         # Common aliases
