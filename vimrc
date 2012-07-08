@@ -20,7 +20,7 @@ if has("eval")
     
     Bundle 'gmarik/vundle'
     Bundle 'gmarik/snipmate.vim'
-    Bundle 'steveno/peaksea-awesome'
+    Bundle 'steveno/peaksea'
     Bundle 'ciaranm/securemodelines'
     
     " (Re)Enable filetype settings
