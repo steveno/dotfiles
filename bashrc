@@ -35,6 +35,7 @@ function setup_linux {
         else
             PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
             export PATH=$PATH:/usr/local/go/bin
+            export C_INCLUDE_PATH=/usr/include/libev
         fi
 
         # Common aliases
