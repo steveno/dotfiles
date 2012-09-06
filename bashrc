@@ -35,7 +35,7 @@ function setup_linux {
         else
             PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
             export PATH=$PATH:/usr/local/go/bin
-            export C_INCLUDE_PATH=/usr/include/libev
+            export C_INCLUDE_PATH="/usr/include/libev:/usr/include/gdk-pixbuf-2.0"
         fi
 
         # Common aliases
