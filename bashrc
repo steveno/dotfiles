@@ -27,13 +27,13 @@ function setup_linux {
         
         # Setup prompt and such
         if [[ $EUID -eq 0 ]]; then 
-            PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w $ "
+            PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w\n$ "
     
             alias rm='rm -i'
             alias cp='cp -i'
             alias mv='mv -i'
         else
-            PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w $ "
+            PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w\n$ "
             export PATH=$PATH:/usr/local/go/bin
             export C_INCLUDE_PATH="/usr/include/libev"
             export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
