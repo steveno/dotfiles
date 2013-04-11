@@ -19,7 +19,8 @@ if has("eval")
     call vundle#rc()
     
     Bundle 'gmarik/vundle'
-    Bundle 'gmarik/snipmate.vim'
+    Bundle 'MarcWeber/UltiSnips'
+    Bundle 'honza/vim-snippets'
     Bundle 'steveno/peaksea'
     Bundle 'ciaranm/securemodelines'
     
