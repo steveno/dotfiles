@@ -45,7 +45,7 @@ if has("eval")
         endwhile
     endfun
 
-    if has('gui_win32')
+    if has('gui_win32') || has('gui_win64')
         call SetFont("Consolas:h9:cANSI,Courier_New:h9:cANSI")
     elseif has('gui_gtk')
         call SetFont("Monospace\ 9")
