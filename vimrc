@@ -40,7 +40,7 @@ set backspace=indent,eol,start
 
 " Create backups
 set backup
-if has('gui_win32')
+if has('gui_win32') || has('gui_win64')
     set backupdir=$HOME\backup\
     set directory=$HOME\backup\
 elseif has('gui_macvim') || has('gui_gtk')
