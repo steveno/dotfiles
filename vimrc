@@ -23,6 +23,7 @@ if has("eval")
     Bundle 'honza/vim-snippets'
     Bundle 'steveno/peaksea'
     Bundle 'ciaranm/securemodelines'
+    Bundle 'xolox/vim-shell'
     
     " (Re)Enable filetype settings
     filetype on
