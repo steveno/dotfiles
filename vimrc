@@ -17,14 +17,13 @@ if has("eval")
 
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
-    
+
     Bundle 'gmarik/vundle'
-    Bundle 'MarcWeber/UltiSnips'
+    Bundle 'MarcWeber/ultisnips'
     Bundle 'honza/vim-snippets'
     Bundle 'steveno/peaksea'
     Bundle 'ciaranm/securemodelines'
-    Bundle 'xolox/vim-shell'
-    
+
     " (Re)Enable filetype settings
     filetype on
     filetype plugin on
