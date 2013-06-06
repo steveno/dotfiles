@@ -93,6 +93,12 @@ set expandtab
 set autoindent
 set smartindent
 
+" Enable folds
+if has("folding")
+    set foldenable
+    set foldmethod=marker
+endif
+
 " Turn off highlighting
 set nohls!
 
