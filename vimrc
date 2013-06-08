@@ -138,6 +138,8 @@ let g:secure_modelines_modelines=15
 " Snippets plugin
 let snips_author = 'Steven Oliver'
 
+" Ultisnips
+let g:Ultisnips={}
 
 "----------------------------------------------
 " Visual Settings
