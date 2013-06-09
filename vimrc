@@ -19,7 +19,7 @@ if has("eval")
     call vundle#rc()
 
     Bundle 'gmarik/vundle'
-    Bundle 'MarcWeber/ultisnips'
+    Bundle 'SirVer/ultisnips'
     Bundle 'honza/vim-snippets'
     Bundle 'steveno/peaksea'
     Bundle 'ciaranm/securemodelines'
@@ -123,7 +123,7 @@ let vala_comment_strings = 1
 let vala_space_errors = 1
 
 " falcon rainbow highlighting
-let g:falcon_rainbow=1
+let g:falcon_rainbow=0
 
 
 "----------------------------------------------
@@ -138,8 +138,6 @@ let g:secure_modelines_modelines=15
 " Snippets plugin
 let snips_author = 'Steven Oliver'
 
-" Ultisnips
-let g:Ultisnips={}
 
 "----------------------------------------------
 " Visual Settings
