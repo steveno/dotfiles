@@ -85,7 +85,7 @@ set hidden
 " 1 height windows
 set winminheight=1
 
-" By default indent 4 spaces and makes tabs spaces
+" By default indent 8 spaces and makes tabs spaces
 set shiftwidth=8
 set expandtab
 
