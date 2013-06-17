@@ -1,11 +1,9 @@
 scriptencoding utf-8
 
-"---------------------------------------------
 " Vim settings file for Steven Oliver
 "---------------------------------------------
 
-"---------------------------------------------
-" General Settings
+" General Settings {{{1
 "---------------------------------------------
 
 " Don't be compatible with vi
@@ -112,8 +110,7 @@ set showcmd
 set showmatch
 
 
-"----------------------------------------------
-" Individual language options
+" Individual language options {{{1
 "----------------------------------------------
 
 " Enable comment strings
@@ -126,8 +123,7 @@ let vala_space_errors = 1
 let g:falcon_rainbow=0
 
 
-"----------------------------------------------
-" Setup plugins
+" Setup plugins {{{1
 "----------------------------------------------
 
 " Use secure modelines
@@ -139,8 +135,7 @@ let g:secure_modelines_modelines=15
 let snips_author = 'Steven Oliver'
 
 
-"----------------------------------------------
-" Visual Settings
+" Visual Settings {{{1
 "----------------------------------------------
 
 " Set a dark background
@@ -204,8 +199,7 @@ set statusline+=%2*0x%-8B                       " current char
 set statusline+=%-14.(%l,%c%V%)                 " offset
 
 
-"-----------------------------------------------------------------------
-" autocmds
+" Autocmds {{{1
 "-----------------------------------------------------------------------
 
 " This if..endif updates copyright headers on :q
@@ -254,8 +248,8 @@ command! -bar SpellLegend call SpellLegend()
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
-"---------------------------------------------
-" mappings
+
+" Mappings {{{1
 "---------------------------------------------
 
 " Make Space go down half a page
@@ -274,8 +268,7 @@ noremap<C-Right> <Esc>:tabn<CR>
 inoremap jj <Esc>
 
 
-"---------------------------------------------
-" abbreviations
+" Abbreviations {{{1
 "---------------------------------------------
 
 if has("eval") && has("autocmd")
@@ -294,14 +287,15 @@ if has("eval") && has("autocmd")
 endif
 
 
-"---------------------------------------------
-" final commands
+" Final commands {{{1
 "---------------------------------------------
 
 " turn off any existing search
 if has("autocmd")
     au VimEnter * nohls
 endif
+
+" }}}1
 
 " vim: set sw=4 sts=4 et tw=80 :
 
