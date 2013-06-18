@@ -20,6 +20,7 @@ if has("eval")
     Bundle 'SirVer/ultisnips'
     Bundle 'honza/vim-snippets'
     Bundle 'steveno/peaksea'
+    Bundle 'nanotech/jellybeans.vim'
     Bundle 'ciaranm/securemodelines'
 
     " (Re)Enable filetype settings
