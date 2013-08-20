@@ -12,6 +12,7 @@
 	br = branch
 	cl = clone
 	co = checkout	
+	ll = log --graph
 [sendemail]
 	confirm = always
         chainreplyto = false
