@@ -1,6 +1,8 @@
 [user]
 	name = Steven Oliver
 	email = oliver.steven@gmail.com
+[core]
+	excludesfile = ~/.gitignore	
 [github]        
         name = steveno
 [color]        
