@@ -1,24 +1,25 @@
 [user]
-	name = Steven Oliver
-	email = oliver.steven@gmail.com
+        name = Steven Oliver
+        email = oliver.steven@gmail.com
 [core]
-	excludesfile = ~/.gitignore	
-[github]        
+        excludesfile = ~/.gitignore
+[github]
         name = steveno
-[color]        
+[color]
         branch = auto
         diff = auto
         status = auto
         ui = auto
-[alias]	
-	br = branch
-	cl = clone
-	co = checkout	
-	ll = log --graph
+[alias]
+        br = branch
+        cl = clone
+        co = checkout
+        ll = log --graph --decorate
+        ss = status -sb
 [sendemail]
-	confirm = always
+        confirm = always
         chainreplyto = false
-	smtpencryption = tls
-	smtpserver = smtp.gmail.com
-	smtpuser = oliver.steven@gmail.com
-	smtpserverport = 587
+        smtpencryption = tls
+        smtpserver = smtp.gmail.com
+        smtpuser = oliver.steven@gmail.com
+        smtpserverport = 587

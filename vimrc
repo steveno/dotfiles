@@ -115,10 +115,10 @@ set showmatch
 "----------------------------------------------
 
 " Enable comment strings
-let vala_comment_strings = 1
+let vala_comment_strings=1
 
 " Highlight space errors
-let vala_space_errors = 1
+let vala_space_errors=1
 
 " falcon rainbow highlighting
 let g:falcon_rainbow=0
@@ -225,7 +225,7 @@ if has("autocmd") && has("eval")
 
     " Update the copyright header
     autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
-    
+
     autocmd BufNewFile *.fal 0put ='// vim: set sw=4 sts=4 et tw=80 :' |
         \ 0put ='#!/usr/bin/falcon' | set sw=4 sts=4 et tw=80 |
         \ norm G
@@ -303,4 +303,3 @@ endif
 " }}}1
 
 " vim: set sw=4 sts=4 et tw=80 :
-
