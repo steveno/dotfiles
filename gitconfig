@@ -3,8 +3,6 @@
         email = oliver.steven@gmail.com
 [core]
         excludesfile = ~/.gitignore
-[github]
-        name = steveno
 [color]
         branch = auto
         diff = auto
@@ -23,3 +21,5 @@
         smtpserver = smtp.gmail.com
         smtpuser = oliver.steven@gmail.com
         smtpserverport = 587
+[github]
+        name = steveno
