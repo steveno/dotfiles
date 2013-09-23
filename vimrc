@@ -263,12 +263,6 @@ noremap <space> <C-d>
 " Make Control+Space go up half a page
 noremap <C-space> <C-u>
 
-" Make Control+Left Arrow goto previous tab
-noremap <C-Left> <Esc>:tabp<CR>
-
-" Make Control+Right Arrow goto next tab
-noremap<C-Right> <Esc>:tabn<CR>
-
 " In normal mode, jj escapes
 inoremap jj <Esc>
 
