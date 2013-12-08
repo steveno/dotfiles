@@ -16,10 +16,14 @@ if has("eval")
     set rtp+=~/.vim/bundle/vundle/
     call vundle#rc()
 
+    " required
     Bundle 'gmarik/vundle'
+    " snippets
     Bundle 'SirVer/ultisnips'
     Bundle 'honza/vim-snippets'
+    " other
     Bundle 'steveno/peaksea'
+    Bundle 'steveno/rust_vim'
     Bundle 'nanotech/jellybeans.vim'
     Bundle 'ciaranm/securemodelines'
 
