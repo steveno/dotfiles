@@ -213,11 +213,10 @@ if has("eval")
         let l:a = 0
         for l:x in getline(1, 10)
             let l:a = l:a + 1
-            if -1 != match(l:x, 'Copyright (c) [- 0-9,]*20\(0[456789]\|10\|11\|12\) Steven Oliver\|Copyright [- 0-9,]*20\(0[456789]\|10\|11\|12\) Steven Oliver')
+            if -1 != match(l:x, 'Copyright 20\(0[456789]\|1[0123]\) Steven Oliver <oliver.steven@gmail.com>')
                 if input("Update copyright header? (y/N) ") == "y"
-                    call setline(l:a, substitute(l:x, '\(20[01][456789]\|10\|11\|12\) Steven Ol',
-                        \ '\1, 2013 Steven Ol', ""))
-                endif
+                    call setline(l:a, substitute(l:x, '\(20[01][0123456789]\) Steven', '\1, 2014 Steven', ""))
+                endif  
             endif
         endfor
     endfun
@@ -231,26 +230,26 @@ if has("autocmd") && has("eval")
     autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
 
     autocmd BufNewFile *.fal 0put ='// vim: set sw=4 sts=4 et tw=80 :' |
-        \ 0put ='#!/usr/bin/falcon' | set sw=4 sts=4 et tw=80 |
-        \ norm G
+                \ 0put ='#!/usr/bin/falcon' | set sw=4 sts=4 et tw=80 |
+                \ norm G
 endif
 
 " This will display each type of spelling highlight and explain which 
 " is which. Only really useful for development of vim syntax scripts.
 " Slightly modified version originally by Ingo Karkat <swdev@ingo-karkat.de>
 function! SpellLegend()
-   for [l:group, l:explanation] in [
-   \   ['SpellBad', 'word not recognized'],
-   \   ['SpellCap', 'word not capitalized'],
-   \   ['SpellRare', 'rare word'],
-   \   ['SpellLocal', 'wrong spelling for selected region']
-   \]
-       echo ''
-       execute 'echohl' l:group
-       echon l:group
-       echohl None
-       echon "\t" . l:explanation
-   endfor
+    for [l:group, l:explanation] in [
+                \   ['SpellBad', 'word not recognized'],
+                \   ['SpellCap', 'word not capitalized'],
+                \   ['SpellRare', 'rare word'],
+                \   ['SpellLocal', 'wrong spelling for selected region']
+                \]
+        echo ''
+        execute 'echohl' l:group
+        echon l:group
+        echohl None
+        echon "\t" . l:explanation
+    endfor
 endfunction
 command! -bar SpellLegend call SpellLegend()
 
