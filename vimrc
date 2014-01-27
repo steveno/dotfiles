@@ -26,6 +26,7 @@ if has("eval")
     Bundle 'steveno/rust_vim'
     Bundle 'nanotech/jellybeans.vim'
     Bundle 'ciaranm/securemodelines'
+    Bundle 'tkztmk/vim-vala'
 
     " (Re)Enable filetype settings
     filetype on
