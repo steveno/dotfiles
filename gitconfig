@@ -23,3 +23,5 @@
         smtpserverport = 587
 [github]
         name = steveno
+[push]
+	default = simple
