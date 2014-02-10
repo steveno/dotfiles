@@ -6,33 +6,16 @@ scriptencoding utf-8
 " General Settings {{{1
 "---------------------------------------------
 
-" Don't be compatible with vi
-set nocompatible
+set nocompatible | filetype indent plugin on | syn on
 
-" Load vundle to manage my plugins
-if has("eval")
-    filetype off
-
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-
-    " required
-    Bundle 'gmarik/vundle'
-    " snippets
-    Bundle 'SirVer/ultisnips'
-    Bundle 'honza/vim-snippets'
-    " other
-    Bundle 'steveno/peaksea'
-    Bundle 'steveno/rust_vim'
-    Bundle 'nanotech/jellybeans.vim'
-    Bundle 'ciaranm/securemodelines'
-    Bundle 'tkztmk/vim-vala'
-
-    " (Re)Enable filetype settings
-    filetype on
-    filetype plugin on
-    filetype indent on
-endif
+set rtp+=~/.vim/vim-addons/vim-addon-manager
+call vam#ActivateAddons(['github:SirVer/ultisnips'], {'auto_install' : 0})
+call vam#ActivateAddons(['github:honza/vim-snippets'], {'auto_install' : 0})
+call vam#ActivateAddons(['github:nanotech/jellybeans.vim'], {'auto_install' : 0})
+call vam#ActivateAddons(['github:wting/rust.vim'], {'auto_install' : 0})
+call vam#ActivateAddons(['github:ciaranm/securemodelines'], {'auto_install' : 0})
+call vam#ActivateAddons(['github:tkztmk/vim-vala'], {'auto_install' : 0})
+call vam#ActivateAddons(['github:steveno/peaksea'], {'auto_install' : 0})
 
 " Enable a large viminfo file
 set viminfo='500,f1,:500,/500
@@ -174,11 +157,6 @@ if has("eval")
         call LoadColorScheme(s:default)
     endif
 endif  
-
-" Enable syntax
-if has("syntax")
-    syntax on
-endif
 
 " Enable line numbers
 set number
