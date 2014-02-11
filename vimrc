@@ -7,15 +7,28 @@ scriptencoding utf-8
 "---------------------------------------------
 
 set nocompatible | filetype indent plugin on | syn on
+fun! SetupVAM()
+  let c = get(g:, 'vim_addon_manager', {})
+  let g:vim_addon_manager = c
+  let c.plugin_root_dir = expand('$HOME', 1) . '/.vim/vim-addons'
+  let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
+  if !isdirectory(c.plugin_root_dir.'/vim-addon-manager/autoload')
+    execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
+                \       shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
+  endif
+  call vam#ActivateAddons([], {'auto_install' : 0})
+endfun
+call SetupVAM()
 
 set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons(['github:SirVer/ultisnips'], {'auto_install' : 0})
-call vam#ActivateAddons(['github:honza/vim-snippets'], {'auto_install' : 0})
-call vam#ActivateAddons(['github:nanotech/jellybeans.vim'], {'auto_install' : 0})
-call vam#ActivateAddons(['github:wting/rust.vim'], {'auto_install' : 0})
-call vam#ActivateAddons(['github:ciaranm/securemodelines'], {'auto_install' : 0})
-call vam#ActivateAddons(['github:tkztmk/vim-vala'], {'auto_install' : 0})
-call vam#ActivateAddons(['github:steveno/peaksea'], {'auto_install' : 0})
+VAMActivate matchit.zip vim-addon-commenting
+VAMActivate github:SirVer/ultisnips
+VAMActivate github:honza/vim-snippets
+VAMActivate github:nanotech/jellybeans.vim
+VAMActivate github:wting/rust.vim
+VAMActivate github:ciaranm/securemodelines
+VAMActivate github:tkztmk/vim-vala
+VAMActivate github:steveno/peaksea
 
 " Enable a large viminfo file
 set viminfo='500,f1,:500,/500
