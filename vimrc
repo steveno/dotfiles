@@ -7,20 +7,9 @@ scriptencoding utf-8
 "---------------------------------------------
 
 set nocompatible | filetype indent plugin on | syn on
-fun! SetupVAM()
-  let c = get(g:, 'vim_addon_manager', {})
-  let g:vim_addon_manager = c
-  let c.plugin_root_dir = expand('$HOME', 1) . '/.vim/vim-addons'
-  let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
-  if !isdirectory(c.plugin_root_dir.'/vim-addon-manager/autoload')
-    execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '
-                \       shellescape(c.plugin_root_dir.'/vim-addon-manager', 1)
-  endif
-  call vam#ActivateAddons([], {'auto_install' : 0})
-endfun
-call SetupVAM()
 
 set rtp+=~/.vim/vim-addons/vim-addon-manager
+call vam#ActivateAddons([])
 VAMActivate matchit.zip vim-addon-commenting
 VAMActivate github:SirVer/ultisnips
 VAMActivate github:honza/vim-snippets
@@ -198,21 +187,6 @@ set statusline+=%-14.(%l,%c%V%)                 " offset
 
 " Autocmds {{{1
 "-----------------------------------------------------------------------
-
-" This if..endif updates copyright headers on :q
-if has("eval")
-    fun! <SID>UpdateCopyrightHeaders()
-        let l:a = 0
-        for l:x in getline(1, 10)
-            let l:a = l:a + 1
-            if -1 != match(l:x, 'Copyright 20\(0[456789]\|1[0123]\) Steven Oliver <oliver.steven@gmail.com>')
-                if input("Update copyright header? (y/N) ") == "y"
-                    call setline(l:a, substitute(l:x, '\(20[01][0123456789]\) Steven', '\1, 2014 Steven', ""))
-                endif  
-            endif
-        endfor
-    endfun
-endif
 
 if has("autocmd") && has("eval")
     " Always do a full syntax refresh
