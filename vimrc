@@ -192,9 +192,6 @@ if has("autocmd") && has("eval")
     " Always do a full syntax refresh
     autocmd BufEnter * syntax sync fromstart
 
-    " Update the copyright header
-    autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
-
     autocmd BufNewFile *.fal 0put ='// vim: set sw=4 sts=4 et tw=80 :' |
                 \ 0put ='#!/usr/bin/falcon' | set sw=4 sts=4 et tw=80 |
                 \ norm G
