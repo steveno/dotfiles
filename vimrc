@@ -8,16 +8,8 @@ scriptencoding utf-8
 
 set nocompatible | filetype indent plugin on | syn on
 
-set rtp+=~/.vim/vim-addons/vim-addon-manager
-call vam#ActivateAddons([])
-VAMActivate matchit.zip vim-addon-commenting
-VAMActivate github:SirVer/ultisnips
-VAMActivate github:honza/vim-snippets
-VAMActivate github:nanotech/jellybeans.vim
-VAMActivate github:wting/rust.vim
-VAMActivate github:ciaranm/securemodelines
-VAMActivate github:tkztmk/vim-vala
-VAMActivate github:steveno/peaksea
+call pathogen#incubate()
+call pathogen#helptags()
 
 " Enable a large viminfo file
 set viminfo='500,f1,:500,/500
