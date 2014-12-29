@@ -24,7 +24,8 @@ function setup_linux {
         if [[ -f /etc/bashrc ]]; then
             . /etc/bashrc
         fi 
-
+        
+        source ~/.git-prompt.sh
         # Setup prompt and such
         if [[ $EUID -eq 0 ]]; then 
             PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w\n$ "
@@ -33,10 +34,9 @@ function setup_linux {
             alias cp='cp -i'
             alias mv='mv -i'
         else
-            PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w\n$ "
-            export PATH=$PATH:/usr/local/go/bin
-            export C_INCLUDE_PATH="/usr/include/libev"
+            PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w\$(__git_ps1)\n$ "
             export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+            export LD_LIBRARY_PATH="/usr/local/lib"
         fi
 
         # Common aliases
@@ -50,7 +50,6 @@ function setup_linux {
         fi
 
         export PATH
-        export XDG_CONFIG_HOME="$HOME/.config"
 }
 
 # Pick an OS
