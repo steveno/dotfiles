@@ -6,10 +6,25 @@ scriptencoding utf-8
 " General Settings {{{1
 "---------------------------------------------
 
-set nocompatible | filetype indent plugin on | syn on
+set nocompatible 
+filetype off
 
-call pathogen#incubate()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'steveno/peaksea' 	
+Plugin 'nanotech/jellybeans.vim' 	
+Plugin 'ciaranm/securemodelines' 	
+Plugin 'tkztmk/vim-vala'
+
+call vundle#end()
+filetype plugin indent on
+
+set laststatus=2
+let g:bufferline_echo = 0
+set noshowmode
 
 " Enable a large viminfo file
 set viminfo='500,f1,:500,/500
@@ -63,9 +78,6 @@ set popt+=syntax:y,number:y
 " Allow edit buffers to be hidden
 set hidden
 
-" 1 height windows
-set winminheight=1
-
 " By default indent 8 spaces and makes tabs spaces
 set shiftwidth=8
 set expandtab
@@ -73,12 +85,6 @@ set expandtab
 " Do clever indent things.
 set autoindent
 set smartindent
-
-" Enable folds
-if has("folding")
-    set foldenable
-    set foldmethod=marker
-endif
 
 " Turn off highlighting
 set nohls!
@@ -113,9 +119,6 @@ let g:falcon_rainbow=0
 set nomodeline
 let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
-
-" Snippets plugin
-let snips_author = 'Steven Oliver'
 
 
 " Visual Settings {{{1
@@ -156,26 +159,7 @@ endif
 set number
 
 " If possible, try to use a narrow number column.
-if v:version >= 700
-    try
-        setlocal numberwidth=3
-    catch
-    endtry
-endif
-
-" Nice statusbar
-set laststatus=2
-set statusline=
-set statusline+=%2*%-3.3n%0*                    " buffer number
-set statusline+=%f                              " file name
-set statusline+=%h%1*%m%r%w%0*                  " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'},     " filetype
-set statusline+=%{&encoding},                   " encoding
-set statusline+=%{&fileformat}]                 " file format
-set statusline+=%=                              " right align
-set statusline+=%2*0x%-8B                       " current char
-set statusline+=%-14.(%l,%c%V%)                 " offset
-
+setlocal numberwidth=3
 
 " Autocmds {{{1
 "-----------------------------------------------------------------------
@@ -183,34 +167,7 @@ set statusline+=%-14.(%l,%c%V%)                 " offset
 if has("autocmd") && has("eval")
     " Always do a full syntax refresh
     autocmd BufEnter * syntax sync fromstart
-
-    autocmd BufNewFile *.fal 0put ='// vim: set sw=4 sts=4 et tw=80 :' |
-                \ 0put ='#!/usr/bin/falcon' | set sw=4 sts=4 et tw=80 |
-                \ norm G
 endif
-
-" This will display each type of spelling highlight and explain which 
-" is which. Only really useful for development of vim syntax scripts.
-" Slightly modified version originally by Ingo Karkat <swdev@ingo-karkat.de>
-function! SpellLegend()
-    for [l:group, l:explanation] in [
-                \   ['SpellBad', 'word not recognized'],
-                \   ['SpellCap', 'word not capitalized'],
-                \   ['SpellRare', 'rare word'],
-                \   ['SpellLocal', 'wrong spelling for selected region']
-                \]
-        echo ''
-        execute 'echohl' l:group
-        echon l:group
-        echohl None
-        echon "\t" . l:explanation
-    endfor
-endfunction
-command! -bar SpellLegend call SpellLegend()
-
-" When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vimrc
-
 
 " Mappings {{{1
 "---------------------------------------------
