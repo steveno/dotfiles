@@ -9,7 +9,6 @@ function setup_linux {
             . /etc/bashrc
         fi 
         
-        source ~/.git-prompt.sh
         # Setup prompt and such
         if [[ $EUID -eq 0 ]]; then 
             PS1="\[\e[031m\]\u\[\e[m\]@\\h:\\w\n$ "
@@ -21,6 +20,8 @@ function setup_linux {
             PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w\$(__git_ps1)\n$ "
             export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
             export LD_LIBRARY_PATH="/usr/local/lib"
+            source ~/.git-prompt.sh
+
         fi
 
         # Common aliases
@@ -38,9 +39,6 @@ function setup_linux {
 
 # Pick an OS
 case "${OSTYPE}" in
-    darwin*)
-        setup_mac
-        ;;
     linux-gnu)
         setup_linux
         ;;
