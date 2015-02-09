@@ -8,6 +8,5 @@ ___
 **local.conf** - used to tell Fedora where my local libs are  
 **login.sql** - for Oracle's SQLPlus  
 **profile.ps1** - for Powershell on Windows  
-**rc.luc** - Awesome configuration script  
 **scripts.ps1** - companion scripts for profile.ps1  
 **vimrc** - vim configuration  
