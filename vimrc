@@ -12,12 +12,12 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'steveno/peaksea' 	
 Plugin 'nanotech/jellybeans.vim' 	
 Plugin 'ciaranm/securemodelines' 	
 Plugin 'tkztmk/vim-vala'
+Plugin 'klen/python-mode'
 
 call vundle#end()
 filetype plugin indent on
@@ -79,8 +79,7 @@ set popt+=syntax:y,number:y
 set hidden
 
 " By default indent 8 spaces and makes tabs spaces
-set shiftwidth=8
-set expandtab
+set shiftwidth=4
 
 " Do clever indent things.
 set autoindent
@@ -120,6 +119,33 @@ set nomodeline
 let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
 
+let g:pymode_rope = 1
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
 
 " Visual Settings {{{1
 "----------------------------------------------
@@ -182,25 +208,6 @@ noremap <C-space> <C-u>
 inoremap jj <Esc>
 
 
-" Abbreviations {{{1
-"---------------------------------------------
-
-if has("eval") && has("autocmd")
-    fun! <SID>abbrev_cpp()
-        iabbrev <buffer> jcl class
-        iabbrev <buffer> jco constant
-        iabbrev <buffer> jns namespace
-        iabbrev <buffer> jpr protected
-        iabbrev <buffer> jpu public
-        iabbrev <buffer> jpv private
-        iabbrev <buffer> jss std::string
-        iabbrev <buffer> jsv std::vector
-        iabbrev <buffer> jty typedef
-        iabbrev <buffer> jun using namespace
-    endfun
-endif
-
-
 " Final commands {{{1
 "---------------------------------------------
 
@@ -211,4 +218,4 @@ endif
 
 " }}}1
 
-" vim: set sw=4 sts=4 et tw=80 :
+" vim: set sw=4 sts=4 :
