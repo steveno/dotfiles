@@ -81,20 +81,19 @@ if ( get-adminuser ) {
 }
 
 # Window size
-$size = $Shell.WindowSize
-$size.width = 120
-$size.height = 35
-$Shell.WindowSize = $size
+$w_size = $Shell.WindowSize
+$w_size.width = 119
+$w_size.height = 35
+$Shell.WindowSize = $w_size
 
 # Buffer size
-$size = $Shell.BufferSize
-$size.width = 120
-$size.height = 3000
-$Shell.BufferSize = $size
+$b_size = $Shell.BufferSize
+$b_size.width = 119
+$b_size.height = 3000
+$Shell.BufferSize = $b_size
 
 # Cursor
 $Shell.Cursorsize = 12
 
 # Default prompt location
 set-location C:\
-
