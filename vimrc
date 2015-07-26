@@ -35,10 +35,7 @@ set backspace=indent,eol,start
 
 " Create backups
 set backup
-if has('gui_win32') || has('gui_win64')
-    set backupdir=$HOME\backup\
-    set directory=$HOME\backup\
-elseif has('gui_macvim') || has('gui_gtk')
+if has('gui_macvim') || has('gui_gtk')
     set backupdir=$HOME/.backup/
     set directory=$HOME/.backup/
 endif
@@ -74,11 +71,6 @@ set completeopt=longest,menuone
 
 " Print with syntax highlighting and line numbers
 set popt+=syntax:y,number:y
-
-" Allow edit buffers to be hidden
-set hidden
-
-" By default indent 8 spaces and makes tabs spaces
 set shiftwidth=4
 
 " Do clever indent things.
@@ -187,27 +179,6 @@ set number
 " If possible, try to use a narrow number column.
 setlocal numberwidth=3
 
-" Autocmds {{{1
-"-----------------------------------------------------------------------
-
-if has("autocmd") && has("eval")
-    " Always do a full syntax refresh
-    autocmd BufEnter * syntax sync fromstart
-endif
-
-" Mappings {{{1
-"---------------------------------------------
-
-" Make Space go down half a page
-noremap <space> <C-d>
-
-" Make Control+Space go up half a page
-noremap <C-space> <C-u>
-
-" In normal mode, jj escapes
-inoremap jj <Esc>
-
-
 " Final commands {{{1
 "---------------------------------------------
 
@@ -218,4 +189,3 @@ endif
 
 " }}}1
 
-" vim: set sw=4 sts=4 :
