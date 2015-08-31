@@ -1,7 +1,3 @@
-Steven Oliver's configuration files
-___
-
-**bash_profile** - I don't know but I have one  
 **bashrc** - bash configuration  
 **gitconfig** - global gitconfig  
 **gvimrc** - gvim configuration  

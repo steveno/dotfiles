@@ -1,9 +1,3 @@
-scriptencoding utf-8
-
-"---------------------------------------------
-" G/Vim settings file for Steven Oliver
-"---------------------------------------------
-
 " Set the default size
 if has('gui_win32') || has('gui_win64')
     set lines=35
@@ -14,10 +8,15 @@ elseif has('gui_gtk')
 endif 
 
 " No menu or toolbar
-set guioptions-=mT
+set guioptions-=T
+set guioptions-=m
 
 " No scrollbars (left, bottom, right)
-set guioptions-=LlRrb
+set guioptions-=R
+set guioptions-=r
+set guioptions-=l
+set guioptions-=L
+set guioptions-=b
 
 " Nice copy'n'paste
 set guioptions+=a
@@ -41,8 +40,6 @@ if has("eval")
         call SetFont("Consolas:h9:cANSI,Courier_New:h9:cANSI")
     elseif has('gui_gtk')
         call SetFont("Monospace\ 9")
-    elseif has('gui_macvim')
-        "use default
     else
         " use default
     endif

@@ -1,25 +1,13 @@
-scriptencoding utf-8
+call plug#begin('~/.vim/plugged')
+Plug 'bling/vim-airline'
+Plug 'steveno/peaksea' 	
+Plug 'nanotech/jellybeans.vim' 	
+Plug 'ciaranm/inkpot'
+Plug 'ciaranm/securemodelines' 	
+Plug 'tkztmk/vim-vala'
+Plug 'klen/python-mode'
+call plug#end()
 
-" Vim settings file for Steven Oliver
-"---------------------------------------------
-
-" General Settings {{{1
-"---------------------------------------------
-
-set nocompatible 
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
-Plugin 'steveno/peaksea' 	
-Plugin 'nanotech/jellybeans.vim' 	
-Plugin 'ciaranm/securemodelines' 	
-Plugin 'tkztmk/vim-vala'
-Plugin 'klen/python-mode'
-
-call vundle#end()
 filetype plugin indent on
 
 set laststatus=2
@@ -28,24 +16,17 @@ set noshowmode
 
 " Enable a large viminfo file
 set viminfo='500,f1,:500,/500
-set history=200
-
-" Make backspace delete lots of things
-set backspace=indent,eol,start
 
 " Create backups
 set backup
-if has('gui_macvim') || has('gui_gtk')
+if has('gui_gtk')
     set backupdir=$HOME/.backup/
     set directory=$HOME/.backup/
 endif
 
-" Search options: incremental search, highlight search
-set hlsearch
-set incsearch
-
 " Show full tags when doing search completion
 set showfulltag
+set expandtab
 
 " Speed up macros
 set lazyredraw
@@ -64,7 +45,6 @@ set whichwrap+=<,>,[,]
 set matchpairs+=<:>
 
 " Tab complete menu
-set wildmenu
 set wildignore+=*.o,*~,.lo
 set suffixes+=.in,.a
 set completeopt=longest,menuone
@@ -72,9 +52,6 @@ set completeopt=longest,menuone
 " Print with syntax highlighting and line numbers
 set popt+=syntax:y,number:y
 set shiftwidth=4
-
-" Do clever indent things.
-set autoindent
 set smartindent
 
 " Turn off highlighting
@@ -89,28 +66,16 @@ set showcmd
 " Highlight matching parens
 set showmatch
 
-
-" Individual language options {{{1
-"----------------------------------------------
-
-" Enable comment strings
-let vala_comment_strings=1
-
-" Highlight space errors
-let vala_space_errors=1
-
-" falcon rainbow highlighting
-let g:falcon_rainbow=0
-
-
-" Setup plugins {{{1
-"----------------------------------------------
-
 " Use secure modelines
 set nomodeline
 let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
 
+" Vala 
+let vala_comment_strings=1
+let vala_space_errors=1
+
+" Python
 let g:pymode_rope = 1
 
 " Documentation
@@ -139,53 +104,8 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
-" Visual Settings {{{1
-"----------------------------------------------
-
 " Set a dark background
-set background=dark
-
-" Load colorscheme
-if has("eval")
-    fun! LoadColorScheme(schemes)
-        let l:schemes = a:schemes . ":"
-        while l:schemes != ""
-            let l:scheme = strpart(l:schemes, 0, stridx(l:schemes, ":"))
-            let l:schemes = strpart(l:schemes, stridx(l:schemes, ":") + 1)
-            try
-                exec "colorscheme" l:scheme
-                break
-            catch
-            endtry
-        endwhile
-    endfun
-
-    let s:prefered_scheme = "peaksea"
-    let s:other = ":inkpot:moria:ir_black"
-    let s:default = ":desert:pablo:slate"
-
-    if has('gui_running')
-        call LoadColorScheme(s:prefered_scheme . s:other . s:default)
-    elseif &t_Co >= 88
-        call LoadColorScheme(s:prefered_scheme . s:other . s:default)
-    else
-        call LoadColorScheme(s:default)
-    endif
-endif  
-
-" Enable line numbers
 set number
-
-" If possible, try to use a narrow number column.
+set background=dark
+colorscheme peaksea
 setlocal numberwidth=3
-
-" Final commands {{{1
-"---------------------------------------------
-
-" turn off any existing search
-if has("autocmd")
-    au VimEnter * nohls
-endif
-
-" }}}1
-
