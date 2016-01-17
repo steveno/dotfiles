@@ -25,5 +25,3 @@ alias vim='nvim'
 # Common aliases
 alias mkdir='mkdir -p'
 alias ls='ls --color'
-
-export PATH
