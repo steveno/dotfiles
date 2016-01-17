@@ -14,15 +14,10 @@ set laststatus=2
 let g:bufferline_echo = 0
 set noshowmode
 
-" Enable a large viminfo file
-set viminfo='500,f1,:500,/500
-
 " Create backups
 set backup
-if has('gui_gtk')
-    set backupdir=$HOME/.backup/
-    set directory=$HOME/.backup/
-endif
+set backupdir=$HOME/.config/nvim/backups/
+set directory=$HOME/.config/nvim/backups/
 
 " Show full tags when doing search completion
 set showfulltag
@@ -82,7 +77,7 @@ let g:pymode_rope = 1
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
-"Linting
+" Linting
 let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
 " Auto check on save
@@ -95,7 +90,7 @@ let g:pymode_virtualenv = 1
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_bind = '<leader>b'
 
-" syntax highlighting
+" Syntax highlighting
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
@@ -109,3 +104,21 @@ set number
 set background=dark
 colorscheme peaksea
 setlocal numberwidth=3
+
+if has("eval")
+    fun! <SID>UpdateCopyrightHeaders()
+        let l:a = 0
+        for l:x in getline(1, 10)
+            let l:a = l:a + 1
+            if -1 != match(l:x, 'Copyright [- 0-9,]*20\(0[456789]\|1[012345]\) Steven Oliver')
+                if input("Update copyright header? (y/N) ") == "y"
+                    call setline(l:a, substitute(l:x, '\(20[01][012345]\) Steven',
+                                \ '2016 Steven', ""))
+                endif
+            endif
+        endfor
+    endfun
+endif
+
+" update copyright headers
+autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
