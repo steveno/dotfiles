@@ -16,11 +16,11 @@ else
     PS1="\[\e[0;32m\]\u\[\e[m\]@\\h:\\w\$(__git_ps1)\n$ "
     export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
     export LD_LIBRARY_PATH="/usr/local/lib"
+
+    alias vi='nvim'
+    alias vim='nvim'
     source ~/.git-prompt.sh
 fi
-
-alias vi='nvim'
-alias vim='nvim'
 
 # Common aliases
 alias mkdir='mkdir -p'

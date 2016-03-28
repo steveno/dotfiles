@@ -1,10 +1,10 @@
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'steveno/peaksea' 	
+Plug 'steveno/vim-vala'
 Plug 'nanotech/jellybeans.vim' 	
 Plug 'ciaranm/inkpot'
 Plug 'ciaranm/securemodelines' 	
-Plug 'tkztmk/vim-vala'
 Plug 'klen/python-mode'
 call plug#end()
 
