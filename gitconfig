@@ -1,6 +1,7 @@
 [user]
         name = Steven Oliver
         email = oliver.steven@gmail.com
+	signingkey = 8214AD20
 [core]
         excludesfile = ~/.gitignore
 [color]
@@ -12,6 +13,7 @@
         br = branch
         cl = clone
         co = checkout
+        cm = commit -S
         ll = log --graph --decorate
         ss = status -sb
 [sendemail]
