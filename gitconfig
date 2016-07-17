@@ -1,9 +1,10 @@
 [user]
         name = Steven Oliver
         email = oliver.steven@gmail.com
-	signingkey = 8214AD20
+	signingkey = D85EFFE3B15A2DE4
 [core]
         excludesfile = ~/.gitignore
+	editor = nvim
 [color]
         branch = auto
         diff = auto
