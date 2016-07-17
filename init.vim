@@ -6,6 +6,8 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'ciaranm/inkpot'
 Plug 'ciaranm/securemodelines' 	
 Plug 'klen/python-mode'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/syntastic'
 call plug#end()
 
 filetype plugin indent on
@@ -65,6 +67,9 @@ set showmatch
 set nomodeline
 let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
+
+" Rust
+let g:rustfmt_autosave = 1
 
 " Vala 
 let vala_comment_strings=1
