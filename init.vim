@@ -76,15 +76,16 @@ let vala_comment_strings=1
 let vala_space_errors=1
 
 " Python
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 
 " Documentation
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
 " Linting
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 let g:pymode_lint_checker = "pyflakes,pep8"
+
 " Auto check on save
 let g:pymode_lint_write = 1
 
