@@ -2,12 +2,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'steveno/peaksea' 	
 Plug 'steveno/vim-vala'
-Plug 'nanotech/jellybeans.vim' 	
-Plug 'ciaranm/inkpot'
 Plug 'ciaranm/securemodelines' 	
-Plug 'klen/python-mode'
 Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/syntastic'
 call plug#end()
 
 filetype plugin indent on
@@ -68,42 +64,39 @@ set nomodeline
 let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
 
-" Rust
-let g:rustfmt_autosave = 1
-
 " Vala 
 let vala_comment_strings=1
 let vala_space_errors=1
 
 " Python
-let g:pymode_rope = 0
+let g:pymode_rope=0
 
 " Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
+let g:pymode_doc=1
+let g:pymode_doc_key='K'
 
 " Linting
-let g:pymode_lint = 0
+let g:pymode_lint=0
 let g:pymode_lint_checker = "pyflakes,pep8"
 
 " Auto check on save
-let g:pymode_lint_write = 1
+let g:pymode_lint_write=0
 
 " Support virtualenv
-let g:pymode_virtualenv = 1
+let g:pymode_virtualenv=0
 
 " Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_breakpoint= 0
+let g:pymode_breakpoint_bind='<leader>b'
 
 " Syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
+let g:pymode_syntax=0
+let g:pymode_syntax_all=0
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
-let g:pymode_folding = 0
+let g:pymode_folding=0
 
 " Set a dark background
 set number
@@ -116,10 +109,10 @@ if has("eval")
         let l:a = 0
         for l:x in getline(1, 10)
             let l:a = l:a + 1
-            if -1 != match(l:x, 'Copyright [- 0-9,]*20\(0[456789]\|1[0123456]\) Steven Oliver')
-                if input("Update copyright header? (Y/n) ") == "n"
-                    call setline(l:a, substitute(l:x, '\(20[01][0123456]\) Steven',
-                                \ '2017 Steven', ""))
+            if -1 != match(l:x, 'Copyright [- 0-9,]*20\(0[456789]\|1[34567]\) Steven Oliver')
+                if input("Update copyright header? (y/n) ") == "y"
+                    call setline(l:a, substitute(l:x, '\(20[01][34567]\) Steven',
+                                \ '2018 Steven', ""))
                 endif
             endif
         endfor
