@@ -27,6 +27,7 @@ ensure_editor_alternative:
     - mode: 664
     - makedirs: True
 
+{% if not salt['file.exists'](/home/steveno/.local/share/nvim/site/autoload/plug.vim) %}
 /home/steveno/.local/share/nvim/site/autoload/plug.vim:
   file.managed:
     - source: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -34,5 +35,4 @@ ensure_editor_alternative:
     - group: steveno
     - mode: 664
     - makedirs: True
-    - onlyif:
-      - ls /home/steveno/.local/share/nvim/site/autoload/plug.vim
+{% endif %}
