@@ -1,6 +1,7 @@
 base:
   '*':
-    - packages
-    - git
     - bash
+    - git
+    - packages
     - nvim
+    - rust
