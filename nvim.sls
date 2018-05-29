@@ -35,4 +35,5 @@ ensure_editor_alternative:
     - group: steveno
     - mode: 664
     - makedirs: True
+    - skip_verify: True
 {% endif %}
