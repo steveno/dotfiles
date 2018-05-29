@@ -16,7 +16,7 @@ ensure_editor_alternative:
     - name: /home/steveno/.config/nvim/backups
     - user: steveno
     - group: steveno
-    - mode: 664
+    - mode: 700
 
 /home/steveno/.config/nvim/init.vim:
   file.managed:

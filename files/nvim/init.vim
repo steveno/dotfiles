@@ -6,6 +6,7 @@ Plug 'steveno/meson-vim'
 Plug 'ciaranm/securemodelines' 	
 Plug 'rust-lang/rust.vim'
 Plug 'zig-lang/zig.vim'
+Plug 'saltstack/salt-vim'
 call plug#end()
 
 filetype plugin indent on
