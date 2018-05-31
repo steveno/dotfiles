@@ -51,18 +51,18 @@ salt_repository:
     - name: https://github.com/saltstack/salt.git
     - user: steveno
     - update_head: False
-    - target: /home/steveno/Projects/python
+    - target: /home/steveno/Projects/python/salt/
 
 balistica_repository:
   git.latest:
     - name: https://github.com/steveno/balistica.git
     - user: steveno
     - update_head: False
-    - target: /home/steveno/Projects/vala
+    - target: /home/steveno/Projects/vala/balastica/
 
 polvora_repository:
   git.latest:
     - name: https://github.com/steveno/polvora.git
     - user: steveno
     - update_head: False
-    - target: /home/steveno/Projects/vala
+    - target: /home/steveno/Projects/vala/polvora/
