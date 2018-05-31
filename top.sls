@@ -6,5 +6,6 @@ base:
     - keepassxc
     - nvim
     - packages
+    - projects
     - rust
     - ssh
