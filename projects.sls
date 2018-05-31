@@ -22,7 +22,7 @@
     - group: steveno
     - mode: 755
 
-/home/steveno/Projects/vb:
+/home/steveno/Projects/vala:
   file.directory:
     - name: /home/steveno/Projects/vala
     - makedirs: True
