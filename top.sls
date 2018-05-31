@@ -1,10 +1,10 @@
 base:
-  '*':
+  'shawnee':
     - bash
     - git
     - gnupg
     - keepassxc
-    - packages
     - nvim
+    - packages
     - rust
     - ssh
