@@ -20,7 +20,7 @@ ensure_editor_alternative:
 
 /home/steveno/.config/nvim/init.vim:
   file.managed:
-    - source: salt://files/nvim/init.vim
+    - source: salt://files/home/config/nvim/init.vim
     - template: jinja
     - user: steveno
     - group: steveno

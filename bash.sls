@@ -1,6 +1,6 @@
 /home/steveno/.bash_aliases:
   file.managed:
-    - source: salt://files/bash_aliases
+    - source: salt://files/home/bash_aliases
     - template: jinja
     - user: steveno
     - group: steveno
