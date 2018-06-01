@@ -50,7 +50,6 @@ salt_repository:
   git.latest:
     - name: https://github.com/saltstack/salt.git
     - user: steveno
-    - update_head: False
     - target: /home/steveno/Projects/python/salt/
 
 balistica_repository:
