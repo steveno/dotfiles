@@ -6,6 +6,14 @@
     - group: steveno
     - mode: 755
 
+/home/steveno/Projects/d:
+  file.directory:
+    - name: /home/steveno/Projects/d
+    - makedirs: True
+    - user: steveno
+    - group: steveno
+    - mode: 755
+
 /home/steveno/Projects/python:
   file.directory:
     - name: /home/steveno/Projects/python
