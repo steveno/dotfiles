@@ -1,3 +1,7 @@
+install_neovim:
+  pkg.installed:
+    - name: neovim
+
 install_editor_alternative:
   alternatives.install:
     - name: editor

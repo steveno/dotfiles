@@ -1,5 +1,5 @@
 # General applications, etc.
-{% set general = ['build-essential', 'curl', 'git', 'keepassxc', 'meson', 'neovim', 'texstudio', 'tmux'] %}
+{% set general = ['build-essential', 'curl', 'meson', 'texstudio', 'tmux', 'vlc'] %}
 {% set xiphos = ['xiphos', 'sword-text-kjv'] %}
 # Development packages
 {% set vala_dev = ['libgee-0.8-dev', 'valac'] %}

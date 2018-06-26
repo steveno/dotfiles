@@ -1,3 +1,7 @@
+git_installed:
+  pkg.installed:
+    - name: git
+
 /home/steveno/.gitconfig:
   file.managed:
     - source: salt://files/home/gitconfig

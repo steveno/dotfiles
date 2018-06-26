@@ -46,12 +46,6 @@
     - group: steveno
     - mode: 755
 
-salt_repository:
-  git.latest:
-    - name: https://github.com/saltstack/salt.git
-    - user: steveno
-    - target: /home/steveno/Projects/python/salt/
-
 balistica_repository:
   git.latest:
     - name: https://github.com/steveno/balistica.git

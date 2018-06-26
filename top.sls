@@ -4,7 +4,7 @@ base:
     - git
     - gnupg
     - keepassxc
-    - nvim
+    - neovim
     - packages
     - projects
     - rust
