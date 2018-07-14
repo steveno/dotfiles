@@ -9,3 +9,4 @@ base:
     - projects
     - rust
     - ssh
+    - sysctl_settings
