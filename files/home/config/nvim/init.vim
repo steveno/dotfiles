@@ -7,6 +7,7 @@ Plug 'ciaranm/securemodelines'
 Plug 'rust-lang/rust.vim'
 Plug 'zig-lang/zig.vim'
 Plug 'saltstack/salt-vim'
+Plug 'landaire/deoplete-d'
 call plug#end()
 
 filetype plugin indent on
@@ -66,6 +67,27 @@ set showmatch
 set nomodeline
 let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
+
+" D
+" Error format
+autocmd FileType d set efm=%*[^@]@%f\(%l\):\ %m,%f\(%l\\,%c\):\ %m,%f\(%l\):\ %m
+
+" Run unit tests on current file
+function! DTest()
+  let l:fn = substitute(expand('%:r'), '/', '-', 'g') . '.lst'
+  call delete(l:fn)
+  cexpr system('dmd -cov -unittest -main -run ' . expand('%'))
+  if filereadable(l:fn)
+     normal gg
+     execute '13vsplit' l:fn
+     normal gg
+     set scrollbind
+     normal ^Wl
+     set scrollbind
+  endif
+endfunction
+
+autocmd FileType d nnoremap <f8> :call DTest()<cr>
 
 " Python3
 let g:python3_host_prog = '/usr/bin/python3'
