@@ -1,11 +1,3 @@
-/home/steveno/Projects/clojure:
-  file.directory:
-    - name: /home/steveno/Projects/clojure
-    - makedirs: True
-    - user: steveno
-    - group: steveno
-    - mode: 755
-
 /home/steveno/Projects/d:
   file.directory:
     - name: /home/steveno/Projects/d
@@ -33,14 +25,6 @@
 /home/steveno/Projects/vala:
   file.directory:
     - name: /home/steveno/Projects/vala
-    - makedirs: True
-    - user: steveno
-    - group: steveno
-    - mode: 755
-
-/home/steveno/Projects/vb:
-  file.directory:
-    - name: /home/steveno/Projects/vb
     - makedirs: True
     - user: steveno
     - group: steveno
