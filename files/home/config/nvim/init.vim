@@ -1,13 +1,11 @@
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'steveno/peaksea' 	
+Plug 'ciaranm/securemodelines'
 Plug 'steveno/vim-vala'
 Plug 'steveno/meson-vim'
-Plug 'ciaranm/securemodelines' 	
-Plug 'rust-lang/rust.vim'
 Plug 'zig-lang/zig.vim'
 Plug 'saltstack/salt-vim'
-Plug 'landaire/deoplete-d'
 call plug#end()
 
 filetype plugin indent on
@@ -68,35 +66,6 @@ set nomodeline
 let g:secure_modelines_verbose=0
 let g:secure_modelines_modelines=15
 
-" D
-" Error format
-autocmd FileType d set efm=%*[^@]@%f\(%l\):\ %m,%f\(%l\\,%c\):\ %m,%f\(%l\):\ %m
-
-" Run unit tests on current file
-function! DTest()
-  let l:fn = substitute(expand('%:r'), '/', '-', 'g') . '.lst'
-  call delete(l:fn)
-  cexpr system('dmd -cov -unittest -main -run ' . expand('%'))
-  if filereadable(l:fn)
-     normal gg
-     execute '13vsplit' l:fn
-     normal gg
-     set scrollbind
-     normal ^Wl
-     set scrollbind
-  endif
-endfunction
-
-autocmd FileType d nnoremap <f8> :call DTest()<cr>
-
-" Python3
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python'
-
-" Vala 
-let vala_comment_strings=1
-let vala_space_errors=1
-
 " Set a dark background
 set number
 set background=dark
@@ -120,3 +89,43 @@ endif
 
 " update copyright headers
 autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" D
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Error format
+autocmd FileType d set efm=%*[^@]@%f\(%l\):\ %m,%f\(%l\\,%c\):\ %m,%f\(%l\):\ %m
+
+" Run unit tests on current file
+function! DTest()
+  let l:fn = substitute(expand('%:r'), '/', '-', 'g') . '.lst'
+  call delete(l:fn)
+  cexpr system('dmd -cov -unittest -main -run ' . expand('%'))
+  if filereadable(l:fn)
+     normal gg
+     execute '13vsplit' l:fn
+     normal gg
+     set scrollbind
+     normal ^Wl
+     set scrollbind
+  endif
+endfunction
+
+autocmd FileType d nnoremap <f8> :call DTest()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python3
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vala 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let vala_comment_strings=1
+let vala_space_errors=1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Scheme
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.scm setl ft=lisp ts=2 et sw=2
