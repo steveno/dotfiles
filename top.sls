@@ -3,10 +3,10 @@ base:
     - bash
     - git
     - gnupg
+    - hexchat
     - keepassxc
     - neovim
     - packages
     - projects
-    - rust
     - ssh
     - sysctl_settings
