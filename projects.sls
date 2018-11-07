@@ -1,53 +1,18 @@
-/home/steveno/Projects/d:
+{% for lang in ['c', 'd', 'python', 'vala', 'work', 'zig'] %}
+/home/steveno/Projects/{{ lang }}:
   file.directory:
-    - name: /home/steveno/Projects/d
+    - name: /home/steveno/Projects/{{ lang }}
     - makedirs: True
     - user: steveno
     - group: steveno
     - mode: 755
+{% endfor %}
 
-/home/steveno/Projects/python:
-  file.directory:
-    - name: /home/steveno/Projects/python
-    - makedirs: True
-    - user: steveno
-    - group: steveno
-    - mode: 755
-
-/home/steveno/Projects/rust:
-  file.directory:
-    - name: /home/steveno/Projects/rust
-    - makedirs: True
-    - user: steveno
-    - group: steveno
-    - mode: 755
-
-/home/steveno/Projects/vala:
-  file.directory:
-    - name: /home/steveno/Projects/vala
-    - makedirs: True
-    - user: steveno
-    - group: steveno
-    - mode: 755
-
-/home/steveno/Projects/work:
-  file.directory:
-    - name: /home/steveno/Projects/work
-    - makedirs: True
-    - user: steveno
-    - group: steveno
-    - mode: 755
-
-balistica_repository:
+{% for project in pillar.get('projects', {}) %}
+{{ project.name }}_repository:
   git.latest:
-    - name: https://github.com/steveno/balistica.git
+    - name: https://github.com/steveno/{{ project.name }}.git
     - user: steveno
     - update_head: False
-    - target: /home/steveno/Projects/vala/balastica/
-
-polvora_repository:
-  git.latest:
-    - name: https://github.com/steveno/polvora.git
-    - user: steveno
-    - update_head: False
-    - target: /home/steveno/Projects/vala/polvora/
+    - target: /home/steveno/Projects/{{ project.lang }}/{{ project.name }}/
+{% endfor %}
