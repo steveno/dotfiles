@@ -1,7 +1,7 @@
-{% for lang in ['c', 'd', 'python', 'vala', 'work', 'zig'] %}
-/home/steveno/Projects/{{ lang }}:
+{% for dir in pillar.get('project_directories', {}) %}
+/home/steveno/Projects/{{ dir }}:
   file.directory:
-    - name: /home/steveno/Projects/{{ lang }}
+    - name: /home/steveno/Projects/{{ dir }}
     - makedirs: True
     - user: steveno
     - group: steveno
