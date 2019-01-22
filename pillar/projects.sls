@@ -5,3 +5,5 @@ projects:
     lang: vala
   - name: peaksea
     lang: vim
+  - name: anendektos
+    lang: d

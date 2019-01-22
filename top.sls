@@ -1,9 +1,11 @@
 base:
   'shawnee':
     - bash
+    - cherrytree
     - git
     - gnupg
     - hexchat
+    - jobs
     - keepassxc
     - neovim
     - packages

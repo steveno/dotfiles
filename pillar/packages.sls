@@ -1,8 +1,8 @@
 packages:
   - calibre
-  - cherrytree
   - hexchat
   - texstudio
+  - tilix
   - tmux
   - transmission
   - vlc

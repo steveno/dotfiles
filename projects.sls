@@ -10,9 +10,9 @@
 
 {% for project in pillar.get('projects', {}) %}
 {{ project.name }}_repository:
-  git.latest:
+  git.cloned:
     - name: https://github.com/steveno/{{ project.name }}.git
     - user: steveno
-    - update_head: False
     - target: /home/steveno/Projects/{{ project.lang }}/{{ project.name }}/
+    - branch: master
 {% endfor %}

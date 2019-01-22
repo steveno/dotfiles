@@ -4,4 +4,3 @@ project_directories:
   - python
   - vala
   - work
-  - zig
