@@ -1,6 +1,5 @@
 project_directories:
-  - c
-  - d 
+  - dlang
   - python
   - vala
   - work

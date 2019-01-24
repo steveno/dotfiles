@@ -6,4 +6,4 @@ projects:
   - name: peaksea
     lang: vim
   - name: anendektos
-    lang: d
+    lang: dlang
