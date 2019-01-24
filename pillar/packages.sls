@@ -1,6 +1,5 @@
 packages:
   - calibre
-  - hexchat
   - texstudio
   - tilix
   - tmux

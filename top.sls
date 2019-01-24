@@ -2,6 +2,7 @@ base:
   'shawnee':
     - bash
     - cherrytree
+    - dlang
     - git
     - gnupg
     - hexchat
