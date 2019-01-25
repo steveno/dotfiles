@@ -1,5 +1,7 @@
 packages:
   - calibre
+  - gimp
+  - htop
   - texstudio
   - tilix
   - tmux
