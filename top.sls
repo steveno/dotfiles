@@ -3,6 +3,7 @@ base:
     - bash
     - cherrytree
     - dlang
+    - fonts
     - git
     - gnupg
     - hexchat
