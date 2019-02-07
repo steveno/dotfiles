@@ -11,7 +11,8 @@ git_installed:
 
 /home/steveno/.git-prompt.sh:
   file.managed:
-    - source: salt://files/home/git-prompt.sh
+    - source: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
     - user: steveno
     - group: steveno
     - mode: 664
+    - skip_verify: true
