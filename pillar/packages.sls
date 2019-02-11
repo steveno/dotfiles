@@ -1,6 +1,7 @@
 packages:
   - calibre
   - gimp
+  - gparted
   - htop
   - texstudio
   - tilix
