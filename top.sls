@@ -2,6 +2,7 @@ base:
   'shawnee':
     - bash
     - cherrytree
+    - chrome
     - dlang
     - fonts
     - git

@@ -5,4 +5,4 @@ chrome_repo:
     - file: /etc/apt/sources.list.d/google-chrome.list
 
 google-chrome-stable:
-pkg.installed
+  pkg.installed

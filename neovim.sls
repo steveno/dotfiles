@@ -21,6 +21,7 @@ ensure_editor_alternative:
     - user: steveno
     - group: steveno
     - mode: 700
+    - makedirs: True
 
 /home/steveno/.config/nvim/init.vim:
   file.managed:

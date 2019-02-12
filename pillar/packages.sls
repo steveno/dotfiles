@@ -3,13 +3,14 @@ packages:
   - gimp
   - gparted
   - htop
+  - libreoffice
+  - sword-text-kjv
   - texstudio
   - tilix
   - tmux
   - transmission
   - vlc
   - xiphos
-  - sword-text-kjv
   # general development
   - build-essential
   - cmake
