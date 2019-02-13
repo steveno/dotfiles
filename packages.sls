@@ -1,5 +1,5 @@
 {% for package in pillar.get('packages', {}) %}
-{{ package }}:
-  pkg:
-    - installed
+{{ package }}_pkg:
+  pkg.installed:
+    - name: {{ package }}
 {% endfor %}

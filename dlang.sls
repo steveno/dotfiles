@@ -7,16 +7,12 @@
     - makedirs: True
     - skip_verify: True
 
-pkg-curl:
-  pkg.installed:
-    - name: curl
-
 install_d:
   cmd.run:
     - name: /home/steveno/dlang/install.sh dmd -a
     - cwd: /home/steveno/dlang
     - runas: steveno
     - require:
-      - pkg: pkg-curl
+      - pkg: curl_pkg
     - onchanges:
       - file: /home/steveno/dlang/install.sh
