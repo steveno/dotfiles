@@ -1,7 +1,7 @@
 [user]
         name = Steven Oliver
         email = oliver.steven@gmail.com
-	signingkey = D85EFFE3B15A2DE4
+	signingkey = ECA840EEA7D1B976
 [core]
         excludesfile = ~/.gitignore
 	editor = nvim
