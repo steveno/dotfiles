@@ -10,6 +10,7 @@ base:
     - hexchat
     - jobs
     - keepassxc
+    - keybase
     - neovim
     - packages
     - projects
