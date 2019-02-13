@@ -4,8 +4,11 @@ cherrytree_ppa:
     - architectures: amd64
     - file: /etc/apt/sources.list.d/cherrytree.list
 
-cherrytree:
-  pkg.installed
+cherrytree_pkg:
+  pkg.installed:
+    - name: cherrytree
+    - require:
+      - pkgrepo: cherrytree_ppa
 
 /home/steveno/.config/autostart/cherrytree.desktop:
   file.managed:
@@ -14,5 +17,12 @@ cherrytree:
     - group: steveno
     - mode: 664
     - makedirs: True
-  require:
-    - pkg: cherrytree
+
+/home/steveno/.config/cherrytree/config.cfg:
+  file.managed:
+    - source: salt://files/home/config/cherrytree/config.cfg
+    - template: jinja
+    - user: steveno
+    - group: steveno
+    - mode: 664
+    - makedirs: True
