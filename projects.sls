@@ -20,4 +20,7 @@
 /home/steveno/Projects/python/devsalt:
   virtualenv.managed:
     - system_site_packages: False
+    - requirements: /home/steveno/Projects/python/salt/requirements/dev.txt
     - user: steveno
+    - require:
+      - git: salt_repository
