@@ -11,8 +11,13 @@
 {% for project in pillar.get('projects', {}) %}
 {{ project.name }}_repository:
   git.cloned:
-    - name: https://github.com/steveno/{{ project.name }}.git
+    - name: https://github.com/{{ project.owner }}/{{ project.name }}.git
     - user: steveno
     - target: /home/steveno/Projects/{{ project.lang }}/{{ project.name }}/
-    - branch: master
+    - branch: {{ project.branch }}
 {% endfor %}
+
+/home/steveno/Projects/python/devsalt:
+  virtualenv.managed:
+    - system_site_packages: False
+    - user: steveno
