@@ -1,6 +1,12 @@
 workon () {
     local PROJECT_PATH="/home/steveno/Projects"
 
+    if [ "$1" = "" ]
+    then
+        echo "workon requires at least one argument"
+        return;
+    fi
+
     # D uses environments
     if [ -d "$PROJECT_PATH/dlang/$1" ]
     then
@@ -33,13 +39,13 @@ workon () {
     done
 
     # Special cases
-    if [ $1 == "work" ]
+    if [ $1 = "work" ]
     then
         cd "$PROJECT_PATH/work"
         return;
     fi
 
-    if [ $1 == "dotfiles" ]
+    if [ $1 = "dotfiles" ]
     then
         cd "$PROJECT_PATH/dotfiles"
         return;
