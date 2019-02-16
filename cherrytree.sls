@@ -5,7 +5,7 @@ cherrytree_ppa:
     - file: /etc/apt/sources.list.d/cherrytree.list
 
 cherrytree_pkg:
-  pkg.installed:
+  pkg.latest:
     - name: cherrytree
     - require:
       - pkgrepo: cherrytree_ppa
