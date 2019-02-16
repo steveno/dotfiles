@@ -17,6 +17,7 @@ packages:
   - curl
   - sqlitebrowser
   # vala development
+  - libgtk-3-dev
   - libgee-0.8-dev
   - libsqlite3-dev
   - meson
