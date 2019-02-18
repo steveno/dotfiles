@@ -8,8 +8,26 @@
     - mode: 755
 {% endfor %}
 
-/home/steveno/Projects/python/devsalt:
-  virtualenv.managed:
-    - system_site_packages: False
-    - requirements: /home/steveno/Projects/python/salt/requirements/dev.txt
+/home/steveno/Projects/python/start_salt.sh:
+  file.managed:
+    - source: salt://files/home/Projects/python/start_salt.sh
     - user: steveno
+    - group: steveno
+    - mode: 0764
+    - makedirs: True
+
+/home/steveno/Projects/python/create_virtualenv.sh:
+  file.managed:
+    - source: salt://files/home/Projects/python/create_virtualenv.sh
+    - user: steveno
+    - group: steveno
+    - mode: 0764
+    - makedirs: True
+
+/home/steveno/Projects/python/update_devsalt.sh:
+  file.managed:
+    - source: salt://files/home/Projects/python/update_devsalt.sh
+    - user: steveno
+    - group: steveno
+    - mode: 0764
+    - makedirs: True
