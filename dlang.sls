@@ -16,3 +16,11 @@ install_d:
       - pkg: curl_pkg
     - onchanges:
       - file: /home/steveno/dlang/install.sh
+
+/home/steveno/Projects/dlang/start_d.sh:
+  file.managed:
+    - source: salt://files/home/Projects/dlang/start_d.sh
+    - user: steveno
+    - group: steveno
+    - mode: 0764
+    - makedirs: True
