@@ -1,3 +1,5 @@
+" Managed by salt
+
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'steveno/peaksea' 	

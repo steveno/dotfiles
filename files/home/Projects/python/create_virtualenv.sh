@@ -1,3 +1,4 @@
+# Managed by salt
 #!/bin/bash
 
 if [ "$0" = "$BASH_SOURCE" ]

@@ -1,3 +1,5 @@
+# Managed by salt
+
 workon () {
     local PROJECT_PATH="/home/steveno/Projects"
 

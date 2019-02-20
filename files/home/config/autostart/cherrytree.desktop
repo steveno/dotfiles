@@ -1,3 +1,5 @@
+# Managed by salt
+
 [Desktop Entry]
 Type=Application
 Exec=cherrytree

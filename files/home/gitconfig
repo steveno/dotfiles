@@ -1,3 +1,5 @@
+# Managed by salt
+
 [user]
         name = Steven Oliver
         email = oliver.steven@gmail.com
