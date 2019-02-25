@@ -1,5 +1,5 @@
 /home/steveno/.config/autostart/hexchat.desktop:
-  pkg.installed:
+  pkg.latest:
     - name: hexchat
   file.managed:
     - source: salt://files/home/config/autostart/hexchat.desktop
