@@ -4,9 +4,9 @@
 Type=Application
 Exec=hexchat
 Hidden=false
-NoDisplay=false
+NoDisplay=true
 X-GNOME-Autostart-enabled=true
 Name[en_US]=HexChat
 Name=HexChat
-Comment[en_US]=
-Comment=
+Comment[en_US]=HexChat
+Comment=HexChat

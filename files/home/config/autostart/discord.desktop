@@ -2,11 +2,11 @@
 
 [Desktop Entry]
 Type=Application
-Exec=keepassxc
+Exec=/usr/bin/discord
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
-Name[en_US]=KeePassXC
-Name=KeePassXC
-Comment[en_US]=KeePassXC
-Comment=KeePassXC
+Name[en_US]=Discord
+Name=Discord
+Comment[en_US]=Discord
+Comment=Discord
