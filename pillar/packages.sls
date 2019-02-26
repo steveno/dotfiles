@@ -3,6 +3,7 @@ packages:
   - gimp
   - gparted
   - htop
+  - kile
   - libreoffice
   - sword-text-kjv
   - texstudio
