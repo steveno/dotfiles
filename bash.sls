@@ -13,9 +13,19 @@
       - source ~/.git-prompt.sh
       - source ~/.workon.sh
 
-/home/steveno/.workon.sh:
+/home/steveno/.goto.sh:
   file.managed:
-    - source: salt://files/home/workon.sh
+    - source: https://raw.githubusercontent.com/iridakos/goto/master/goto.sh
     - user: steveno
     - group: steveno
-    - mode: 664
+    - mode: 0764
+    - makedirs: True
+    - skip_verify: True
+
+/home/steveno/.goto:
+  file.managed:
+    - source: salt://files/home/goto
+    - user: steveno
+    - group: steveno
+    - mode: 0664
+    - makedirs: True
