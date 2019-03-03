@@ -11,7 +11,7 @@
   file.append:
     - text:
       - source ~/.git-prompt.sh
-      - source ~/.workon.sh
+      - source ~/.goto.sh
 
 /home/steveno/.goto.sh:
   file.managed:
