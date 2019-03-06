@@ -4,6 +4,7 @@ packages:
   - gparted
   - htop
   - libreoffice
+  - simple-scan
   - sword-text-kjv
   - texstudio
   - tilix
