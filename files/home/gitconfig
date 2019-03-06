@@ -5,7 +5,6 @@
         email = oliver.steven@gmail.com
 	signingkey = ECA840EEA7D1B976
 [core]
-        excludesfile = ~/.gitignore
 	editor = nvim
 [color]
         branch = auto
@@ -26,8 +25,6 @@
         smtpserver = smtp.gmail.com
         smtpuser = oliver.steven@gmail.com
         smtpserverport = 587
-[github]
-        name = steveno
 [push]
 	default = simple
 [credential]
