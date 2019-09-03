@@ -7,7 +7,6 @@ base:
     - fonts
     - git
     - gnupg
-    - hexchat
     - jobs
     - keepassxc
     - keybase
