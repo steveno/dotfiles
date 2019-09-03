@@ -1,5 +1,6 @@
 packages:
   - calibre
+  - exfat-fuse # for camera
   - gimp
   - gparted
   - htop
