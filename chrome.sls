@@ -1,3 +1,4 @@
+{% if not salt['file.file_exists']('/etc/apt/sources.list.d/google-chrome.list') %}
 chrome_repo:
   pkgrepo.managed:
     - name: deb http://dl.google.com/linux/chrome/deb stable main
@@ -6,6 +7,7 @@ chrome_repo:
     - file: /etc/apt/sources.list.d/google-chrome.list
     - architectures: amd64
     - gpgcheck: 1
+{% endif %}
 
 google-chrome-stable:
   pkg.installed
