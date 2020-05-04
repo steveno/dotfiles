@@ -1,5 +1,5 @@
 base:
-  'shawnee':
+  '*':
     - bash
     - cherrytree
     - chrome

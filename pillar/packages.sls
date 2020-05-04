@@ -1,28 +1,28 @@
 packages:
-  - calibre
-  - exfat-fuse # for camera
-  - gimp
-  - gparted
-  - htop
+  # office
   - libreoffice
   - simple-scan
-  - sword-text-kjv
   - texstudio
-  - tilix
-  - tmux
-  - transmission
+  - exfat-fuse # for camera
+  # other
+  - calibre
+  - gimp
+  - gparted
+  - sword-text-kjv
   - vlc
   - xiphos
   # general development
   - build-essential
   - cmake
   - curl
+  - htop
+  - meson
+  - tilix
   - sqlitebrowser
   # vala development
   - libgtk-3-dev
   - libgee-0.8-dev
   - libsqlite3-dev
-  - meson
   - valac
   # salt development
   - libssl-dev

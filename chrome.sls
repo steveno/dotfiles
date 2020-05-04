@@ -10,4 +10,4 @@ chrome_repo:
 {% endif %}
 
 google-chrome-stable:
-  pkg.installed
+  pkg.latest

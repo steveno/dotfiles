@@ -3,11 +3,11 @@
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
 Plug 'steveno/peaksea' 	
-Plug 'ciaranm/securemodelines'
 Plug 'steveno/vim-vala'
-Plug 'steveno/meson-vim'
 Plug 'zig-lang/zig.vim'
 Plug 'saltstack/salt-vim'
+Plug 'bhurlow/vim-parinfer'
+Plug 'l04m33/vlime', {'rtp': 'vim/'}
 call plug#end()
 
 filetype plugin indent on
@@ -62,11 +62,6 @@ set showcmd
 
 " Highlight matching parens
 set showmatch
-
-" Use secure modelines
-set nomodeline
-let g:secure_modelines_verbose=0
-let g:secure_modelines_modelines=15
 
 " Set a dark background
 set number
