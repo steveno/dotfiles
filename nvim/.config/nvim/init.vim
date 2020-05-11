@@ -1,11 +1,6 @@
-" Managed by salt
-
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
-Plug 'steveno/peaksea' 	
-Plug 'steveno/vim-vala'
-Plug 'zig-lang/zig.vim'
-Plug 'saltstack/salt-vim'
+Plug 'steveno/mavi'
 Plug 'bhurlow/vim-parinfer'
 Plug 'l04m33/vlime', {'rtp': 'vim/'}
 call plug#end()
@@ -18,8 +13,12 @@ set noshowmode
 
 " Create backups
 set backup
-set backupdir=$HOME/.config/nvim/backups/
-set directory=$HOME/.config/nvim/backups/
+
+try
+    set backupdir=$HOME/.config/nvim/backups/
+    set directory=$HOME/.config/nvim/backups/
+catch
+endtry
 
 " Show full tags when doing search completion
 set showfulltag
@@ -66,26 +65,8 @@ set showmatch
 " Set a dark background
 set number
 set background=dark
-colorscheme peaksea
+colorscheme mavi
 setlocal numberwidth=3
-
-if has("eval")
-    fun! <SID>UpdateCopyrightHeaders()
-        let l:a = 0
-        for l:x in getline(1, 10)
-            let l:a = l:a + 1
-            if -1 != match(l:x, 'Copyright [- 0-9,]*20\(0[456789]\|1[34567]\) Steven Oliver')
-                if input("Update copyright header? (y/n) ") == "y"
-                    call setline(l:a, substitute(l:x, '\(20[01][34567]\) Steven',
-                                \ '2018 Steven', ""))
-                endif
-            endif
-        endfor
-    endfun
-endif
-
-" update copyright headers
-autocmd BufWritePre * call <SID>UpdateCopyrightHeaders()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " D
@@ -111,16 +92,10 @@ endfunction
 autocmd FileType d nnoremap <f8> :call DTest()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python3
+" Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vala 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let vala_comment_strings=1
-let vala_space_errors=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scheme

@@ -3,7 +3,7 @@
 [user]
         name = Steven Oliver
         email = oliver.steven@gmail.com
-	signingkey = ECA840EEA7D1B976
+	signingkey = 05368C44AB2AF31E
 [core]
 	editor = nvim
 [color]
