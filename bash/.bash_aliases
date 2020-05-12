@@ -1,5 +1,3 @@
-# Managed by salt
-
 # Setup prompt and such
 if [[ $EUID -eq 0 ]]; then 
     # Root
