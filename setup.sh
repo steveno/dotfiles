@@ -30,9 +30,12 @@ sudo update-alternatives --config editor
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 
+# git
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh -sS
+
 # Dotfiles
 git clone https://github.com/steveno/dotfiles.git
-cd dotfiles
+cd ~/dotfiles
 stow bash
 stow d
 stow git
@@ -46,15 +49,24 @@ curl https://dlang.org/install.sh -O -sS
 chmod +x install.sh
 ./install.sh dmd -a
 
-# Lisp
-cd ~/dotfiles/lisp
-curl https://beta.quicklisp.org/quicklisp.lisp -o .quicklisp.lisp -sS
-
 # Checkout my projects
 cd ~/Projects
-mkdir vala vim
+mkdir lisp vala vim
 git clone https://github.com/steveno/anendektos.git dlang/
 git clone https://github.com/steveno/balistica.git vala/
 git clone https://github.com/steveno/libbalistica.git vala/
 git clone https://github.com/steveno/polvora.git vala/
 git clone https://github.com/steveno/mavi.git vim/
+
+# lisp
+curl https://beta.quicklisp.org/quicklisp.lisp -o ~/Projects/lisp/.quicklisp.lisp -sS
+curl https://beta.quicklisp.org/release-key.txt -o /tmp/release-key.txt -sS
+gpg --import /tmp/release-key.txt
+curl https://beta.quicklisp.org/quicklisp.lisp.asc -o /tmp/quicklisp.lisp.asc -sS
+gpg --verify /tmp/quicklisp.lisp.asc ~/Projects/lisp/.quicklisp.lisp 
+if [ $? -ne 0 ]
+then
+    echo !!!!!!!!!!!!!
+    echo quicklisp signature verification failed!
+    echo !!!!!!!!!!!!!
+fi
