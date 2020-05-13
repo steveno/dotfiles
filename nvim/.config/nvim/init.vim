@@ -40,11 +40,6 @@ set sidescrolloff=2
 set whichwrap+=<,>,[,]
 set matchpairs+=<:>
 
-" Tab complete menu
-set wildignore+=*.o,*~,.lo
-set suffixes+=.in,.a
-set completeopt=longest,menuone
-
 " Print with syntax highlighting and line numbers
 set popt+=syntax:y,number:y
 set shiftwidth=4
@@ -95,9 +90,3 @@ autocmd FileType d nnoremap <f8> :call DTest()<cr>
 " Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scheme
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile,BufRead *.scm setl ft=lisp ts=2 et sw=2
