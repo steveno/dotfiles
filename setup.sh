@@ -33,6 +33,9 @@ chmod 700 ~/.ssh
 # git
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh -sS
 
+# goto
+curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.sh -sS
+
 # Dotfiles
 git clone https://github.com/steveno/dotfiles.git
 cd ~/dotfiles
