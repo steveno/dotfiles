@@ -1,6 +1,6 @@
 projects /home/steveno/Projects
 dlang /home/steveno/Projects/dlang
-dotfiles /home/steveno/Projects/dotfiles
+dotfiles /home/steveno/dotfiles
 python /home/steveno/Projects/python
 vala /home/steveno/Projects/vala
 vim /home/steveno/Projects/vim
@@ -10,3 +10,4 @@ balistica /home/steveno/Projects/vala/balistica
 libbalistica /home/steveno/Projects/vala/libbalistica
 polvora /home/steveno/Projects/vala/polvora
 peaksea /home/steveno/Projects/vim/peaksea
+mavi /home/steveno/Projects/vim/mavi
