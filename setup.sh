@@ -8,7 +8,8 @@ set -o nounset
 set -o errexit
 
 # Install development related packages
-sudo apt install build-essential cmake curl git meson neovim stow tilix
+sudo apt install build-essential cmake curl git meson neovim stow tilix \
+    tmux
 
 # Install general purpose packages
 sudo apt install calibre exfat-fuse fonts-ibm-plex keepassxc libreoffice \
@@ -54,7 +55,7 @@ chmod +x install.sh
 
 # Checkout my projects
 cd ~/Projects
-mkdir lisp vala vim
+mkdir dlang vala vim
 git clone https://github.com/steveno/anendektos.git dlang/
 git clone https://github.com/steveno/balistica.git vala/
 git clone https://github.com/steveno/libbalistica.git vala/
@@ -62,6 +63,7 @@ git clone https://github.com/steveno/polvora.git vala/
 git clone https://github.com/steveno/mavi.git vim/
 
 # lisp
+mkdir lisp
 curl https://beta.quicklisp.org/quicklisp.lisp -o ~/Projects/lisp/.quicklisp.lisp -sS
 curl https://beta.quicklisp.org/release-key.txt -o /tmp/release-key.txt -sS
 gpg --import /tmp/release-key.txt
