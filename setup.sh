@@ -18,6 +18,9 @@ sudo apt install calibre exfat-fuse fonts-ibm-plex keepassxc libreoffice \
 # Install vala specific packages
 sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev valac
 
+# Install lisp specific packages
+sudo apt install sbcl sbcl-source
+
 # gnupg
 mkdir ~/.gnupg
 chown steveno:steveno ~/.gnupg
@@ -36,6 +39,10 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 
 # goto
 curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.sh -sS
+
+# vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Dotfiles
 git clone https://github.com/steveno/dotfiles.git
