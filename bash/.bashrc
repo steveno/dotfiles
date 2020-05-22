@@ -119,3 +119,4 @@ fi
 
 [[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
 [[ -s "/home/steveno/.git-prompt.sh" ]] && source /home/steveno/.git-prompt.sh
+[[ -s "/home/steveno/.fzf.bash" ]] && source /home/steveno/.fzf.bash
