@@ -1,8 +1,9 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 Plug 'bling/vim-airline'
 Plug 'steveno/mavi'
 Plug 'bhurlow/vim-parinfer'
-Plug 'l04m33/vlime', {'rtp': 'vim/'}
+Plug 'l04m33/vlime', {'rtp': 'nvim/'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 filetype plugin indent on
@@ -64,12 +65,13 @@ colorscheme mavi
 setlocal numberwidth=3
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" D
+" Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Error format
+
+" D lang Error format
 autocmd FileType d set efm=%*[^@]@%f\(%l\):\ %m,%f\(%l\\,%c\):\ %m,%f\(%l\):\ %m
 
-" Run unit tests on current file
+" Run D unit tests on current file
 function! DTest()
   let l:fn = substitute(expand('%:r'), '/', '-', 'g') . '.lst'
   call delete(l:fn)
@@ -86,7 +88,9 @@ endfunction
 
 autocmd FileType d nnoremap <f8> :call DTest()<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:python3_host_prog = '/usr/bin/python3'
+
+" vlime
+let g:vlime_enable_autodoc = v:true
+let g:vlime_window_settings = {'sldb': {'pos': 'belowright', 'vertical': v:true}, 'inspector': {'pos': 'belowright', 'vertical': v:true}, 'preview': {'pos': 'belowright', 'size': v:null, 'vertical': v:true}}
