@@ -2,7 +2,7 @@ call plug#begin('~/.nvim/plugged')
 Plug 'bling/vim-airline'
 Plug 'steveno/mavi'
 Plug 'bhurlow/vim-parinfer'
-Plug 'l04m33/vlime', {'rtp': 'nvim/'}
+Plug 'l04m33/vlime', {'rtp': 'vim/'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
