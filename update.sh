@@ -39,7 +39,7 @@ do
     esac
 done
 
-if [[ ! -L "~/.config/goto" ]]
+if [[ -L "~/.config/goto" ]]
 then
     # file is not a symlink, we've made changes?
     mv ~/.config/goto ~/dotfiles/goto/.config/goto
