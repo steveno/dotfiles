@@ -45,6 +45,7 @@ then
     mv ~/.config/goto ~/dotfiles/goto/.config/goto
 fi
 
+sort -o ~/.config/goto ~/.config/goto
 
 cd ~/dotfiles
 stow bash
