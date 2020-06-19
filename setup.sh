@@ -9,7 +9,7 @@ set -o errexit
 
 # Install development related packages
 sudo apt install build-essential cmake curl git meson neovim stow tilix \
-    tmux
+    tmux python3-pip
 
 # Install general purpose packages
 sudo apt install calibre exfat-fuse fonts-ibm-plex keepassxc libreoffice \
@@ -20,6 +20,16 @@ sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev valac
 
 # Install lisp specific packages
 sudo apt install sbcl sbcl-source
+
+# Install go specific packages
+sudo apt install gocryptfs scdoc
+
+# Install packages for aerc
+w3m dante-utils dante-client
+
+# symlink vte for tilix
+# https://gnunn1.github.io/tilix-web/manual/vteconfig/
+sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
 # gnupg
 mkdir ~/.gnupg
@@ -43,6 +53,12 @@ curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.s
 # vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# bash
+if ! grep -Fq "bash_steveno" ~/.bashrc
+then
+    echo 'source ~/.bash_steveno' >> ~/.bashrc
+fi
 
 # Dotfiles
 git clone https://github.com/steveno/dotfiles.git
