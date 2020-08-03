@@ -7,29 +7,21 @@
 set -o nounset
 set -o errexit
 
+mkdir ~/Projects
+
 # Install development related packages
-sudo apt install build-essential cmake curl git meson neovim stow tilix \
-    tmux python3-pip
+sudo apt install build-essential cmake curl git meson neovim stow \
+    tmux python3 python3-pip
 
 # Install general purpose packages
 sudo apt install calibre exfat-fuse fonts-ibm-plex keepassxc libreoffice \
-    simple-scan texstudio vlc 
+    mtp-tools simple-scan texstudio vlc
 
 # Install vala specific packages
 sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev valac
 
-# Install lisp specific packages
-sudo apt install sbcl sbcl-source
-
 # Install go specific packages
 sudo apt install gocryptfs scdoc
-
-# Install packages for aerc
-w3m dante-utils dante-client
-
-# symlink vte for tilix
-# https://gnunn1.github.io/tilix-web/manual/vteconfig/
-sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
 # gnupg
 mkdir ~/.gnupg
@@ -44,7 +36,15 @@ sudo update-alternatives --config editor
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 
-# git
+# entr
+curl https://github.com/eradman/entr/archive/4.6.tar.gz -L -sS -o /tmp/entr.tar.gz
+tar xzf /tmp/entr.tar.gz -C /tmp
+rm entr.tar.gz
+cd /tmp/entr*
+./configure
+CFLAGS="-static" PREFIX=$HOME/.local make install
+
+# git completion
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh -sS
 
 # goto
@@ -60,7 +60,22 @@ then
     echo 'source ~/.bash_steveno' >> ~/.bashrc
 fi
 
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# alacritty
+sudo apt install pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev
+cd ~/Projects
+mkdir rust && cd rust
+git clone https://github.com/alacritty/alacritty.git
+cd alacritty
+cargo build --release
+cp target/release/alacritty /home/steveno/.local/bin/
+sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+sudo desktop-file-install extra/linux/Alacritty.desktop
+
 # Dotfiles
+cd ~/
 git clone https://github.com/steveno/dotfiles.git
 cd ~/dotfiles
 stow bash
@@ -86,6 +101,7 @@ git clone https://github.com/steveno/polvora.git vala/
 git clone https://github.com/steveno/mavi.git vim/
 
 # lisp
+sudo apt install sbcl sbcl-source
 mkdir lisp
 curl https://beta.quicklisp.org/quicklisp.lisp -o ~/Projects/lisp/.quicklisp.lisp -sS
 curl https://beta.quicklisp.org/release-key.txt -o /tmp/release-key.txt -sS
