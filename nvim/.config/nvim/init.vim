@@ -5,6 +5,7 @@ Plug 'bhurlow/vim-parinfer'
 Plug 'l04m33/vlime', {'rtp': 'vim/'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 filetype plugin indent on
