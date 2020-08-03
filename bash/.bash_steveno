@@ -10,3 +10,6 @@ fi
 [[ -s "/home/steveno/.fzf.bash" ]] && source /home/steveno/.fzf.bash
 
 export PATH=$PATH:/home/steveno/.local/bin:/usr/local/go/bin
+export HISTIGNORE='ls:ll:cd:pwd:bg:fg:history'
+export HISTSIZE=100000
+export HISTFILESIZE=10000000
