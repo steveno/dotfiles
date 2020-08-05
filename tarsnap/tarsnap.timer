@@ -2,8 +2,7 @@
 Description=Tarsnap backup
 
 [Timer]
-OnBootSec=10min
-OnUnitActiveSec=1w
+OnCalendar=weekly
 Persistent=true
 
 [Install]

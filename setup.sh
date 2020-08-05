@@ -9,13 +9,20 @@ set -o errexit
 
 mkdir ~/Projects
 
+# tarsnap apt
+cd /tmp
+wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+sudo apt-key add tarsnap-deb-packaging-key.asc
+echo "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" | sudo tee -a /etc/apt/sources.list.d/tarsnap.list
+sudo apt-get update
+
 # Install development related packages
 sudo apt install build-essential cmake curl git meson neovim stow \
     tmux python3 python3-pip
 
 # Install general purpose packages
 sudo apt install calibre exfat-fuse fonts-ibm-plex keepassxc libreoffice \
-    mtp-tools simple-scan texstudio vlc
+    mtp-tools simple-scan tarsnap texstudio vlc
 
 # Install vala specific packages
 sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev valac
@@ -35,6 +42,13 @@ sudo update-alternatives --config editor
 # ssh
 mkdir ~/.ssh
 chmod 700 ~/.ssh
+
+# tarsnap config
+sudo cp ~/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
+sudo cp ~/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
+sudo cp ~/dotfiles/tarsnap/tarsnap-backup.sh /root/
+sudo cp ~/dotfiles/tarsnap/tarsnap.conf /etc/
+sudo systemctl enable --now tarsnap.timer
 
 # entr
 curl https://github.com/eradman/entr/archive/4.6.tar.gz -L -sS -o /tmp/entr.tar.gz
