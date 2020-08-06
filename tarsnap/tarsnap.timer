@@ -2,7 +2,7 @@
 Description=Tarsnap backup
 
 [Timer]
-OnCalendar=weekly
+OnCalendar=monday 12:00
 Persistent=true
 
 [Install]
