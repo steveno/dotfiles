@@ -31,21 +31,34 @@ update_scripts() {
     curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.sh -sS
 }
 
-while getopts "u" opt
+update_tarsnap() {
+    sudo cp ~/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
+    sudo cp ~/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
+    sudo cp ~/dotfiles/tarsnap/tarsnap-backup.sh /root/
+    sudo cp ~/dotfiles/tarsnap/tarsnap.conf /etc/
+    sudo systemctl daemon-reload
+}
+
+while getopts "ut" opt
 do
     case "$opt" in
         u) update_scripts
            ;;
+        t) update_tarsnap
+           ;;
     esac
 done
 
-if [[ -L "~/.config/goto" ]]
+if [[ -h ~/.config/goto && -L ~/.config/goto ]]
 then
-    # file is not a symlink, we've made changes?
+    # File is a symlink
+    :
+else
+    # File is not a symlink, we've made changes?
     mv ~/.config/goto ~/dotfiles/goto/.config/goto
 fi
 
-sort -o ~/.config/goto ~/.config/goto
+sort -o ~/dotfiles/goto/.config/goto ~/dotfiles/goto/.config/goto
 
 cd ~/dotfiles
 stow bash
