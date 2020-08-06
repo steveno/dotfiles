@@ -1,9 +1,10 @@
-ako /home/steveno/Projects/go/ako
+ako /home/steveno/Projects/rust/ako
 anendektos /home/steveno/Projects/dlang/anendektos
 balistica /home/steveno/Projects/vala/balistica
 challenges /home/steveno/Projects/challenges
 cryptopals /home/steveno/Projects/challenges/cryptopals
 dlang /home/steveno/Projects/dlang
+documents /home/steveno/Documents
 dotfiles /home/steveno/dotfiles
 downloads /home/steveno/Downloads
 euler /home/steveno/Projects/challenges/euler
@@ -13,7 +14,7 @@ lisp /home/steveno/Projects/lisp
 mavi /home/steveno/Projects/vim/mavi
 polvora /home/steveno/Projects/vala/polvora
 projects /home/steveno/Projects
+rust /home/steveno/Projects/rust
 vala /home/steveno/Projects/vala
 vim /home/steveno/Projects/vim
 work /home/steveno/Projects/work
-documents /home/steveno/Documents
