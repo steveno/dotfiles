@@ -61,6 +61,7 @@ fi
 sort -o ~/dotfiles/goto/.config/goto ~/dotfiles/goto/.config/goto
 
 cd ~/dotfiles
+stow alacritty
 stow bash
 stow d
 stow git
