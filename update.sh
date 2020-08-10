@@ -67,3 +67,6 @@ stow git
 stow goto
 stow lisp
 stow nvim
+stow tmux
+
+tmux source-file ~/.tmux.conf
