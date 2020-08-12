@@ -92,12 +92,15 @@ sudo desktop-file-install extra/linux/Alacritty.desktop
 cd ~/
 git clone https://github.com/steveno/dotfiles.git
 cd ~/dotfiles
+stow alacritty
 stow bash
 stow d
 stow git
 stow goto
 stow lisp
 stow nvim
+stow tarsnap
+stow tmux
 
 # D
 cd /tmp
