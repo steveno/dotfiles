@@ -15,7 +15,7 @@ if [[ $DISPLAY ]]; then
     [[ -z "$TMUX" ]] && exec tmux
 fi
 
-export PATH=$PATH:/home/steveno/.local/bin:/usr/local/go/bin
+export PATH=$PATH:/home/steveno/.local/bin
 export HISTIGNORE='ls:ll:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
