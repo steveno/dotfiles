@@ -7,6 +7,10 @@
 set -o nounset
 set -o errexit
 
+NUM_SNAPSHOTS=$(/usr/bin/tarsnap --list-archives | wc -l)
+OLDEST_SNAPSHOT=$(/usr/bin/tarsnap --list-archives | sort | head -n 1)
+
+# Create new snapshot
 /usr/bin/tarsnap -c \
     -f "$(uname -n)-$(date +%Y-%m-%d)" \
     /home/steveno/Documents \
@@ -17,3 +21,9 @@ set -o errexit
     /home/steveno/.gnupg \
     /home/steveno/.local \
     /home/steveno/.ssh
+
+# If we have at least 4 snapshots delete the oldest
+if [ $NUM_SNAPSHOTS -gt 4 ]
+then
+    /usr/bin/tarsnap -d -f $OLDEST_SNAPSHOT
+fi
