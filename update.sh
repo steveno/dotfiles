@@ -31,11 +31,9 @@ update_scripts() {
     curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.sh -sS
 }
 
-update_tarsnap() {
+update_tarsnap_schedule() {
     sudo cp ~/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
     sudo cp ~/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
-    sudo cp ~/dotfiles/tarsnap/tarsnap-backup.sh /root/
-    sudo cp ~/dotfiles/tarsnap/tarsnap.conf /etc/
     sudo systemctl daemon-reload
 }
 
@@ -70,4 +68,9 @@ stow lisp
 stow nvim
 stow tmux
 
+# Reload tmux config
 tmux source-file ~/.tmux.conf
+
+# Update tarsnap script and configuration
+sudo cp ~/dotfiles/tarsnap/tarsnap.conf /etc/
+sudo cp ~/dotfiles/tarsnap/tarsnap-backup.sh /root/
