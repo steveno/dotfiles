@@ -22,7 +22,7 @@ OLDEST_SNAPSHOT=$(/usr/bin/tarsnap --list-archives | sort | head -n 1)
     /home/steveno/.local \
     /home/steveno/.ssh
 
-# If we have at least 4 snapshots delete the oldest
+# If we have at least 5 snapshots delete the oldest
 if [ $NUM_SNAPSHOTS -gt 4 ]
 then
     /usr/bin/tarsnap -d -f $OLDEST_SNAPSHOT
