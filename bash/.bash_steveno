@@ -1,10 +1,6 @@
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-    source /etc/profile.d/vte.sh
-fi
-
 [[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
 [[ -s "/home/steveno/.git-prompt.sh" ]] && source /home/steveno/.git-prompt.sh
 [[ -s "/home/steveno/.fzf.bash" ]] && source /home/steveno/.fzf.bash
