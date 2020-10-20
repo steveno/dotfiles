@@ -5,6 +5,7 @@ Plug 'bhurlow/vim-parinfer'
 Plug 'l04m33/vlime', {'rtp': 'vim/'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'rust-lang/rust.vim'
+Plug 'YorickPeterse/vim-paper'
 call plug#end()
 
 filetype plugin indent on
@@ -61,9 +62,15 @@ set showmatch
 
 " Set a dark background
 set number
-set background=dark
-colorscheme mavi
 setlocal numberwidth=3
+
+if exists('+termguicolors')
+   let &t_8f =  "\<Esc>[38:2;%lu;%lu;%lum"
+   let &t_8b =  "\<Esc>[48:2;%lu;%lu;%lum"
+   set t_Co=256
+   set termguicolors
+    colorscheme paper
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
