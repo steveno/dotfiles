@@ -4,8 +4,8 @@ Plug 'steveno/mavi'
 Plug 'bhurlow/vim-parinfer'
 Plug 'l04m33/vlime', {'rtp': 'vim/'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'rust-lang/rust.vim'
 Plug 'YorickPeterse/vim-paper'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 filetype plugin indent on
