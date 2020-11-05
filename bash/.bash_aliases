@@ -18,3 +18,4 @@ fi
 # Common aliases
 alias mkdir='mkdir -p'
 alias ls='ls --color'
+alias check_tarsnap='sudo tarsnap --list-archives | sort'
