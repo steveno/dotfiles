@@ -63,8 +63,8 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-pro
 curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.sh -sS
 
 # vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs' \
+      'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # bash
 if ! grep -Fq "bash_steveno" ~/.bashrc
@@ -129,8 +129,7 @@ curl https://beta.quicklisp.org/quicklisp.lisp -o ~/Projects/lisp/.quicklisp.lis
 curl https://beta.quicklisp.org/release-key.txt -o /tmp/release-key.txt -sS
 gpg --import /tmp/release-key.txt
 curl https://beta.quicklisp.org/quicklisp.lisp.asc -o /tmp/quicklisp.lisp.asc -sS
-gpg --verify /tmp/quicklisp.lisp.asc ~/Projects/lisp/.quicklisp.lisp 
-if [ $? -ne 0 ]
+if ! gpg --verify /tmp/quicklisp.lisp.asc ~/Projects/lisp/.quicklisp.lisp;
 then
     echo !!!!!!!!!!!!!
     echo quicklisp signature verification failed!

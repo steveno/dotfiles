@@ -16,8 +16,7 @@ update_scripts() {
     # lisp
     curl https://beta.quicklisp.org/quicklisp.lisp -o ~/Projects/lisp/.quicklisp.lisp -sS
     curl https://beta.quicklisp.org/quicklisp.lisp.asc -o /tmp/quicklisp.lisp.asc -sS
-    gpg --verify /tmp/quicklisp.lisp.asc ~/Projects/lisp/.quicklisp.lisp 
-    if [ $? -ne 0 ]
+    if ! gpg --verify /tmp/quicklisp.lisp.asc ~/Projects/lisp/.quicklisp.lisp;
     then
         echo !!!!!!!!!!!!!
         echo quicklisp signature verification failed!
@@ -44,6 +43,8 @@ do
            ;;
         t) update_tarsnap
            ;;
+        *) echo "Unrecognized argument"
+           exit 1 ;;
     esac
 done
 
