@@ -30,18 +30,10 @@ update_scripts() {
     curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.sh -sS
 }
 
-update_tarsnap_schedule() {
-    sudo cp ~/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
-    sudo cp ~/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
-    sudo systemctl daemon-reload
-}
-
 while getopts "ut" opt
 do
     case "$opt" in
         u) update_scripts
-           ;;
-        t) update_tarsnap
            ;;
         *) echo "Unrecognized argument"
            exit 1 ;;
@@ -63,6 +55,7 @@ cd ~/dotfiles
 stow alacritty
 stow bash
 stow d
+stow emacs
 stow git
 stow goto
 stow lisp
@@ -71,7 +64,3 @@ stow tmux
 
 # Reload tmux config
 tmux source-file ~/.tmux.conf
-
-# Update tarsnap script and configuration
-sudo cp ~/dotfiles/tarsnap/tarsnap.conf /etc/
-sudo cp ~/dotfiles/tarsnap/tarsnap-backup.sh /root/

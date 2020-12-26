@@ -4,6 +4,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 [[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
 [[ -s "/home/steveno/.git-prompt.sh" ]] && source /home/steveno/.git-prompt.sh
 [[ -s "/home/steveno/.fzf.bash" ]] && source /home/steveno/.fzf.bash
+[[ -s "/home/steveno/.ghcup/env" ]] && source "/home/steveno/.ghcup/env"
 
 if [[ $DISPLAY ]]; then
     # If not running interactively, do not do anything
@@ -15,3 +16,6 @@ export PATH=$PATH:/home/steveno/.local/bin
 export HISTIGNORE='ls:ll:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
+export EDITOR="emacsclient"
+
+shopt -s histverify

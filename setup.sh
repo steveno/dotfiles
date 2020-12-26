@@ -9,12 +9,6 @@ set -o errexit
 
 mkdir ~/Projects
 
-# tarsnap apt
-cd /tmp
-wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
-sudo apt-key add tarsnap-deb-packaging-key.asc
-echo "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" | sudo tee -a /etc/apt/sources.list.d/tarsnap.list
-
 # yubikey
 sudo add-apt-repository ppa:yubico/stable
 
@@ -22,8 +16,8 @@ sudo add-apt-repository ppa:yubico/stable
 sudo apt-get update
 
 # Install development related packages
-sudo apt install build-essential cmake curl git meson neovim stow \
-    tmux python3 python3-pip
+sudo apt install build-essential cmake curl meson stow \
+    python3 python3-pip
 
 # Install general purpose packages
 sudo apt install calibre exfat-fuse fonts-ibm-plex keepassxc libreoffice \
@@ -43,6 +37,9 @@ chmod 700 ~/.gnupg
 # neovim
 mkdir -p ~/.config/nvim/backups
 sudo update-alternatives --config editor
+
+# emacs
+mkdir -p ~/.emacs.d/
 
 # ssh
 mkdir ~/.ssh
@@ -93,19 +90,13 @@ cd ~/dotfiles
 stow alacritty
 stow bash
 stow d
+stow emacs
 stow git
 stow goto
 stow lisp
 stow nvim
 stow tarsnap
 stow tmux
-
-# tarsnap config
-sudo cp ~/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
-sudo cp ~/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
-sudo cp ~/dotfiles/tarsnap/tarsnap-backup.sh /root/
-sudo cp ~/dotfiles/tarsnap/tarsnap.conf /etc/
-sudo systemctl enable --now tarsnap.timer
 
 # D
 cd /tmp

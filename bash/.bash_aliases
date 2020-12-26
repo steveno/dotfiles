@@ -19,3 +19,5 @@ fi
 alias mkdir='mkdir -p'
 alias ls='ls --color'
 alias check_tarsnap='sudo tarsnap --list-archives | sort'
+alias emacs='emacs -nw'
+alias e='emacs -nw'
