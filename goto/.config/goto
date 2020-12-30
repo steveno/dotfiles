@@ -6,10 +6,9 @@ cryptopals /home/steveno/Projects/challenges/cryptopals
 desktop /home/steveno/Desktop
 dlang /home/steveno/Projects/dlang
 documents /home/steveno/Documents
-dotfiles /home/steveno/dotfiles
+dotfiles /home/steveno/Projects/dotfiles
 downloads /home/steveno/Downloads
 euler /home/steveno/Projects/challenges/euler
-golang /home/steveno/Projects/go
 libbalistica /home/steveno/Projects/vala/libbalistica
 lisp /home/steveno/Projects/lisp
 mavi /home/steveno/Projects/vim/mavi
