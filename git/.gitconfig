@@ -3,7 +3,7 @@
         email = oliver.steven@gmail.com
 	signingkey = 05368C44AB2AF31E
 [core]
-	editor = nvim
+	editor = emacsclient
 [color]
         branch = auto
         diff = auto
