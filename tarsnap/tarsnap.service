@@ -1,0 +1,10 @@
+[Unit]
+Description=Tarsnap backup
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash /root/tarsnap-backup.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=default.target
