@@ -9,6 +9,12 @@ set -o errexit
 
 mkdir ~/Projects
 
+# tarsnap apt
+cd /tmp
+wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+sudo apt-key add tarsnap-deb-packaging-key.asc
+echo "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" | sudo tee -a /etc/apt/sources.list.d/tarsnap.list
+
 # yubikey
 sudo add-apt-repository ppa:yubico/stable
 
@@ -29,6 +35,10 @@ sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev valac
 # Install yubikey packages
 sudo apt install yubikey-manager yubioath-desktop yubikey-personalization-gui
 
+# nix
+bash <(curl -L https://nixos.org/nix/install)
+nix-env -i entr tmux neovim git ghc cabal-install emacs rclone
+
 # gnupg
 mkdir ~/.gnupg
 chown steveno:steveno ~/.gnupg
@@ -44,14 +54,6 @@ mkdir -p ~/.emacs.d/
 # ssh
 mkdir ~/.ssh
 chmod 700 ~/.ssh
-
-# entr
-curl https://github.com/eradman/entr/archive/4.6.tar.gz -L -sS -o /tmp/entr.tar.gz
-tar xzf /tmp/entr.tar.gz -C /tmp
-rm entr.tar.gz
-cd /tmp/entr*
-./configure
-CFLAGS="-static" PREFIX=$HOME/.local make install
 
 # git completion
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh -sS
@@ -85,18 +87,25 @@ sudo desktop-file-install extra/linux/Alacritty.desktop
 
 # Dotfiles
 cd ~/
-git clone https://github.com/steveno/dotfiles.git
-cd ~/dotfiles
-stow alacritty
-stow bash
-stow d
-stow emacs
-stow git
-stow goto
-stow lisp
-stow nvim
-stow tarsnap
-stow tmux
+git clone https://github.com/steveno/Projects/dotfiles.git
+cd ~/Projects/dotfiles
+stow -t /home/steveno/ alacritty
+stow -t /home/steveno/ bash
+stow -t /home/steveno/ borg
+stow -t /home/steveno/ d
+stow -t /home/steveno/ emacs
+stow -t /home/steveno/ git
+stow -t /home/steveno/ goto
+stow -t /home/steveno/ lisp
+stow -t /home/steveno/ nvim
+stow -t /home/steveno/ tmux
+
+# tarsnap config
+sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
+sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
+sudo cp ~/Projects/dotfiles/tarsnap/tarsnap-backup.sh /root/
+sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.conf /etc/
+sudo systemctl enable --now tarsnap.timer
 
 # D
 cd /tmp
@@ -126,3 +135,11 @@ then
     echo quicklisp signature verification failed!
     echo !!!!!!!!!!!!!
 fi
+
+systemctl --user daemon-reload
+
+systemctl enable --user backup.timer
+systemctl start --user backup.timer
+
+systemctl enable --user emacs
+systemctl start --user emacs

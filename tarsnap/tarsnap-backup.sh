@@ -12,7 +12,7 @@ OLDEST_SNAPSHOT=$(/usr/bin/tarsnap --list-archives | sort | head -n 1)
 
 # Create new snapshot
 /usr/bin/tarsnap -c \
-    -f "$(uname -n)-$(date +%Y-%m-%d)" \
+    -f "$(uname -n)-$(date +%Y-%m-%d-%H)" \
     /home/steveno/Documents \
     /home/steveno/Music \
     /home/steveno/Pictures \

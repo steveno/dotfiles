@@ -30,10 +30,17 @@ update_scripts() {
     curl https://raw.githubusercontent.com/iridakos/goto/master/goto.sh -o ~/.goto.sh -sS
 }
 
+update_tarsnap_schedule() {
+    sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
+    sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
+}
+
 while getopts "ut" opt
 do
     case "$opt" in
         u) update_scripts
+           ;;
+        t) update_tarsnap
            ;;
         *) echo "Unrecognized argument"
            exit 1 ;;
@@ -46,21 +53,28 @@ then
     :
 else
     # File is not a symlink, we've made changes?
-    mv ~/.config/goto ~/dotfiles/goto/.config/goto
+    mv ~/.config/goto ~/Projects/dotfiles/goto/.config/goto
 fi
 
-sort -o ~/dotfiles/goto/.config/goto ~/dotfiles/goto/.config/goto
+sort -o ~/Projects/dotfiles/goto/.config/goto ~/Projects/dotfiles/goto/.config/goto
 
-cd ~/dotfiles
-stow alacritty
-stow bash
-stow d
-stow emacs
-stow git
-stow goto
-stow lisp
-stow nvim
-stow tmux
+cd ~/Projects/dotfiles
+stow -t /home/steveno/ alacritty
+stow -t /home/steveno/ bash
+stow -t /home/steveno/ borg
+stow -t /home/steveno/ d
+stow -t /home/steveno/ emacs
+stow -t /home/steveno/ git
+stow -t /home/steveno/ goto
+stow -t /home/steveno/ lisp
+stow -t /home/steveno/ nvim
+stow -t /home/steveno/ tmux
 
 # Reload tmux config
 tmux source-file ~/.tmux.conf
+
+# Update tarsnap script and configuration
+sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.conf /etc/
+sudo cp ~/Projects/dotfiles/tarsnap/tarsnap-backup.sh /root/
+
+systemctl --user daemon-reload
