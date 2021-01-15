@@ -61,7 +61,6 @@ sort -o ~/Projects/dotfiles/goto/.config/goto ~/Projects/dotfiles/goto/.config/g
 cd ~/Projects/dotfiles
 stow -t /home/steveno/ alacritty
 stow -t /home/steveno/ bash
-stow -t /home/steveno/ borg
 stow -t /home/steveno/ d
 stow -t /home/steveno/ emacs
 stow -t /home/steveno/ git
@@ -78,3 +77,6 @@ sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.conf /etc/
 sudo cp ~/Projects/dotfiles/tarsnap/tarsnap-backup.sh /root/
 
 systemctl --user daemon-reload
+
+# Housekeeping just in case
+chmod 600 ~/.ssh/config
