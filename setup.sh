@@ -37,7 +37,7 @@ sudo apt install yubikey-manager yubioath-desktop yubikey-personalization-gui
 
 # nix
 bash <(curl -L https://nixos.org/nix/install)
-nix-env -i entr tmux neovim git ghc cabal-install emacs rclone
+nix-env -i entr tmux neovim git ghc cabal-install emacs
 
 # gnupg
 mkdir ~/.gnupg
