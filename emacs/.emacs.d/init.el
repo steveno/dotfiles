@@ -21,7 +21,7 @@
   (require 'use-package))
 
 ;; evil
-(require 'evil')
+(require 'evil)
 (evil-mode 1)
 
 ;;(use-package paredit)
