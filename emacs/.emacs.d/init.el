@@ -18,8 +18,11 @@
   ;; (defvar use-package-verbose t)
   (eval-after-load 'advice
     `(setq ad-redefinition-action 'accept))
-  (require 'use-package)
-  )
+  (require 'use-package))
+
+;; evil
+(require 'evil')
+(evil-mode 1)
 
 ;;(use-package paredit)
 (use-package haskell-mode)
