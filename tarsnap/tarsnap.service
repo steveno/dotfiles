@@ -2,6 +2,7 @@
 Description=Tarsnap backup
 
 [Service]
+SyslogIdentifier=Tarsnap
 Type=simple
 ExecStart=/usr/bin/bash /root/tarsnap-backup.sh
 Restart=on-abnormal

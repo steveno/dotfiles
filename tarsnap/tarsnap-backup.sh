@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -6,24 +6,70 @@
 
 set -o nounset
 set -o errexit
+set -o pipefail
 
-NUM_SNAPSHOTS=$(/usr/bin/tarsnap --list-archives | wc -l)
-OLDEST_SNAPSHOT=$(/usr/bin/tarsnap --list-archives | sort | head -n 1)
+# Store the current list of archives
+archives=$(/usr/bin/tarsnap --list-archives)
 
-# Create new snapshot
-/usr/bin/tarsnap -c \
-    -f "$(uname -n)-$(date +%Y-%m-%d-%H)" \
-    /home/steveno/Documents \
-    /home/steveno/Music \
-    /home/steveno/Pictures \
-    /home/steveno/Videos \
-    /home/steveno/.config \
-    /home/steveno/.gnupg \
-    /home/steveno/.local \
-    /home/steveno/.ssh
+# Find how many snapshots we have
+# Arguments: $1 M or W for monthly or weekly
+num_snapshots() {
+    ret_val=$(echo "$archives" | wc -l)
+}
 
-# If we have at least 5 snapshots delete the oldest
-if [ $NUM_SNAPSHOTS -gt 4 ]
-then
-    /usr/bin/tarsnap -d -f $OLDEST_SNAPSHOT
-fi
+# Find the oldest snapshot
+# Arguments: $1 M or W for monthly or weekly
+oldest_snapshot() {
+    ret_val=$(echo "$archives" | sort | head -n 1)
+}
+
+# Our main function
+main() {
+    # Determine, based on what day it is, whether
+    # we should create a weekly snapshot or
+    # monthly snapshot
+    if [ $(date +"%d") -gt 23 ]
+    then
+	/usr/bin/tarsnap -c \
+            -f "$(uname -n)-$(date +%Y-%m-%d-%H)M" \
+            /home/steveno/Documents \
+            /home/steveno/Music \
+            /home/steveno/Pictures \
+            /home/steveno/Videos \
+            /home/steveno/.config \
+            /home/steveno/.gnupg \
+            /home/steveno/.local \
+            /home/steveno/.ssh
+    else
+	/usr/bin/tarsnap -c \
+            -f "$(uname -n)-$(date +%Y-%m-%d-%H)W" \
+            /home/steveno/Documents \
+            /home/steveno/Music \
+            /home/steveno/Pictures \
+            /home/steveno/Videos \
+            /home/steveno/.config \
+            /home/steveno/.gnupg \
+            /home/steveno/.local \
+            /home/steveno/.ssh
+    fi
+
+    local ret_val=0
+
+    # Only keep 4 monthly snapshot
+    (num_snapshots "M")
+    if [ $ret_val -gt 3 ]
+    then
+        oldest_snapshot "M"
+	/usr/bin/tarsnap -d -f $ret_val
+    fi
+
+    # Only keep 5 weekly snapshot
+    num_snapshots "W"
+    if [ $ret_val -gt 4 ]
+    then
+        oldest_snapshot "W"
+	/usr/bin/tarsnap -d -f $ret_val
+    fi
+}
+
+main
