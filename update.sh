@@ -6,6 +6,7 @@
 
 set -o nounset
 set -o errexit
+set -o pipefail
 OPTIND=1
 
 update_scripts() {
@@ -33,6 +34,7 @@ update_scripts() {
 update_tarsnap_schedule() {
     sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.timer /etc/systemd/system/
     sudo cp ~/Projects/dotfiles/tarsnap/tarsnap.service /etc/systemd/system/
+    sudo systemctl daemon-reload
 }
 
 while getopts "ut" opt
@@ -40,7 +42,7 @@ do
     case "$opt" in
         u) update_scripts
            ;;
-        t) update_tarsnap
+        t) update_tarsnap_schedule
            ;;
         *) echo "Unrecognized argument"
            exit 1 ;;
