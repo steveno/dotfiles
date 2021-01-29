@@ -12,15 +12,17 @@ set -o pipefail
 archives=$(/usr/bin/tarsnap --list-archives)
 
 # Find how many snapshots we have
-# Arguments: $1 M or W for monthly or weekly
+# Arguments:
+#   $1: M or W for monthly or weekly
 num_snapshots() {
-    ret_val=$(echo "$archives" | wc -l)
+    ret_val=$(echo "$archives" | grep $1 | wc -l)
 }
 
 # Find the oldest snapshot
-# Arguments: $1 M or W for monthly or weekly
+# Arguments:
+#   $1: M or W for monthly or weekly
 oldest_snapshot() {
-    ret_val=$(echo "$archives" | sort | head -n 1)
+    ret_val=$(echo "$archives" | grep $1 | sort | head -n 1)
 }
 
 # Our main function
