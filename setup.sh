@@ -38,7 +38,10 @@ sudo apt install yubikey-manager yubioath-desktop yubikey-personalization-gui
 
 # nix
 bash <(curl -L https://nixos.org/nix/install)
-nix-env -i entr tmux neovim git ghc cabal-install emacs
+nix-env -i entr tmux neovim git ghc cabal-install
+
+# snaps
+sudo snap install emacs --classic
 
 # gnupg
 mkdir ~/.gnupg
@@ -48,9 +51,6 @@ chmod 700 ~/.gnupg
 # neovim
 mkdir -p ~/.config/nvim/backups
 sudo update-alternatives --config editor
-
-# emacs
-mkdir -p ~/.emacs.d/
 
 # ssh
 mkdir ~/.ssh
