@@ -98,6 +98,7 @@ endfunction
 
 autocmd FileType d nnoremap <f8> :call DTest()<cr>
 autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
 
 " Python
 let g:python3_host_prog = '/usr/bin/python3'
