@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'
-Plug 'YorickPeterse/vim-paper'
+Plug 'https://gitlab.com/yorickpeterse/vim-paper.git'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
