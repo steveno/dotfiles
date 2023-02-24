@@ -9,13 +9,13 @@ else
     export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
     export LD_LIBRARY_PATH="/usr/local/lib"
 
-    alias vi='nvim'
-    alias vim='nvim'
-
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\]\$ '
 fi
 
-# Common aliases
-alias mkdir='mkdir -p'
+# Use neovim
+alias vi='nvim'
+alias vim='nvim'
 alias ls='ls --color'
+
+# Make checking tarnsap easier
 alias check_tarsnap='sudo tarsnap --list-archives | sort'
