@@ -1,26 +1,12 @@
 {
    "languageserver":{
-      "haskell":{
-         "command":"hie-wrapper",
-         "args":[
-            "--lsp"
-         ],
-         "rootPatterns":[
-            "*.cabal",
-            "stack.yaml",
-            "cabal.project",
-            "package.yaml"
-         ],
-         "filetypes":[
-            "hs",
-            "lhs",
-            "haskell"
-         ],
-         "initializationOptions":{
-            "haskell":{
-               
-            }
-         }
-      }
+       "golang": {
+           "command": "/home/steveno/go/bin/gopls",
+           "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
+           "filetypes": ["go"],
+           "initializationOptions": {
+               "usePlaceholders": true
+           }
+       }
    }
 }

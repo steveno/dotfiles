@@ -1,11 +1,12 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'
+Plug 'bhurlow/vim-parinfer'
 Plug 'https://gitlab.com/yorickpeterse/vim-paper.git'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
-Plug 'bhurlow/vim-parinfer'
 call plug#end()
 
 filetype plugin indent on
@@ -102,6 +103,10 @@ autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
 
 " Python
 let g:python3_host_prog = '/usr/bin/python3'
+
+" go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " OCaml
 let g:opamshare = substitute(system('opam var share'),'\n$','','''')
