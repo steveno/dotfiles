@@ -23,7 +23,7 @@ fi
 export GPG_TTY=$(tty)
 
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/local/go/bin:~/go/bin/"
 
 # opam configuration
 test -r /home/steveno/.opam/opam-init/init.sh && . /home/steveno/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
