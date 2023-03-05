@@ -15,5 +15,5 @@
 
 [".local/share/bash-completion/completions/chezmoi"]
     type = "file"
-    url = "https://github.com/twpayne/chezmoi/blob/master/completions/chezmoi-completion.bash"
+    url = "https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi-completion.bash"
     refreshPeriod = "720h"
