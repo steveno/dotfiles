@@ -7,18 +7,28 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-mkdir -p ~/Projects/dlang
-mkdir -p ~/Projects/vala
-mkdir -p ~/Projects/vim
+# bash completion
+mkdir -p ~/.local/share/bash-completion/completions/
 
 # gnupg
 mkdir -p ~/.gnupg
 chown steveno:steveno ~/.gnupg
 chmod 700 ~/.gnupg
 
+# nvim
+mkdir -p ~/.config/nvim/backups
+
+# projects
+mkdir -p ~/Projects/dlang
+mkdir -p ~/Projects/vala
+mkdir -p ~/Projects/vim
+
 # ssh
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 
-# nvim
-mkdir -p ~/.config/nvim/backups
+# Ensure my custom bash setup is sourced
+if ! grep -Fq "bash_steveno" ~/.bashrc
+then
+    echo 'source ~/.bash_steveno' >> ~/.bashrc
+fi
