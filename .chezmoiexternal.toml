@@ -7,3 +7,13 @@
     type = "file"
     url = "https://raw.githubusercontent.com/iridakos/goto/master/goto.sh"
     refreshPeriod = "720h"
+
+[".local/share/bash-completion/completions/git"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
+    refreshPeriod = "720h"
+
+[".local/share/bash-completion/completions/chezmoi"]
+    type = "file"
+    url = "https://github.com/twpayne/chezmoi/blob/master/completions/chezmoi-completion.bash"
+    refreshPeriod = "720h"
