@@ -12,8 +12,6 @@ mkdir -p ~/.local/share/bash-completion/completions/
 
 # gnupg
 mkdir -p ~/.gnupg
-chown steveno:steveno ~/.gnupg
-chmod 700 ~/.gnupg
 
 # nvim
 mkdir -p ~/.config/nvim/backups
@@ -25,7 +23,6 @@ mkdir -p ~/Projects/vim
 
 # ssh
 mkdir -p ~/.ssh
-chmod 700 ~/.ssh
 
 # Ensure my custom bash setup is sourced
 if ! grep -Fq "bash_steveno" ~/.bashrc
