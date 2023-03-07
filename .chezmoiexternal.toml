@@ -17,3 +17,8 @@
     type = "file"
     url = "https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi-completion.bash"
     refreshPeriod = "720h"
+
+["dlang/install.sh"]
+    type = "file"
+    url = "https://dlang.org/install.sh"
+    refreshPeriod = "168h"
