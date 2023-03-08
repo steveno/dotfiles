@@ -2,7 +2,6 @@
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 [[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
-[[ -s "/home/steveno/.git-prompt.sh" ]] && source /home/steveno/.git-prompt.sh
 [[ -s "/home/steveno/.fzf.bash" ]] && source /home/steveno/.fzf.bash
 
 if [[ $DISPLAY ]] && [[ -t 1 ]]; then
