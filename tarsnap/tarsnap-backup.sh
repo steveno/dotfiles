@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
 
 set -o nounset
 set -o errexit
@@ -15,21 +14,21 @@ archives=$(/usr/bin/tarsnap --list-archives)
 # Arguments:
 #   $1: M or W for monthly or weekly
 num_snapshots() {
-    ret_val=$(echo "$archives" | grep $1 | wc -l)
+    res=$(echo "$archives" | grep $1 | wc -l)
 }
 
 # Find the oldest snapshot
 # Arguments:
 #   $1: M or W for monthly or weekly
 oldest_snapshot() {
-    ret_val=$(echo "$archives" | grep $1 | sort | head -n 1)
+    res=$(echo "$archives" | grep $1 | sort | head -n 1)
 }
 
 # Our main function
 main() {
     # Determine, based on what day it is, whether
-    # we should create a weekly snapshot or
-    # monthly snapshot
+    # we should create a weekly snapshot or a
+    # montly snapshot 
     if [ $(date +"%d") -gt 23 ]
     then
 	/usr/bin/tarsnap -c \
@@ -55,23 +54,23 @@ main() {
             /home/steveno/.ssh
     fi
 
-    local ret_val=0
+    local res=0
 
-    # Only keep 4 monthly snapshot
-    (num_snapshots "M")
-    if [ $ret_val -gt 3 ]
-    then
+    # Only keep 4 monthly snapshots
+    num_snapshots "M"
+    for i in $(seq $res -1 5);
+    do
         oldest_snapshot "M"
-	/usr/bin/tarsnap -d -f $ret_val
-    fi
+	/usr/bin/tarsnap -d -f $res
+    done
 
-    # Only keep 5 weekly snapshot
+    # Only keep 5 weekly snapshots
     num_snapshots "W"
-    if [ $ret_val -gt 4 ]
-    then
+    for i in $(seq $res -1 6);
+    do
         oldest_snapshot "W"
-	/usr/bin/tarsnap -d -f $ret_val
-    fi
+	/usr/bin/tarsnap -d -f $res
+    done
 }
 
 main
