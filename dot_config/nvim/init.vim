@@ -19,8 +19,8 @@ set noshowmode
 set backup
 
 try
-    set backupdir=$HOME/.config/nvim/backups/
-    set directory=$HOME/.config/nvim/backups/
+    set backupdir=$HOME/.local/share/nvim/backups/
+    set directory=$HOME/.local/share/nvim/backups/
 catch
 endtry
 

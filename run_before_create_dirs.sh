@@ -14,7 +14,7 @@ mkdir -p ~/.local/share/bash-completion/completions/
 mkdir -p ~/.gnupg
 
 # nvim
-mkdir -p ~/.config/nvim/backups
+mkdir -p ~/.share/local/nvim/backups
 
 # projects
 mkdir -p ~/Projects/dlang
