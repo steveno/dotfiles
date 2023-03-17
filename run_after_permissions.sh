@@ -7,9 +7,6 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-# D
-chmod +x ~/dlang/install.sh
-
 # gnupg
 chown steveno:steveno ~/.gnupg
 chmod 700 ~/.gnupg
