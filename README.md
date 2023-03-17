@@ -19,5 +19,6 @@ maintain permissions on certian files.
 
 # License
 The actual code is licensed under a 3-clause BSD license. Configuration files that
-contain no code are public domain to the extent possible. If you do not know which
-is which, all files under a BSD license have a header at the top.
+contain no code are public domain to the extent possible. If you are unsure of
+which license a file falls under I have tried to mark files I thought might be
+confusing.

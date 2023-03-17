@@ -1,3 +1,6 @@
+" Any copyright is dedicated to the Public Domain.
+" https://creativecommons.org/publicdomain/zero/1.0/
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'
 Plug 'bhurlow/vim-parinfer'
