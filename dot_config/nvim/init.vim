@@ -19,9 +19,8 @@ let g:bufferline_echo = 0
 set noshowmode
 
 " Create backups
-set backup
-
 try
+    set backup
     set backupdir=$HOME/.local/share/nvim/backups/
     set directory=$HOME/.local/share/nvim/backups/
 catch
@@ -68,6 +67,10 @@ set showmatch
 set number
 setlocal numberwidth=3
 
+" Allow hidden buffers
+set hidden
+
+" color scheme
 if exists('+termguicolors')
    let &t_8f =  "\<Esc>[38:2;%lu;%lu;%lum"
    let &t_8b =  "\<Esc>[48:2;%lu;%lu;%lum"
@@ -81,6 +84,11 @@ autocmd FileType make setlocal noexpandtab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:LanguageClient_serverCommands = {
+\ 'ocmal':      ['ocamllsp'],
+\ 'go':         ['gopls'],
+\}
 
 " D lang Error format
 autocmd FileType d set efm=%*[^@]@%f\(%l\):\ %m,%f\(%l\\,%c\):\ %m,%f\(%l\):\ %m
@@ -101,27 +109,20 @@ function! DTest()
 endfunction
 
 autocmd FileType d nnoremap <f8> :call DTest()<cr>
+
+" go
 autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " Python
 let g:python3_host_prog = '/usr/bin/python3'
 
-" go
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-
 " OCaml
 let g:opamshare = substitute(system('opam var share'),'\n$','','''')
 let g:opambin = substitute(system('opam var bin'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
-set hidden
-
-let g:LanguageClient_serverCommands = {
-\ 'ocmal':      ['ocamllsp'],
-\ 'go':         ['gopls'],
-\}
 
 let g:neoformat_ocaml_ocamlformat = {
             \ 'exe': g:opambin . '/ocamlformat',
@@ -131,3 +132,19 @@ let g:neoformat_ocaml_ocamlformat = {
             \ }
 
 let g:neoformat_enabled_ocaml = ['ocamlformat']
+
+" Tab selects the first item in the list.
+" Then use C-P,C-N (prev/next) to cycle.
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
+endfunction
+
