@@ -17,9 +17,10 @@ mkdir -p ~/.gnupg
 mkdir -p ~/.share/local/nvim/backups
 
 # projects
+mkdir -p ~/Projects/c
 mkdir -p ~/Projects/dlang
 mkdir -p ~/Projects/vala
-mkdir -p ~/Projects/vim
+mkdir -p ~/Projects/work
 
 # ssh
 mkdir -p ~/.ssh
