@@ -47,7 +47,6 @@ set whichwrap+=<,>,[,]
 set matchpairs+=<:>
 
 " Print with syntax highlighting and line numbers
-set popt+=syntax:y,number:y
 set shiftwidth=4
 set smartindent
 
