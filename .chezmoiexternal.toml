@@ -18,6 +18,11 @@
     url = "https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi-completion.bash"
     refreshPeriod = "720h"
 
+[".local/share/bash-completion/completions/rtx"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/jdx/rtx/main/completions/rtx.bash"
+    refreshPeriod = "720h"
+
 ["dlang/install.sh"]
     type = "file"
     url = "https://dlang.org/install.sh"
