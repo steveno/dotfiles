@@ -1,0 +1,35 @@
+[user]
+	name = steveno
+        email = oliver.steven@gmail.com
+	signingkey = 05368C44AB2AF31E
+[core]
+	editor = nvim
+[color]
+        branch = auto
+        diff = auto
+        status = auto
+        ui = auto
+[merge]
+        tool = vimdiff
+[alias]
+        br = branch
+        cl = clone
+        co = checkout
+        cm = commit -S
+        ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        ss = status -sb
+[sendemail]
+        confirm = always
+        chainreplyto = false
+        smtpencryption = tls
+        smtpserver = smtp.gmail.com
+        smtpuser = oliver.steven@gmail.com
+        smtpserverport = 587
+[push]
+	default = simple
+[credential]
+	helper = cache
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false
