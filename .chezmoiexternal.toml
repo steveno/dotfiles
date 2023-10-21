@@ -23,7 +23,3 @@
     url = "https://raw.githubusercontent.com/jdx/rtx/main/completions/rtx.bash"
     refreshPeriod = "720h"
 
-["dlang/install.sh"]
-    type = "file"
-    url = "https://dlang.org/install.sh"
-    refreshPeriod = "168h"
