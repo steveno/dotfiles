@@ -20,8 +20,5 @@ export GPG_TTY=$(tty)
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# go
-export PATH="$PATH:/usr/local/go/bin:~/go/bin/"
-
 # opam configuration
 test -r /home/steveno/.opam/opam-init/init.sh && . /home/steveno/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
