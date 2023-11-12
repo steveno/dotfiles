@@ -14,14 +14,15 @@ archives=$(/usr/bin/tarsnap --list-archives)
 # Arguments:
 #   $1: M or W for monthly or weekly
 num_snapshots() {
-    res=$(echo "$archives" | grep $1 | wc -l)
+    # shellcheck disable=SC2126
+    res=$(echo "$archives" | grep "$1" | wc -l)
 }
 
 # Find the oldest snapshot
 # Arguments:
 #   $1: M or W for monthly or weekly
 oldest_snapshot() {
-    res=$(echo "$archives" | grep $1 | sort | head -n 1)
+    res=$(echo "$archives" | grep "$1" | sort | head -n 1)
 }
 
 # Our main function
@@ -29,7 +30,7 @@ main() {
     # Determine, based on what day it is, whether
     # we should create a weekly snapshot or a
     # montly snapshot 
-    if [ $(date +"%d") -gt 23 ]
+    if [ "$(date +"%d")" -gt 23 ]
     then
 	/usr/bin/tarsnap -c \
             -f "$(uname -n)-$(date +%Y-%m-%d-%H)M" \
