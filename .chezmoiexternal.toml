@@ -23,3 +23,7 @@
     url = "https://raw.githubusercontent.com/jdx/rtx/main/completions/rtx.bash"
     refreshPeriod = "720h"
 
+[".local/share/bash-completion/completions/tmux"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux"
+    refreshPeriod = "720h"
