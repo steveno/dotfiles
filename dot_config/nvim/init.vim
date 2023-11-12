@@ -4,9 +4,8 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'bling/vim-airline'
 Plug 'bhurlow/vim-parinfer'
-Plug 'https://gitlab.com/yorickpeterse/vim-paper.git'
+Plug 'yorickpeterse/vim-paper'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
@@ -138,12 +137,4 @@ inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<C-g>u\<TAB>"
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-    if CocAction('hasProvider', 'hover')
-        call CocActionAsync('doHover')
-    else
-        call feedkeys('K', 'in')
-    endif
-endfunction
 
