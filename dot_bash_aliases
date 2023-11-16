@@ -21,6 +21,7 @@ alias vim='nvim'
 alias ls='ls --color'
 alias l='ls -CF'
 alias ll='ls -alF'
+alias less='less -r'
 
 # Make checking tarnsap easier
 alias check_tarsnap='sudo tarsnap --list-archives | sort'
