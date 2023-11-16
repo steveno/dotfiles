@@ -4,14 +4,14 @@
 -- Function to install lazy if it's not already installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
+    vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
-  })
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -19,10 +19,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require("lazy").setup({
-  "bling/vim-airline",
-  "bhurlow/vim-parinfer",
-  {"yorickpeterse/vim-paper", lazy = true},
-  {"fatih/vim-go", cmd = "GoUpdateBinaries"},
+    "bling/vim-airline",
+    "bhurlow/vim-parinfer",
+    { "yorickpeterse/vim-paper", lazy = true },
+    { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
+    { "fatih/vim-go" },
 })
 
 ------------------------------------------------------
@@ -36,4 +37,3 @@ vim.cmd([[
 
 vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"
-
