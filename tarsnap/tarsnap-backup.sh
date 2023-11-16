@@ -59,18 +59,18 @@ main() {
 
     # Only keep 4 monthly snapshots
     num_snapshots "M"
-    for i in $(seq $res -1 5);
+    for i in $(seq "$res" -1 5);
     do
         oldest_snapshot "M"
-	/usr/bin/tarsnap -d -f $res
+	/usr/bin/tarsnap -d -f "$res"
     done
 
     # Only keep 5 weekly snapshots
     num_snapshots "W"
-    for i in $(seq $res -1 6);
+    for i in $(seq "$res" -1 6);
     do
         oldest_snapshot "W"
-	/usr/bin/tarsnap -d -f $res
+	/usr/bin/tarsnap -d -f "$res"
     done
 }
 
