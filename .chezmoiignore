@@ -4,5 +4,4 @@ LICENSE
 
 # Non-dotfile setup
 setup.sh
-update.sh
 tarsnap

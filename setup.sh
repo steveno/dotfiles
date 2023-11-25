@@ -7,12 +7,6 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-# tarsnap apt
-cd /tmp
-wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
-sudo apt-key add tarsnap-deb-packaging-key.asc
-echo "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" | sudo tee -a /etc/apt/sources.list.d/tarsnap.list
-
 # yubikey
 sudo add-apt-repository ppa:yubico/stable
 
@@ -32,11 +26,3 @@ sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev valac
 
 # Install yubikey packages
 sudo apt install yubikey-manager yubioath-desktop yubikey-personalization-gui
-
-# tarsnap config
-sudo cp tarsnap/tarsnap.timer /etc/systemd/system/
-sudo cp tarsnap/tarsnap.service /etc/systemd/system/
-sudo cp tarsnap/tarsnap-backup.sh /root/
-sudo cp tarsnap/tarsnap.conf /etc/
-
-sudo systemctl enable --now tarsnap.timer
