@@ -1,20 +1,80 @@
-*.c     diff=cpp
-*.h     diff=cpp
-*.cpp   diff=cpp
-*.hpp   diff=cpp
-*.cc    diff=cpp
-*.hh    diff=cpp
-*.css   diff=css
-*.html  diff=html
-*.xhtml diff=html
-*.go    diff=golang
-*.py    diff=python
-*.md    diff=markdown
-*.rs    diff=rust
-*.lisp  diff=lisp
-*.vala  diff=vala
-*.d     diff=d
+# General
+# ============================
+*          text=auto
 
-*.pyc    binary
+# Generic Text files
+# ============================
+*.md       text diff=markdown
+*.mdx      text diff=markdown
+*.tex      text diff=tex
+*.csv      text eol=crlf
+*.tab      text
+*.tsv      text
+*.txt      text
+*.sql      text
+
+# Serialization
+# ============================
+*.json     text
+*.toml     text
+*.xml      text
+*.yaml     text
+*.yml      text
+
+# bash
+# ============================
+*.bash     text eol=lf
+*.sh       text eol=lf
+
+# git
+# ============================
+.gitattributes export-ignore
+.gitignore     export-ignore
+.gitkeep       export-ignore
+
+# Graphics
+# ============================
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.tif      binary
+*.tiff     binary
+*.ico      binary
+*.svg      text
+
+# Python
+# ============================
+*.pxd    text diff=python
+*.py     text diff=python
+*.py3    text diff=python
+*.pyw    text diff=python
+*.pyx    text diff=python
+*.pyz    text diff=python
+*.pyi    text diff=python
+*.p      binary
+*.pkl    binary
+*.pickle binary
+*.pyc    binary export-ignore
+*.pyo    binary export-ignore
 *.pyd    binary
-*.pyo    binary
+
+# Lua
+# ============================
+*.lua       text
+
+# Go
+# ============================
+*.go -text diff=golang
+
+# Vim
+# ============================
+*.vim text eol=lf
+.vimrc text eol=lf
+.gvimrc text eol=lf
+
+# Rust
+# ============================
+*.rs       text diff=rust
+*.toml     text diff=toml
+Cargo.lock text
