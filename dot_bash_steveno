@@ -20,5 +20,5 @@ export EDITOR="nvim"
 
 shopt -s histverify
 
-# Setup rtx
-eval "$(/home/steveno/.local/share/rtx/bin/rtx activate bash)"
+# Setup mise
+eval "$(/home/steveno/.local/bin/mise activate bash)"

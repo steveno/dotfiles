@@ -13,9 +13,9 @@
     url = "https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi-completion.bash"
     refreshPeriod = "720h"
 
-[".local/share/bash-completion/completions/rtx"]
+[".local/share/bash-completion/completions/mise"]
     type = "file"
-    url = "https://raw.githubusercontent.com/jdx/rtx/main/completions/rtx.bash"
+    url = "https://raw.githubusercontent.com/jdx/mise/main/completions/mise.bash"
     refreshPeriod = "720h"
 
 [".local/share/bash-completion/completions/tmux"]
