@@ -21,6 +21,8 @@ vim.g.mapleader = " "
 require("lazy").setup({
     "bling/vim-airline",
     "bhurlow/vim-parinfer",
+    "jaawerth/fennel.vim",
+    "Olical/conjure",
     { "yorickpeterse/vim-paper", lazy = true },
     { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
     { "fatih/vim-go" },
