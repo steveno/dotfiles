@@ -13,15 +13,6 @@ mkdir -p ~/.local/share/bash-completion/completions/
 # gnupg
 mkdir -p ~/.gnupg
 
-# nvim
-mkdir -p ~/.share/local/nvim/backups
-
-# projects
-mkdir -p ~/Projects/c
-mkdir -p ~/Projects/dlang
-mkdir -p ~/Projects/vala
-mkdir -p ~/Projects/work
-
 # ssh
 mkdir -p ~/.ssh
 
