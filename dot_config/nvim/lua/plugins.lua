@@ -23,6 +23,7 @@ require("lazy").setup({
     "bhurlow/vim-parinfer",
     "jaawerth/fennel.vim",
     "Olical/conjure",
+    "Olical/aniseed",
     { "yorickpeterse/vim-paper", lazy = true },
     { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
     { "fatih/vim-go" },
@@ -39,3 +40,5 @@ vim.cmd([[
 
 vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"
+
+vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = "aniseed."
