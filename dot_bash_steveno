@@ -12,7 +12,6 @@ if [[ $DISPLAY ]] && [[ -t 1 ]]; then
     [[ -z "$TMUX" ]] && exec tmux
 fi
 
-export PATH=$PATH:/home/steveno/.local/bin
 export HISTIGNORE='ls:ll:l:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
@@ -22,3 +21,10 @@ shopt -s histverify
 
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"
+
+# opam configuration
+test -r /home/steveno/.opam/opam-init/init.sh && . /home/steveno/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+# Setup gpg
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartupttyp /bye >/dev/null

@@ -15,10 +15,8 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export GPG_TTY=$(tty)
+# Ensure my local bin is in the path
+export PATH=$PATH:/home/steveno/.local/bin
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# opam configuration
-test -r /home/steveno/.opam/opam-init/init.sh && . /home/steveno/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
