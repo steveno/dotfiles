@@ -18,10 +18,15 @@ fi
 # Use neovim
 alias vi='nvim'
 alias vim='nvim'
+
+# Setup ls
 alias ls='ls --color'
 alias l='ls -CF'
 alias ll='ls -alF'
 alias less='less -r'
 
 # Make checking tarnsap easier
-alias check_tarsnap='sudo tarsnap --list-archives | sort'
+alias check-tarsnap='sudo tarsnap --list-archives | sort'
+
+# Internet radio
+alias start-radio='cvlc https://ice-1.streamhoster.com/lv_wqed--893'
