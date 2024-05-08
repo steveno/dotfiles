@@ -22,6 +22,9 @@ shopt -s histverify
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"
 
+# kubectl bash completion
+source <(kubectl completion bash)
+
 # opam configuration
 test -r /home/steveno/.opam/opam-init/init.sh && . /home/steveno/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 

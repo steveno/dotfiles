@@ -28,5 +28,5 @@ alias less='less -r'
 # Make checking tarnsap easier
 alias check-tarsnap='sudo tarsnap --list-archives | sort'
 
-# Internet radio
-alias start-radio='cvlc https://ice-1.streamhoster.com/lv_wqed--893'
+# kubectl
+alias kubectl='microk8s.kubectl'
