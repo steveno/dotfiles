@@ -16,7 +16,7 @@
         cl = clone
         co = checkout
         cm = commit -S
-        ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ch) %C(bold blue)<%an>%Creset'
         ss = status -sb
 [sendemail]
         confirm = always
