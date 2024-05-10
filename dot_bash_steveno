@@ -16,6 +16,7 @@ export HISTIGNORE='ls:ll:l:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
 export EDITOR="nvim"
+export GOPATH="/home/steveno/.local/share/go"
 
 shopt -s histverify
 
