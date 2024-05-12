@@ -18,11 +18,6 @@
     url = "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux"
     refreshPeriod = "720h"
 
-[".local/share/bash-completion/completions/alacritty"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/alacritty/alacritty/master/extra/completions/alacritty.bash"
-    refreshPeriod = "720h"
-
 [".local/share/bash-completion/completions/chapel"]
     type = "file"
     url = "https://raw.githubusercontent.com/chapel-lang/chapel/main/util/chpl-completion.bash"

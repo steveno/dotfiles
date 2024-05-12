@@ -45,6 +45,8 @@ vim.opt.numberwidth = 3
 
 -- Allow hidden buffers
 vim.opt.hidden = true
+        
+vim.opt.termguicolors = true
 
 -- Create backups
 vim.opt.backup = true
@@ -58,13 +60,10 @@ vim.cmd([[
 
 -- color scheme
 vim.cmd([[
-    if exists('+termguicolors')
-        let &t_8f =  "\<Esc>[38:2;%lu;%lu;%lum"
-        let &t_8b =  "\<Esc>[48:2;%lu;%lu;%lum"
-        set t_Co=256
-        set termguicolors
-        colorscheme paper
-    endif
+    let &t_8f =  "\<Esc>[38:2;%lu;%lu;%lum"
+    let &t_8b =  "\<Esc>[48:2;%lu;%lu;%lum"
+    set t_Co=256
+    colorscheme paper
 ]])
 
 -- Python
