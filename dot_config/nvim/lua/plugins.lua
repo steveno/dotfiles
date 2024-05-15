@@ -24,9 +24,16 @@ require("lazy").setup({
     "jaawerth/fennel.vim",
     "Olical/conjure",
     "Olical/aniseed",
+    "neovim/nvim-lspconfig",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
+    { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
     { "yorickpeterse/vim-paper", lazy = true },
     { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
     { "fatih/vim-go" },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 })
 
 ------------------------------------------------------

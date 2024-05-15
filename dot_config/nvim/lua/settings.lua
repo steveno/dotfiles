@@ -1,6 +1,9 @@
 -- Any copyright is dedicated to the Public Domain.
 -- https://creativecommons.org/publicdomain/zero/1.0/
 
+require('misc')
+
+-- Status line is always shown
 vim.opt.laststatus = 2
 
 -- Show full tags when doing search completion
@@ -45,26 +48,27 @@ vim.opt.numberwidth = 3
 
 -- Allow hidden buffers
 vim.opt.hidden = true
-        
-vim.opt.termguicolors = true
-
+ 
 -- Create backups
-vim.opt.backup = true
-vim.cmd([[
-    try
-        set backupdir=$HOME/.local/share/nvim/backups/
-        set directory=$HOME/.local/share/nvim/backups/
-    catch
-    endtry
-]])
+local backupdir = "/home/steveno/.local/share/nvim/backups"
+if dir_exists(backupdir) then
+    vim.opt.backup = true
+    vim.opt.backupdir = backupdir
+    vim.opt.directory = backupdir
+else
+    vim.print("ERROR: Failed to set backupdir to " .. backupdir)
+    return
+end
 
 -- color scheme
+vim.opt.termguicolors = true
 vim.cmd([[
     let &t_8f =  "\<Esc>[38:2;%lu;%lu;%lum"
     let &t_8b =  "\<Esc>[48:2;%lu;%lu;%lum"
     set t_Co=256
-    colorscheme paper
 ]])
+
+vim.cmd.colorscheme('paper')
 
 -- Python
 vim.g.python3_host_prog = "/usr/bin/python3"
