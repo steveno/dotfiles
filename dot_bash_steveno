@@ -4,14 +4,23 @@
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# goto for directory bookmarking
 [[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
 
+# Setup tmux
 if [[ $DISPLAY ]] && [[ -t 1 ]]; then
     # If not running interactively, do not do anything
     [[ $- != *i* ]] && return
     [[ -z "$TMUX" ]] && exec tmux
 fi
 
+# Setup kitty bash completion
+if test -n "$KITTY_INSTALLATION_DIR"; then
+    export KITTY_SHELL_INTEGRATION="enabled"
+    source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
+fi
+
+# Various bash config options
 export HISTIGNORE='ls:ll:l:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
