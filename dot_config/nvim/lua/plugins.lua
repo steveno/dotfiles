@@ -19,21 +19,26 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require("lazy").setup({
+    -- nvim setup
     "bling/vim-airline",
     "bhurlow/vim-parinfer",
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    -- fennel
     "jaawerth/fennel.vim",
     "Olical/conjure",
     "Olical/aniseed",
+    -- lsp
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
     { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
-    { "yorickpeterse/vim-paper", lazy = true },
-    { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
+    -- go
     { "fatih/vim-go" },
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    -- other
+    { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
+    { "yorickpeterse/vim-paper", lazy = true },
 })
 
 ------------------------------------------------------
@@ -41,11 +46,19 @@ require("lazy").setup({
 ------------------------------------------------------
 
 -- go
-vim.cmd([[
-    autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-]])
-
 vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"
 
+-- aniseed
 vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = "aniseed."
+
+-- mason
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})

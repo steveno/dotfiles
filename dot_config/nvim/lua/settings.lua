@@ -42,7 +42,8 @@ vim.opt.showcmd = true
 -- Highlight matching parens
 vim.opt.showmatch = true
 
--- Set a dark background
+-- Line numbers
+vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.numberwidth = 3
 
