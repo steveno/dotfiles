@@ -28,5 +28,8 @@ alias less='less -r'
 # Make checking tarnsap easier
 alias check-tarsnap='sudo tarsnap --list-archives | sort'
 
+# tmux
+alias reload-tmux='tmux source ~/.tmux.conf'
+
 # kubectl
 alias kubectl='microk8s.kubectl'
