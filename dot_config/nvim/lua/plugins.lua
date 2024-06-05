@@ -23,10 +23,6 @@ require("lazy").setup({
     "bling/vim-airline",
     "bhurlow/vim-parinfer",
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    -- fennel
-    "jaawerth/fennel.vim",
-    "Olical/conjure",
-    "Olical/aniseed",
     -- lsp
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
@@ -48,9 +44,6 @@ require("lazy").setup({
 -- go
 vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"
-
--- aniseed
-vim.g['conjure#client#fennel#aniseed#aniseed_module_prefix'] = "aniseed."
 
 -- mason
 require("mason").setup({
