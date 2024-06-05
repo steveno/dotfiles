@@ -1,0 +1,5 @@
+[tools]
+watchexec = "latest"
+usage = "latest"
+chezscheme = "latest"
+chezmoi = "latest"
