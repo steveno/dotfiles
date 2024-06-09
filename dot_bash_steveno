@@ -26,6 +26,7 @@ export HISTSIZE=100000
 export HISTFILESIZE=10000000
 export EDITOR="nvim"
 export GOPATH="/home/steveno/.local/share/go"
+export OPAMROOT="/home/steveno/.local/opam"
 
 shopt -s histverify
 
@@ -35,9 +36,12 @@ eval "$(/home/steveno/.local/bin/mise activate bash)"
 # kubectl bash completion
 source <(kubectl completion bash)
 
-# opam configuration
-test -r /home/steveno/.opam/opam-init/init.sh && . /home/steveno/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
 # Setup gpg
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartupttyp /bye >/dev/null
+
+# neovim
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/home/steveno/.local/bin/mise activate bash)"
