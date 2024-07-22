@@ -53,6 +53,8 @@ else
 end
 
 -- color scheme
+-- Removing this line breaks my colorscheme in neovim
+vim.opt.termguicolors = true
 vim.cmd.colorscheme('paper')
 
 -- Python
