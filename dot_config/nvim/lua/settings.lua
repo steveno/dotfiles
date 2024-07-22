@@ -3,9 +3,6 @@
 
 require('misc')
 
--- Status line is always shown
-vim.opt.laststatus = 2
-
 -- Show full tags when doing search completion
 vim.opt.showfulltag = true
 vim.opt.expandtab = true
@@ -36,9 +33,6 @@ vim.opt.hls = false
 -- Disable line wrapping
 vim.opt.wrap = false
 
--- Show us the command we're typing
-vim.opt.showcmd = true
-
 -- Highlight matching parens
 vim.opt.showmatch = true
 
@@ -47,9 +41,6 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.numberwidth = 3
 
--- Allow hidden buffers
-vim.opt.hidden = true
- 
 -- Create backups
 local backupdir = "/home/steveno/.local/share/nvim/backups"
 if dir_exists(backupdir) then
@@ -62,9 +53,11 @@ else
 end
 
 -- color scheme
-vim.opt.termguicolors = true
 vim.cmd.colorscheme('paper')
 
 -- Python
 vim.g.python3_host_prog = "/usr/bin/python3"
+
+--OCaml
+vim.opt.rtp:append("/home/steveno/.local/opam/default/share/merlin/vim")
 
