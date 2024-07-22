@@ -33,6 +33,7 @@ require("lazy").setup({
     -- go
     { "fatih/vim-go" },
     -- other
+    { "sbdchd/neoformat" },
     { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
     { "yorickpeterse/vim-paper", lazy = true },
 })
