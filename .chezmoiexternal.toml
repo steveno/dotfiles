@@ -17,8 +17,3 @@
     type = "file"
     url = "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux"
     refreshPeriod = "720h"
-
-[".local/share/bash-completion/completions/chpl"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/chapel-lang/chapel/main/util/chpl-completion.bash"
-    refreshPeriod = "720h"
