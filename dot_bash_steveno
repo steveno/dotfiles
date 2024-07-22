@@ -44,3 +44,30 @@ gpg-connect-agent updatestartupttyp /bye >/dev/null
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add bash completion for my local SSH host file
+__complete_ssh_host() {
+    local KNOWN_FILE
+    KNOWN_FILE="$HOME/.ssh/known_hosts"
+    if [ -r "$KNOWN_FILE" ] ; then
+        local KNOWN_LIST
+        KNOWN_LIST=$(cut -f 1 -d ' ' "$KNOWN_FILE" | cut -f 1 -d ',' | grep -v '^[0-9[]')
+    fi
+
+    local CONFIG_FILE
+    CONFIG_FILE="$HOME/.ssh/config"
+    if [ -r "$CONFIG_FILE" ] ; then
+        local CONFIG_LIST
+        CONFIG_LIST=$(awk '/^Host [A-Za-z]+/ {print $2}' "$CONFIG_FILE")
+    fi
+
+    local PARTIAL_WORD
+    PARTIAL_WORD="${COMP_WORDS[COMP_CWORD]}";
+
+    COMPREPLY=( $(compgen -W "$KNOWN_LIST$IFS$CONFIG_LIST" -- "$PARTIAL_WORD") )
+
+    return 0
+}
+
+complete -F __complete_ssh_host ssh
+complete -f -F __complete_ssh_host scp
