@@ -7,3 +7,12 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     command = 'setlocal noexpandtab',
 })
 
+vim.api.nvim_create_autocmd({ 'BufNewFile' }, {
+    pattern = '*.sh',
+    command = '0r ~/.config/nvim/templates/skeleton.sh',
+})
+
+vim.api.nvim_create_autocmd({ 'BufNewFile' }, {
+    pattern = '*.py',
+    command = '0r ~/.config/nvim/templates/skeleton.py',
+})
