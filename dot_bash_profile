@@ -1,0 +1,18 @@
+# Any copyright is dedicated to the Public Domain.
+# https://creativecommons.org/publicdomain/zero/1.0/
+
+add_to_path() {
+    if [[ ! ":$PATH:" == *":$1:"* ]]; then
+        export PATH="$PATH:$1:"
+    fi
+}
+
+add_to_path("$HOME/.local/bin")
+add_to_path("$HOME/.cargo/bin")
+
+# Source my custom bash setup
+source ~/.bash_steveno
+
+# opam configuration
+test -r /home/steveno/.local/opam/opam-init/init.sh && . /home/steveno/.local/opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+

@@ -16,8 +16,3 @@ mkdir -p ~/.gnupg
 # ssh
 mkdir -p ~/.ssh
 
-# Ensure my custom bash setup is sourced
-if ! grep -Fq "bash_steveno" ~/.bashrc
-then
-    echo 'source ~/.bash_steveno' >> ~/.bashrc
-fi
