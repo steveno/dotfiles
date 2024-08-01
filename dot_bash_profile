@@ -12,6 +12,7 @@ add_to_path("$HOME/.cargo/bin")
 
 # Source my custom bash setup
 source ~/.bash_steveno
+source ~/.bash_aliases
 
 # opam configuration
 test -r /home/steveno/.local/opam/opam-init/init.sh && . /home/steveno/.local/opam/opam-init/init.sh > /dev/null 2> /dev/null || true
