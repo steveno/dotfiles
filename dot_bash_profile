@@ -3,15 +3,14 @@
 
 add_to_path() {
     if [[ ! ":$PATH:" == *":$1:"* ]]; then
-        export PATH="$PATH:$1:"
+        export PATH="$PATH:$1"
     fi
 }
 
-add_to_path("$HOME/.local/bin")
-add_to_path("$HOME/.cargo/bin")
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.cargo/bin"
 
-# Source my custom bash setup
-source ~/.bash_steveno
+source ~/.bashrc
 source ~/.bash_aliases
 
 # opam configuration

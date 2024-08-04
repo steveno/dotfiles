@@ -1,8 +1,39 @@
 # Any copyright is dedicated to the Public Domain.
 # https://creativecommons.org/publicdomain/zero/1.0/
 
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+    
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+shopt -s histverify
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 # goto for directory bookmarking
 [[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
@@ -27,14 +58,14 @@ export HISTFILESIZE=10000000
 export EDITOR="nvim"
 export GOPATH="/home/steveno/.local/share/go"
 export OPAMROOT="/home/steveno/.local/opam"
-
-shopt -s histverify
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+export LD_LIBRARY_PATH="/usr/local/lib"
 
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"
 
 # kubectl bash completion
-source <(kubectl completion bash)
+source <(microk8s.kubectl completion bash)
 
 # Setup gpg
 export GPG_TTY=$(tty)
@@ -71,3 +102,5 @@ __complete_ssh_host() {
 
 complete -F __complete_ssh_host ssh
 complete -f -F __complete_ssh_host scp
+
+source ~/.bash_aliases
