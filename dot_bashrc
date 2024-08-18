@@ -60,6 +60,7 @@ export GOPATH="/home/steveno/.local/share/go"
 export OPAMROOT="/home/steveno/.local/opam"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export LD_LIBRARY_PATH="/usr/local/lib"
+export GEM_HOME="/home/steveno/.local/gems"
 
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"

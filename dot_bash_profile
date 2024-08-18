@@ -9,6 +9,7 @@ add_to_path() {
 
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
+add_to_path "$HOME/.local/gems/bin"
 
 source ~/.bashrc
 
