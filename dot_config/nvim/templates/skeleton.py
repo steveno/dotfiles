@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: BSD-3-Clause
 #!/usr/bin/env python
+# SPDX-License-Identifier: BSD-3-Clause
 
 def main():
     print("Hello World!")
