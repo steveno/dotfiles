@@ -9,7 +9,7 @@ set -o pipefail
 
 # Install development related packages
 sudo apt install build-essential cmake curl meson python3 \
-    python3-pip
+    python3-pip par
 
 # Install vala specific packages
 sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev \
