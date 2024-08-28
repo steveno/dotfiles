@@ -1,10 +1,10 @@
 [tools]
-watchexec = "latest"
-usage = "latest"
-chezscheme = "latest"
 chezmoi = "latest"
+chezscheme = "latest"
+restic = "latest"
+usage = "latest"
+watchexec = "latest"
 
 [settings]
-verbose = true
 python_default_packages_file = "/home/steveno/.config/mise/default-python-packages"
 go_default_packages_file = "/home/steveno/.config/mise/default-go-packages"
