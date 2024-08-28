@@ -3,3 +3,8 @@ watchexec = "latest"
 usage = "latest"
 chezscheme = "latest"
 chezmoi = "latest"
+
+[settings]
+verbose = true
+python_default_packages_file = "/home/steveno/.config/mise/default-python-packages"
+go_default_packages_file = "/home/steveno/.config/mise/default-go-packages"
