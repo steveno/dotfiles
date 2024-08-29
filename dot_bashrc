@@ -58,7 +58,7 @@ export HISTFILESIZE=10000000
 export EDITOR="nvim"
 export GOPATH="/home/steveno/.local/share/go"
 export OPAMROOT="/home/steveno/.local/share/opam"
-export GEM_HOME="/home/steveno/.local/share/gems"
+export GEM_HOME="/home/steveno/.local/gems"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export LD_LIBRARY_PATH="/usr/local/lib"
 
