@@ -20,3 +20,5 @@ set spoolfile = "+INBOX"
 set postponed = "+[Gmail]/Drafts"
 set record = "+[Gmail]/Sent Mail"
 set trash = "+[Gmail]/Trash"
+
+macro index,pager,editor d "<delete-message><sync-mailbox><enter>"
