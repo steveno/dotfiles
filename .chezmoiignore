@@ -5,3 +5,4 @@ LICENSE
 # Non-dotfile setup
 setup.sh
 tarsnap
+key.txt.age
