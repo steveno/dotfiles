@@ -8,7 +8,7 @@ set copy = no
 auto_view text/html
 
 # Gmail
-source "age -d ~/.config/mutt/passwords.age |"
+source "age -d -i /home/steveno/.config/chezmoi/key.txt ~/.config/mutt/passwords.age |"
 set from = "oliver.steven@gmail.com"
 set realname = "Steven Oliver"
 set imap_user = "oliver.steven@gmail.com"
