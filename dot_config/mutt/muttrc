@@ -5,7 +5,16 @@ set timeout = 10
 set sort = "reverse-date-received"
 set signature = "~/.config/mutt/signature"
 set copy = no
+set menu_scroll=yes
+
+# Auto views
 auto_view text/html
+
+# Encryption
+set crypt_use_gpgme = yes
+set pgp_autosign = yes
+set pgp_sign_as = 0x05368C44AB2AF31E
+set pgp_replyencrypt = yes
 
 # Gmail
 source "age -d -i /home/steveno/.config/chezmoi/key.txt ~/.config/mutt/passwords.age |"
@@ -21,4 +30,5 @@ set postponed = "+[Gmail]/Drafts"
 set record = "+[Gmail]/Sent Mail"
 set trash = "+[Gmail]/Trash"
 
+# Macros
 macro index,pager,editor d "<delete-message><sync-mailbox><enter>"
