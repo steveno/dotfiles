@@ -57,7 +57,7 @@ end
 vim.opt.termguicolors = true
 vim.cmd.colorscheme('paper')
 -- This must come after we set the color theme to override it
-vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#9d0006", bg = "#9d0006" })
+vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#555555", bg = "#dcdcdc" })
 
 -- Python
 vim.g.python3_host_prog = "/usr/bin/python3"

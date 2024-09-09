@@ -19,8 +19,11 @@ vim.api.nvim_create_autocmd({ 'BufNewFile' }, {
     command = '0r ~/.config/nvim/templates/skeleton.py',
 })
 
--- Use par to format markdown at 80 chars
-vim.api.nvim_create_autocmd({ 'BufNewFile' }, {
-    pattern = '*.md',
-    command = 'set formatprg=par tw=80',
+-- For markdown files do the following
+--  * Use par for formatting
+--  * Set the textwidth at 80
+--  * Set the colorcolumn at 81
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+    pattern = 'markdown',
+    command = 'set colorcolumn=81 formatprg=par tw=80',
 })
