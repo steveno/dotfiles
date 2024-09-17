@@ -31,4 +31,4 @@ set record = "+[Gmail]/Sent Mail"
 set trash = "+[Gmail]/Trash"
 
 # Macros
-macro index,pager,editor d "<delete-message><sync-mailbox><enter>"
+macro index,pager d "<delete-message><sync-mailbox><enter>"
