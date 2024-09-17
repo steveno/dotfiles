@@ -45,6 +45,7 @@ require("lazy").setup({
 -- go
 vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"
+vim.g.go_template_autocreate = "0"
 
 -- mason
 require("mason").setup({

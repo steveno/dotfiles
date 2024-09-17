@@ -19,6 +19,12 @@ vim.api.nvim_create_autocmd({ 'BufNewFile' }, {
     command = '0r ~/.config/nvim/templates/skeleton.py',
 })
 
+-- Setup skeleton for go
+vim.api.nvim_create_autocmd({ 'BufNewFile' }, {
+    pattern = '*.go',
+    command = '0r ~/.config/nvim/templates/skeleton.go',
+})
+
 -- For markdown files do the following
 --  * Use par for formatting
 --  * Set the textwidth at 80
