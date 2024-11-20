@@ -59,6 +59,7 @@ main() {
 
     # Only keep 4 monthly snapshots
     num_snapshots "M"
+    # shellcheck disable=SC2034
     for i in $(seq "$res" -1 5);
     do
         oldest_snapshot "M"
@@ -67,6 +68,7 @@ main() {
 
     # Only keep 5 weekly snapshots
     num_snapshots "W"
+    # shellcheck disable=SC2034
     for i in $(seq "$res" -1 6);
     do
         oldest_snapshot "W"
