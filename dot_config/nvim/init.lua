@@ -2,6 +2,7 @@
 -- https://creativecommons.org/publicdomain/zero/1.0/
 
 vim.g.maplocalleader = ","
+
 require('plugins')
 require('settings')
 require('autocmd')
