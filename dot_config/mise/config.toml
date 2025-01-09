@@ -6,5 +6,4 @@ usage = "latest"
 watchexec = "latest"
 
 [settings]
-python_default_packages_file = "/home/steveno/.config/mise/default-python-packages"
 go_default_packages_file = "/home/steveno/.config/mise/default-go-packages"
