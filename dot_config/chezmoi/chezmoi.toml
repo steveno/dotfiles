@@ -1,8 +1,9 @@
+encryption = "age"
+
 [merge]
     command = "nvim"
     args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
 
-encryption = "age"
 [age]
     identity = "~/.config/chezmoi/key.txt"
     recipient = "age13ar7udcq37wgw2w3pktcakuawqtx0r7f9qcdctvnu48jlrexwpcs3e5a3s"
