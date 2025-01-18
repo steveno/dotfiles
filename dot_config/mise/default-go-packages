@@ -11,7 +11,6 @@ honnef.co/go/tools/cmd/staticcheck@latest
 github.com/fatih/gomodifytags@latest
 golang.org/x/tools/cmd/gorename@master
 github.com/jstemmer/gotags@master
-golang.org/x/tools/cmd/guru@master
 github.com/josharian/impl@main
 honnef.co/go/tools/cmd/keyify@master
 github.com/fatih/motion@latest
