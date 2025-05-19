@@ -1,7 +1,7 @@
 [user]
 	name = steveno
         email = oliver.steven@gmail.com
-	signingkey = 05368C44AB2AF31E
+	signingkey = 923850CF8EC39832
 [core]
 	editor = nvim
 [color]
