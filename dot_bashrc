@@ -65,9 +65,6 @@ export LD_LIBRARY_PATH="/usr/local/lib"
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"
 
-# kubectl bash completion
-source <(microk8s.kubectl completion bash)
-
 # Setup gpg
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartupttyp /bye >/dev/null
