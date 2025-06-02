@@ -9,7 +9,7 @@ started from scratch.
 
 ## Config files
 
-It's mostly what you would expect. A lot of bash config, tmux, and git. Inside
+It's mostly what you would expect. A lot of bash config and git. Inside
 the [dot_config](https://github.com/steveno/dotfiles/tree/main/dot_config)
 folder I have my neovim setup, chezmoi's config file, and my goto config.
 

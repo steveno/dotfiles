@@ -1,9 +1,6 @@
 # Any copyright is dedicated to the Public Domain.
 # https://creativecommons.org/publicdomain/zero/1.0/
 
-# ls
-alias ls='ls --color=auto'
-
 # grep
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -13,14 +10,13 @@ alias egrep='egrep --color=auto'
 alias vi='nvim'
 alias vim='nvim'
 
-# Setup ls
-alias ls='ls --color'
-alias l='ls -CF'
-alias ll='ls -alF'
+# ls
+alias ls='ls --color -F'
+alias l='ls --color -F'
+alias ll='ls --all -lF'
+
+# less
 alias less='less -r'
 
 # Make checking tarnsap easier
 alias check-tarsnap='sudo tarsnap --list-archives | sort'
-
-# tmux
-alias reload-tmux='tmux source ~/.tmux.conf'

@@ -7,7 +7,7 @@ case $- in
       *) return;;
 esac
     
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\]\$ '
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -38,21 +38,8 @@ fi
 # goto for directory bookmarking
 [[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
 
-# Setup tmux
-if [[ $DISPLAY ]] && [[ -t 1 ]]; then
-    # If not running interactively, do not do anything
-    [[ $- != *i* ]] && return
-    [[ -z "$TMUX" ]] && exec tmux
-fi
-
-# Setup kitty bash completion
-if test -n "$KITTY_INSTALLATION_DIR"; then
-    export KITTY_SHELL_INTEGRATION="enabled"
-    source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"
-fi
-
 # Various bash config options
-export HISTIGNORE='ls:ll:l:cd:pwd:bg:fg:history'
+export HISTIGNORE='ls:ll:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
 export EDITOR="nvim"
