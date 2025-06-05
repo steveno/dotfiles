@@ -18,4 +18,4 @@ sudo apt install libgtk-3-dev libgee-0.8-dev libsqlite3-dev \
 # Install general purpose packages
 sudo apt install calibre exfat-fuse fonts-ibm-plex \
     libreoffice mtp-tools simple-scan tarsnap texstudio \
-    fonts-hack-ttf vlc
+    fonts-hack-ttf vlc texlive-latex-extra
