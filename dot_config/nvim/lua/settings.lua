@@ -55,7 +55,7 @@ end
 -- Color scheme
 -- Removing this line breaks my colorscheme in neovim
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('paper')
+vim.cmd.colorscheme('mellifluous')
 -- This must come after we set the color theme to override it
 vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#555555", bg = "#dcdcdc" })
 

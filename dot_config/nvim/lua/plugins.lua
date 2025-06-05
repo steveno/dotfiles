@@ -30,8 +30,8 @@ require("lazy").setup({
     -- go
     { "fatih/vim-go" },
     -- other
-    { "junegunn/fzf", name = "fzf", dir = "~/.fzf", build = "./install --all" },
-    { "yorickpeterse/vim-paper", lazy = true },
+    { "ramojus/mellifluous.nvim", lazy = true },
 })
+
 
 require('lsp')
