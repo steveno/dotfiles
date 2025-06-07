@@ -18,9 +18,8 @@ keep my systemd setup and backup script for [tarsnap](https://www.tarsnap.com/).
 
 ## Scripts
 
-I currently have three scripts. One creates directories and another that helps
-me maintain permissions on certian files. Finally, the third script decrypts my
-passwords for mutt.
+I currently have two scripts. One creates directories and another that helps
+me maintain permissions on certian files.
 
 # License
 
