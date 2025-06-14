@@ -65,3 +65,5 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 --OCaml
 vim.opt.rtp:append("/home/steveno/.local/opam/default/share/merlin/vim")
 
+vim.g.lsp_diagnostics_echo_cursor = 1
+
