@@ -1,7 +1,6 @@
 [tools]
-chezscheme = "latest"
-restic = "latest"
-watchexec = "latest"
 "ubi:junegunn/fzf" = "latest"
 "ubi:twpayne/chezmoi" = "latest"
+restic = "latest"
 usage = "latest"
+watchexec = "latest"
