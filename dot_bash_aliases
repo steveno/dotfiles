@@ -13,7 +13,7 @@ alias vim='nvim'
 # ls
 alias ls='ls --color -F'
 alias l='ls --color -F'
-alias ll='ls --all -lF'
+alias ll='ls --color --all -lF'
 
 # less
 alias less='less -r'
