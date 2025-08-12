@@ -13,7 +13,8 @@
     url = "https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi-completion.bash"
     refreshPeriod = "720h"
 
-[".local/share/bash-completion/completions/tmux"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux"
-    refreshPeriod = "720h"
+[".local/share/fonts"]
+    type = "archive"
+    stripComponents = 1
+    url = "https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip"
+    refreshPeriod = "0"
