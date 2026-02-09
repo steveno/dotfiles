@@ -1,0 +1,36 @@
+# Any copyright is dedicated to the Public Domain.
+# https://creativecommons.org/publicdomain/zero/1.0/
+
+# grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Use neovim
+alias vi='nvim'
+alias vim='nvim'
+
+# ls
+alias ls='ls --color -F'
+alias l='ls --color -F'
+alias ll='ls --color --all -lhF'
+
+# less
+alias less='less -r'
+
+export OPAMROOT="$HOME/.local/share/opam"
+export GOPATH="$HOME/.local/share/go"
+export GOBIN=$GOPATH"/bin"
+
+# neovim
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+{{ if ne .chezmoi.os "darwin" }}
+alias check-tarsnap='sudo tarsnap --list-archives | sort'
+
+test -r $HOME/.local/share/opam/opam-init/init.sh && . $HOME/.local/share/opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+{{ else }}
+[[ ! -r '$HOME/.local/share/opam/opam-init/init.zsh' ]] || source '$HOME/.local/share/opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+{{ end }}

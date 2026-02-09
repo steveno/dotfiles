@@ -13,16 +13,8 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\]:\[\033[00m\]\$ '
 {{ end }}
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
 shopt -s histappend
 shopt -s histverify
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -43,32 +35,23 @@ fi
 [[ -s "$HOME/.goto.sh" ]] && source $HOME/.goto.sh
 
 # Various bash config options
+export HISTCONTROL=ignoreboth
 export HISTIGNORE='ls:ll:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
 export EDITOR="nvim"
-export GOPATH="$HOME/.local/share/go"
-export GOBIN=$GOPATH"/bin"
-export OPAMROOT="$HOME/.local/share/opam"
+{{ if ne .chezmoi.os "darwin" }}
 export GEM_HOME="$HOME/.local/gems"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export LD_LIBRARY_PATH="/usr/local/lib"
 
-{{ if ne .chezmoi.os "darwin" }}
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"
 
 # Setup gpg
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartupttyp /bye >/dev/null
-{{ end }}
 
-# neovim
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-{{ if ne .chezmoi.os "darwin" }}
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 {{ end }}
@@ -100,4 +83,4 @@ __complete_ssh_host() {
 complete -F __complete_ssh_host ssh
 complete -f -F __complete_ssh_host scp
 
-source ~/.bash_aliases
+source ~/.shell
