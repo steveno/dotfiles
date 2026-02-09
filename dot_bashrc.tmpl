@@ -6,8 +6,12 @@ case $- in
     *i*) ;;
       *) return;;
 esac
-    
+ 
+{{ if ne .chezmoi.os "darwin" }}
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+{{ else }}
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\]:\[\033[00m\]\$ '
+{{ end }}
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -36,34 +40,38 @@ if ! shopt -oq posix; then
 fi
 
 # goto for directory bookmarking
-[[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
+[[ -s "$HOME/.goto.sh" ]] && source $HOME/.goto.sh
 
 # Various bash config options
 export HISTIGNORE='ls:ll:cd:pwd:bg:fg:history'
 export HISTSIZE=100000
 export HISTFILESIZE=10000000
 export EDITOR="nvim"
-export GOPATH="/home/steveno/.local/share/go"
+export GOPATH="$HOME/.local/share/go"
 export GOBIN=$GOPATH"/bin"
-export OPAMROOT="/home/steveno/.local/share/opam"
-export GEM_HOME="/home/steveno/.local/gems"
+export OPAMROOT="$HOME/.local/share/opam"
+export GEM_HOME="$HOME/.local/gems"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export LD_LIBRARY_PATH="/usr/local/lib"
 
+{{ if ne .chezmoi.os "darwin" }}
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"
 
 # Setup gpg
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartupttyp /bye >/dev/null
+{{ end }}
 
 # neovim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+{{ if ne .chezmoi.os "darwin" }}
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
+{{ end }}
 
 # Add bash completion for my local SSH host file
 __complete_ssh_host() {

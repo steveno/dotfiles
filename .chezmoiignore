@@ -3,6 +3,13 @@ README.md
 LICENSE
 
 # Non-dotfile setup
-setup.sh
+linux_setup.sh
 tarsnap
 key.txt.age
+
+{{- if eq .chezmoi.hostname "araphaho" }}
+.goto.sh
+.config/goto
+decrypt-private-key.sh
+permissions.sh
+{{- end }}

@@ -7,12 +7,13 @@ add_to_path() {
     fi
 }
 
+{{ if ne .chezmoi.os "darwin" }}
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.cargo/bin"
 add_to_path "$HOME/.local/gems/bin"
+{{ end }}
 
 source ~/.bashrc
 
 # opam configuration
-test -r /home/steveno/.local/share/opam/opam-init/init.sh && . /home/steveno/.local/share/opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
+test -r $HOME/.local/share/opam/opam-init/init.sh && . $HOME/.local/share/opam/opam-init/init.sh > /dev/null 2> /dev/null || true
