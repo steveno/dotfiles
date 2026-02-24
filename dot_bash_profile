@@ -17,3 +17,4 @@ source ~/.bashrc
 # opam configuration
 test -r /home/steveno/.local/share/opam/opam-init/init.sh && . /home/steveno/.local/share/opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
+. "$HOME/.atuin/bin/env"
