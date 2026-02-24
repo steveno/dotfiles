@@ -1,9 +1,9 @@
 [user]
-	name = steveno
+        name = steveno
         email = oliver.steven@gmail.com
-	signingkey = 923850CF8EC39832
+        signingkey = 923850CF8EC39832
 [core]
-	editor = nvim
+        editor = nvim
 [color]
         branch = auto
         diff = auto
@@ -26,10 +26,12 @@
         smtpuser = oliver.steven@gmail.com
         smtpserverport = 587
 [push]
-	default = simple
+        default = simple
 [credential]
-	helper = cache
+        helper = cache
 [commit]
-	gpgsign = true
+        gpgsign = true
 [pull]
-	rebase = false
+        rebase = false
+[init]
+        defaultBranch = main
