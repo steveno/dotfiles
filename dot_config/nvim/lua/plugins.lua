@@ -28,10 +28,28 @@ require("lazy").setup({
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     -- go
-    { "fatih/vim-go" },
+    { "fatih/vim-go",
+      ft = { "go" },
+      build = ":GoUpdateBinaries",
+      config = function()
+          vim.g.go_fmt_command = "gofmt"
+          vim.g.go_imports_autosave = 1
+          vim.g.go_mod_fmt_save = 1
+          vim.g.go_def_mapping_enabled = 0
+      end,
+    },
     -- other
-    { "ramojus/mellifluous.nvim", lazy = true },
+    { 'neoclide/coc.nvim', branch = 'release', },
 })
 
-
 require('lsp')
+
+function _G.check_back_space()
+    local col = vim.fn.col('.') - 1
+    return col == 0 or vim.fn.gentline('.'):sub(col, col):match('%s') ~= nil
+end
+
+local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+vim.keymap.set("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+vim.keymap.set("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+vim.keymap.set("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
