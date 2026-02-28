@@ -30,6 +30,13 @@ vim.opt.smartindent = true
 -- Turn off highlighting
 vim.opt.hls = false
 
+-- This causes neovim to use the system clipboard for all yanking operations,
+-- instead of needing to use the '+' or '*' registers explicitly.
+vim.opt.clipboard = unnamedplus
+
+-- Always disable code folding
+vim.opt.foldenable = false
+
 -- Disable line wrapping
 vim.opt.wrap = false
 

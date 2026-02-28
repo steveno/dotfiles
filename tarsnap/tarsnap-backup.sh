@@ -57,19 +57,19 @@ main() {
 
     local res=0
 
-    # Only keep 4 monthly snapshots
+    # Only keep 2 monthly snapshots
     num_snapshots "M"
     # shellcheck disable=SC2034
-    for i in $(seq "$res" -1 5);
+    for i in $(seq "$res" -1 3);
     do
         oldest_snapshot "M"
 	/usr/bin/tarsnap -d -f "$res"
     done
 
-    # Only keep 5 weekly snapshots
+    # Only keep 2 weekly snapshots
     num_snapshots "W"
     # shellcheck disable=SC2034
-    for i in $(seq "$res" -1 6);
+    for i in $(seq "$res" -1 3);
     do
         oldest_snapshot "W"
 	/usr/bin/tarsnap -d -f "$res"

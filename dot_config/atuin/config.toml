@@ -1,0 +1,39 @@
+auto_sync = false
+style = "full"
+show_tabs = false
+enter_accept = true
+keymap_mode = "vim-normal"
+prefers_reduced_motion = true
+history_format = "{time}\t{duration}\t\t{command}"
+store_failed = true
+
+history_filter = [
+    "^ls$",
+    "^ll$",
+    "^l$",
+    "^cd$",
+    "^exit$"
+]
+
+[stats]
+common_subcommands = [
+    "cargo",
+    "docker",
+    "dotnet",
+    "git",
+    "go",
+    "ip",
+    "kubectl",
+    "nmcli",
+    "npm",
+    "podman",
+    "port",
+    "yarn"
+]
+
+ignored_commands = [
+    "^ls$",
+    "^ll$",
+    "^l$",
+    "^cd$",
+]

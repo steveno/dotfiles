@@ -8,13 +8,13 @@ case $- in
 esac
  
 {{ if ne .chezmoi.os "darwin" }}
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 " (%s)")\[\033[00m\$ '
 {{ else }}
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\033[32m\]@\h\[\033[00m\]:\[\033[00m\]\$ '
 {{ end }}
 
-shopt -s histappend
-shopt -s histverify
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -35,15 +35,16 @@ fi
 [[ -s "$HOME/.goto.sh" ]] && source $HOME/.goto.sh
 
 # Various bash config options
-export HISTCONTROL=ignoreboth
-export HISTIGNORE='ls:ll:cd:pwd:bg:fg:history'
-export HISTSIZE=100000
-export HISTFILESIZE=10000000
 export EDITOR="nvim"
 {{ if ne .chezmoi.os "darwin" }}
 export GEM_HOME="$HOME/.local/gems"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 export LD_LIBRARY_PATH="/usr/local/lib"
+
+# Only use atuin for history
+unset HISTFILE
+export HISTSIZE=0
+export HISTFILESIZE=0
 
 # Setup mise
 eval "$(/home/steveno/.local/bin/mise activate bash)"

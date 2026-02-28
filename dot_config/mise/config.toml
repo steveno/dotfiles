@@ -4,3 +4,4 @@
 restic = "latest"
 usage = "latest"
 watchexec = "latest"
+node = "lts"

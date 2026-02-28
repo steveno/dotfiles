@@ -99,26 +99,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 --
--- LSP - rust
+-- LSP
 --
-require('lspconfig').rust_analyzer.setup({
-  capabilities = lsp_capabilities,
-})
-
-require'lspconfig'.rust_analyzer.setup{
-  settings = {
-    ['rust-analyzer'] = {
-      diagnostics = {
-        enable = false;
-      }
-    }
-  }
-}
-
---
--- LSP - go
---
-require('lspconfig').gopls.setup({
+vim.lsp.config('*', {
   capabilities = lsp_capabilities,
 })
 
@@ -126,4 +109,3 @@ vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"
 vim.g.go_template_autocreate = "0"
 
-require'lspconfig'.gopls.setup{}

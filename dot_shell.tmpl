@@ -11,12 +11,34 @@ alias vi='nvim'
 alias vim='nvim'
 
 # ls
-alias ls='ls --color -F'
-alias l='ls --color -F'
-alias ll='ls --color --all -lhF'
+alias ls='ls --color -F -H'
+alias l=ls
+alias ll='ls --color -a -lFh'
+
+# rm
+alias rm='trash'
 
 # less
 alias less='less -r'
+
+encrypt () {
+    age -a -R ~/.ssh/id_ed25519.pub "$1" > "$1".age
+}
+
+decrypt () {
+    str=$1
+    age -d -i ~/.ssh/id_ed25519 "$1" > "${str:0:-4}"
+}
+
+c () {
+    bc <<<"$1"
+}
+
+format-json () {
+    tmep=$(mktemp)
+    cp -- "$1" "$temp"
+    jq . "$temp" > "$1"
+}
 
 export OPAMROOT="$HOME/.local/share/opam"
 export GOPATH="$HOME/.local/share/go"
