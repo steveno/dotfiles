@@ -1,6 +1,15 @@
 # Any copyright is dedicated to the Public Domain.
 # https://creativecommons.org/publicdomain/zero/1.0/
 
+# Ghostty shell integration for Bash. This should be at the top of your bashrc!
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
+
+###############################################
+# bash setup
+###############################################
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -27,9 +36,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# goto for directory bookmarking
-[[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
-
 # Various bash config options
 export EDITOR="nvim"
 export GOPATH="/home/steveno/.local/share/go"
@@ -44,20 +50,9 @@ unset HISTFILE
 export HISTSIZE=0
 export HISTFILESIZE=0
 
-# Setup mise
-eval "$(/home/steveno/.local/bin/mise activate bash)"
-
 # Setup gpg
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartupttyp /bye >/dev/null
-
-# neovim
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
 
 # Add bash completion for my local SSH host file
 __complete_ssh_host() {
@@ -87,3 +82,25 @@ complete -F __complete_ssh_host ssh
 complete -f -F __complete_ssh_host scp
 
 source ~/.bash_aliases
+
+###############################################
+# Application setup
+###############################################
+
+# goto
+[[ -s "/home/steveno/.goto.sh" ]] && source /home/steveno/.goto.sh
+
+# neovim
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# mise
+eval "$(/home/steveno/.local/bin/mise activate bash)"
+
+# fzf
+source ~/.config/fzf/fzf.bash
+
+# atuin
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init bash)"
