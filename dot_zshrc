@@ -1,0 +1,8 @@
+fpath=($fpath $HOME/.local/share/zsh/completions)
+zstyle ':completion:*' special-dirs true
+
+path=('$HOME/.local/bin' $path)
+
+autoload -Uz compinit && compinit
+
+source ~/.shell

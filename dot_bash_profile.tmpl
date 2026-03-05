@@ -1,6 +1,7 @@
 # Any copyright is dedicated to the Public Domain.
 # https://creativecommons.org/publicdomain/zero/1.0/
 
+{{ if ne .chezmoi.os "darwin" }}
 add_to_path() {
     if [[ ! ":$PATH:" == *":$1:"* ]]; then
         export PATH="$PATH:$1"
