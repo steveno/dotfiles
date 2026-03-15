@@ -5,4 +5,13 @@ path=('$HOME/.local/bin' $path)
 
 autoload -Uz compinit && compinit
 
+PROMPT="%F{green}%n@%m %F{blue}%1~%F{white}❯%f "
+
 source ~/.shell
+
+# atuin
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
+
+# mise
+eval "$(mise activate zsh)"
