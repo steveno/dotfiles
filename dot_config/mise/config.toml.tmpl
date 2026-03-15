@@ -1,7 +1,10 @@
 [tools]
 "ubi:junegunn/fzf" = "latest"
 "ubi:twpayne/chezmoi" = "latest"
-restic = "latest"
 usage = "latest"
 watchexec = "latest"
 node = "lts"
+uv = "latest"
+{{ if ne .chezmoi.os "darwin" }}
+restic = "latest"
+{{ end }}
