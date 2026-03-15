@@ -4,5 +4,5 @@ font-feature = -calt, -liga, -dlig
 window-height = 30
 window-width = 100
 
-keybing = global:ctrl+grave_accent=toggle_quick_terminal
-quick_terminal-size = 35%,40%
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+quick-terminal-size = 50%,50%
