@@ -19,14 +19,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require("lazy").setup({
-    -- nvim setup
-    "bling/vim-airline",
     "bhurlow/vim-parinfer",
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    -- lsp
     "neovim/nvim-lspconfig",
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-nvim-lsp",
     -- go
     { "fatih/vim-go",
       ft = { "go" },

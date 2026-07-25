@@ -30,9 +30,28 @@ vim.opt.smartindent = true
 -- Turn off highlighting
 vim.opt.hls = false
 
+-- LImiting how far out we highlight improves performance on large files.
+-- Default is 3000
+vim.opt.synmaxcol = 1600
+
 -- This causes neovim to use the system clipboard for all yanking operations,
 -- instead of needing to use the '+' or '*' registers explicitly.
 vim.opt.clipboard = unnamedplus
+
+vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+        ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+}
+
+-- Hide the command bar unless I'm using it
+vim.opt.cmdheight = 0
 
 -- Always disable code folding
 vim.opt.foldenable = false
@@ -67,9 +86,6 @@ vim.api.nvim_set_hl(0, "ColorColumn", { fg = "#555555", bg = "#dcdcdc" })
 
 -- Python
 vim.g.python3_host_prog = "/usr/bin/python3"
-
---OCaml
-vim.opt.rtp:append("/home/steveno/.local/opam/default/share/merlin/vim")
 
 vim.g.lsp_diagnostics_echo_cursor = 1
 

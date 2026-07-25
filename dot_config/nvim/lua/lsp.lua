@@ -1,33 +1,9 @@
 --
--- Autocompletion
---
-local cmp = require('cmp')
-
-cmp.setup({
-  sources = {
-    {name = 'nvim_lsp'},
-  },
-  snippet = {
-    expand = function(args)
-      vim.snippet.expand(args.body)
-    end
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  }),
-})
-
---
 -- Keymaps
 --
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
-    local bufmap = function(mode, lhs, rhs)
-      local opts = {buffer = event.buf}
-      vim.keymap.set(mode, lhs, rhs, opts)
-    end
-
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
     bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
@@ -48,31 +24,13 @@ vim.diagnostic.config{
   float={border=_border}
 }
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border
-  }
-)
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = _border
-  }
-)
-
 --
 -- Automatically en/disable diagnostics based on mode
 --
 vim.api.nvim_create_autocmd('ModeChanged', {
-  pattern = {'n:i', 'v:s'},
+  pattern = {'n:i', 'v:s', 'i:n'},
   desc = 'Disable diagnostics in insert and select mode',
-  callback = function(e) vim.diagnostic.disable(e.buf) end
-})
-
-vim.api.nvim_create_autocmd('ModeChanged', {
-  pattern = 'i:n',
-  desc = 'Enable diagnostics when leaving insert mode',
-  callback = function(e) vim.diagnostic.enable(e.buf) end
+  callback = function(e) vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end
 })
 
 --
@@ -94,17 +52,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 --
--- Capabilities
---
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
---
 -- LSP
 --
-vim.lsp.config('*', {
-  capabilities = lsp_capabilities,
-})
-
 vim.g.go_def_mode = "gopls"
 vim.g.go_info_mode = "gopls"
 vim.g.go_template_autocreate = "0"
